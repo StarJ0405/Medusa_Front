@@ -25,6 +25,8 @@ import P from "components/P";
 import MenuBar from "routes/front/menuBar/MenuBar";
 import { useDispatch } from "react-redux";
 import { WishReducer } from "shared/redux/reducers/shopping/WishReducer";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import AnimatedSwitch from "components/AnimatedSwitch";
 
 function SearchResult(props) {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -32,13 +34,13 @@ function SearchResult(props) {
     const [page, setPage] = useState(1);
     const preventRef = useRef(true);
     const obsRef = useRef(null);
-    const location = useLocation();
     const [list, setList] = useState();
     const [medusaProducts, setMedusaProducts] = useState();
     const [currentSearchCondition, setCurrentSearchCondition] = useState();
     const [filterCondition, setFilterCondition] = useState();
     const { categoryId } = useParams();
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
@@ -176,11 +178,11 @@ function SearchResult(props) {
                 }
 
                 <VerticalFlex gap={10}>
-                    <FlexChild maxWidth={1500} alignItems={"flex-start"}>
+                    <FlexChild maxWidth={1200} alignItems={"flex-start"}>
                         <HorizontalFlex alignItems={"flex-start"} gap={10}>
                             {
                                 !isMobile &&
-                                <FlexChild width={"280px"} padding={"30px 0px"}>
+                                <FlexChild width={"280px"} padding={"0px 0px"}>
                                     <CategoryPanel />
                                 </FlexChild>
                             }
@@ -204,10 +206,13 @@ function SearchResult(props) {
                                         </div>
                                     </FlexChild>
                                     <FlexChild>
-                                        <CardList data={categoryId === "all" ? medusaProducts : list} template={"normal"} />
+                                        <AnimatedSwitch animationClass={"fade"}>
+                                            <CardList data={categoryId === "all" ? medusaProducts : list} template={"normal"} />
+                                        </AnimatedSwitch>
                                     </FlexChild>
                                 </VerticalFlex>
                             </FlexChild>
+
                         </HorizontalFlex>
                     </FlexChild>
                     <FlexChild>

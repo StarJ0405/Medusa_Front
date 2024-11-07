@@ -58,6 +58,7 @@ import { globalProducts } from "InitialData/Items";
 import { HistoryReducer } from "shared/redux/reducers/history/HistoryReducer";
 import { useDispatch } from "react-redux";
 import WeeklyBestSeller from "components/swiper/WeeklyBestSeller";
+import AnimatedSwitch from "components/AnimatedSwitch";
 
 function Home() {
     const { isMobile } = useContext(BrowserDetectContext);
