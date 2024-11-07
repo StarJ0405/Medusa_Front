@@ -1,5 +1,5 @@
 import Login from "components/manager/views/pages/login/Login";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dispute from "routes/account/dispute/Dispute";
 import Inquiry from "routes/account/inquiry/Inquiry";
 import AccountInfoLayout from "routes/account/mypage/accountInfo/AccountInfoLayout";
@@ -48,7 +48,6 @@ import VendorSignUp from "routes/top/VendorSignUp";
 import { ADMIN, PARTNERS, USER } from "shared/Roles";
 import RequireAuth from "shared/utils/RequireAuth";
 
-
 function FrontRouter() {
     return (
         <Routes>
@@ -81,7 +80,6 @@ function FrontRouter() {
                 <Route path="mypage" exact element={<RequireAuth allowedRoles={[USER, ADMIN, PARTNERS]} />} >
                     <Route path="" element={<MyPageLayout />}>
                         <Route path="" exact element={<MyPageInfo />} />
-
                         <Route path="review" element={<ReviewListLayout />} />
                         <Route path="inquiry" element={<InquiryLayout />} />
                         <Route path="dispute" element={<DisputeListLayout />} />
@@ -132,6 +130,7 @@ function FrontRouter() {
             <Route path="test11" element={<TestPage />} />
             <Route path="partnersHome" element={<PartnersHome />} />
         </Routes>
+
     );
 }
 

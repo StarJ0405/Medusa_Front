@@ -16,12 +16,6 @@
       {
         "contents": [
           {
-            "id": 1,
-            "row": "cart",
-            "to": "/shopping/cart",
-            "icon": "myPageListCart"
-          },
-          {
             "id": 2,
             "row": "wishList",
             "to": "/wishList",

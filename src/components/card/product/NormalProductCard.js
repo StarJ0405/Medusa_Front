@@ -155,8 +155,8 @@ function NormalProductCard(props) {
                                 </Center>
                                 :
                                 <Center width={"100%"} maxWidth={200} textAlign={"left"}>
-                                    <P ellipsis size={12} weight={"900"}>{data.brandTitle}</P>
-                                    <P ellipsis size={12} weight={"900"}>{data.title}</P>
+                                    <P height={"36px"} ellipsis size={12} weight={"900"}>{data.brandTitle}</P>
+                                    <P height={"36px"} ellipsis size={12} weight={"900"}>{data.title}</P>
                                     <HorizontalFlex gap={10} justifyContent={"flex-end"}>
                                         {
                                             data.currentPrice && userName &&

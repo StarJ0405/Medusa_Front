@@ -131,7 +131,7 @@ function CategoryPanel(props) {
     }
 
     return (
-        <div style={{ position: scroll && "fixed", zIndex: scroll && 1000, top: "85px", overflowY: "scroll", height: "80vh", width: "280px" }}>
+        <div style={{ position: "fixed", top: "125px", overflowY: "scroll", height: "calc(100vh - 350px)", width: "280px" }}>
             <VerticalFlex width={250} gap={0}>
                 <FlexChild>
                     <div className={style.categoryArea} onMouseOver={onCategoryAreaMouseOver} onMouseLeave={onCategoryAreaMouseLeave}>

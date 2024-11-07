@@ -24,7 +24,6 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .listWrap.list {
     flex-direction: column;
     flex-wrap: nowrap;

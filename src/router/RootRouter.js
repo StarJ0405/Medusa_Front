@@ -10,13 +10,8 @@ function RootRouter(props) {
         <Routes>
             <Route path={"/*"} element={<FrontRouter />} />
             <Route path={"/partners/*"} element={<PartnersRouter />} />
-
             <Route path={"/vendor/*"} element={<VendorRouter allowedRoles={[VENDOR, ADMIN]} />} />
             <Route path={"/admin/*"} element={<AdminRouter allowedRoles={[ADMIN, PARTNERS]} />} />
-
-
-
-
             {/* 미분류 */}
             {/* <Route path="chat" element={<Chat />} />
         <Route path="setting" element={<MobileSetting />} />

@@ -63,7 +63,7 @@ const SideMenu = NiceModal.create((props, ref) => {
                         <img width={"28%"} src={hover ? props.hoverImg : props.img} color={"black"} backgroundColor={"white"} />
                     </FlexChild>
                     <FlexChild justifyContent={"center"}>
-                        <P weight={"bold"}>{props.text}</P>
+                        <P height={42} weight={"bold"}>{props.text}</P>
                     </FlexChild>
                 </VerticalFlex>
             </div>
