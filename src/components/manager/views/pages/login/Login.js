@@ -1,5 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import ButtonEclipse from "components/buttons/ButtonEclipse";
 import InputEmail from "components/inputs/InputEmail";
 import InputPassword from "components/inputs/InputPassword";
@@ -37,43 +37,54 @@ function Login(props) {
     NiceModal.show("memberSignTabModal");
   }
   const signIn = () => {
-    let data = { userId: "", password: "" };
-    validateInputs(inputsSignIn.current).then((result) => {
+    let data = { email: "", password: "" };
+    // validateInputs(inputsSignIn.current).then((result) => {
 
-      if (result.isValid) {
-        data.userId = inputsSignIn.current[0].getValue();
-        data.password = inputsSignIn.current[1].getValue();
+    //   if (result.isValid) {
+    //     data.userId = inputsSignIn.current[0].getValue();
+    //     data.password = inputsSignIn.current[1].getValue();
 
-        requester.userSignIn(data, (result) => {
-          console.log("loginResult", result);
-          if (result.code === -1) {
-            if (result.message === "Not found data") {
-              //존자하지 않는 아이디
-              toast.error(t("noUserName"), {
-                autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-              });
-            } else if (result.message === "Bad credentials") {
-              //비번틀림
-              toast.error(t("noPassword"), {
-                autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-              });
-            }
-          } else if (result.code === 0) {
-            let tokenData = result.data.token;
-            dispatch(AuthReducer.actions.setToken(tokenData));
-            navigate("/");
-            if (props.callback) {
-              props.callback(true);
-            }
-          }
-        });
-      } else {
-        toast.error(t("pleaseCheckedLoginInfo"), {
-          autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-        });
-      }
-    });
+    //     requester.userSignIn(data, (result) => {
+    //       console.log("loginResult", result);
+    //       if (result.code === -1) {
+    //         if (result.message === "Not found data") {
+    //           //존자하지 않는 아이디
+    //           toast.error(t("noUserName"), {
+    //             autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+    //           });
+    //         } else if (result.message === "Bad credentials") {
+    //           //비번틀림
+    //           toast.error(t("noPassword"), {
+    //             autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+    //           });
+    //         }
+    //       } else if (result.code === 0) {
+    //         let tokenData = result.data.token;
+    //         dispatch(AuthReducer.actions.setToken(tokenData));
+    //         navigate("/");
+    //         if (props.callback) {
+    //           props.callback(true);
+    //         }
+    //       }
+    //     });
+    //   } else {
+    //     toast.error(t("pleaseCheckedLoginInfo"), {
+    //       autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+    //     });
+    //   }
+    // });
+    data.email = inputsSignIn.current[0].getValue();
+    data.password = inputsSignIn.current[1].getValue();
+
+    if (data.email !== "" && data.password !== "") {
+      medusaRequester.customerSignIn(data, (result) => {
+        console.log("로그인 데이터 : ", data)
+        console.log("로그인 성공했냐? : ", result)
+        // setList(result.product_category.products);
+      });
+    }
   }
+
   const onKeyPress = (event) => {
     if (event.keyCode === 13) {
       signIn();
@@ -91,7 +102,7 @@ function Login(props) {
   return (
     <div className={style.wrap}>
       <VerticalFlex gap={10}>
-        <FlexChild/>
+        <FlexChild />
         <FlexChild height={70}>
           <Center width={"70%"}>
             <img src={WorldvapeLogo} width={"100%"} />
@@ -119,7 +130,7 @@ function Login(props) {
             </FlexChild>
           </HorizontalFlex>
         </FlexChild>
-        <FlexChild/>
+        <FlexChild />
       </VerticalFlex>
     </div>
   );

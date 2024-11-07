@@ -1,5 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import clsx from "clsx";
 import ButtonEclipse from "components/buttons/ButtonEclipse";
 import QuillViewer from "components/inputs/richEditor/QuillViewer";
@@ -43,15 +43,28 @@ function ProductDetail() {
     useEffect(() => {
         let searchCondition = clone(initialSearchCondition);
         searchCondition.productId = id;
-        requester.searchProducts(searchCondition, (result) => {
-            let productData = result.data[0];
-            let encodedContent = productData.content;
-            if (encodedContent && encodedContent.length > 0) {
-                let decodedContent = decode(encodedContent);
-                productData.content = decodedContent;
-            }
-            setProduct(productData);
-        });
+        // requester.searchProducts(searchCondition, (result) => {
+        //     let productData = result.data[0];
+        //     let encodedContent = productData.content;
+        //     if (encodedContent && encodedContent.length > 0) {
+        //         let decodedContent = decode(encodedContent);
+        //         productData.content = decodedContent;
+        //     }
+        //     setProduct(productData);
+        // });
+        let data = id;
+        if (data.startsWith("prod")) {
+            medusaRequester.getProductsById(data, (result) => {
+                setProduct(result.products);
+            });
+        } else if (data.startsWith("variant")) {
+            medusaRequester.getProductsByVariantId(data, (result) => {
+                let prodId = result.variants[0].product.id
+                medusaRequester.getProductsById(prodId, (result) => {
+                    setProduct(result.products);
+                });
+            });
+        }
     }, []);
 
     const onAddCartClick = () => {
@@ -105,7 +118,7 @@ function ProductDetail() {
                                         <FlexChild width={isMobile ? null : 400}>
                                             <SquareWrapper>
                                                 <GiftSticker />
-                                                <img src={product.image} style={{ width: "100%" }} />
+                                                <img src={product.thumbnail} style={{ width: "100%" }} />
                                                 {/* <ProductThumbnailSwiper data={product.thumbnails} /> */}
                                             </SquareWrapper>
                                         </FlexChild>
@@ -113,13 +126,13 @@ function ProductDetail() {
                                             <VerticalFlex gap={10} >
                                                 <FlexChild padding={"10px 0px 0px 0px"}>
                                                     <Center width={"100%"} textAlign={isMobile ? "center" : "left"}>
-                                                        <P size={20} color={"#222"}>{product.brandTitle}</P>
-                                                        <P size={16} color={"#222"}> {product.title}</P>
+                                                        <P size={20} color={"#222"}>{product.title}</P>
+                                                        <P size={16} color={"#222"}>{product.categories[0].name}</P>
                                                     </Center>
                                                 </FlexChild>
                                                 <FlexChild>
                                                     <Center width={"100%"} textAlign={isMobile ? "center" : "left"}>
-                                                        <P size={13} color={"lightgray"}>{product.hashTag}</P>
+                                                        <P size={13} color={"lightgray"}>{product.description}</P>
                                                     </Center>
                                                 </FlexChild>
                                                 {/* <FlexChild>
@@ -132,11 +145,11 @@ function ProductDetail() {
                                             </FlexChild> */}
                                                 <FlexChild>
                                                     <HorizontalFlex justifyContent={"flex-start"} gap={20}>
-                                                        <FlexChild width={isMobile ? null : "initial"}>
+                                                        {/* <FlexChild width={isMobile ? null : "initial"}>
                                                             <Center width={"100%"} textAlign={isMobile ? "center" : "left"}>
                                                                 <P size={25} weight={1000} color={product.currentPrice ? "gray" : "var(--main-color)"} textDecoration={product.currentPrice && "line-through"}>&#8361;{userName ? addCommas(product.price) : "-"}</P>
                                                             </Center>
-                                                        </FlexChild>
+                                                        </FlexChild> */}
                                                         <FlexChild width={"initial"}>
                                                             {
                                                                 product.currentPrice && userName &&
@@ -152,8 +165,8 @@ function ProductDetail() {
                                                         <FlexChild width={isMobile ? null : "initial"}>
                                                             <Center width={"100%"} textAlign={isMobile ? "center" : "left"}>
                                                                 {
-                                                                    product.currentPrice
-                                                                        ? <P textAlign={"right"} size={25} weight={"bold"} color={"var(--main-color)"}>&#8361; {userName ? addCommas(product.currentPrice) : "-"}</P>
+                                                                    product.variants
+                                                                        ? <P size={25} weight={1000} color={product.variants ? "gray" : "var(--main-color)"} textDecoration={product.currentPrice && "line-through"}>&#8361;{addCommas(product.variants[0].prices[0].amount)}</P>
                                                                         : <P textAlign={"right"} size={25} weight={"bold"} color={"var(--main-color)"}>{" "}</P>
                                                                 }
                                                             </Center>
@@ -172,17 +185,18 @@ function ProductDetail() {
                                             <ProductInfo data={product} />
                                         </PaddingWrapper>
                                     </StickySlideTabChild>
-                                    <StickySlideTabChild id={"brand_info"} title={t("brand") + t("info")}>
+                                    {/* <StickySlideTabChild id={"brand_info"} title={t("brand") + t("info")}>
                                         <PaddingWrapper padding={"0px 10px"}>
-                                            <Container maxWidth={720}>
-                                                <img src={product.brandImage} style={{ width: "100%" }} />
-                                            </Container>
+                                            <Container maxWidth={720}> */}
+                                    {/* <img src={product.images[0].url} style={{ width: "100%" }} /> */}
+                                    {/* </Container>
                                         </PaddingWrapper>
-                                    </StickySlideTabChild>
+                                    </StickySlideTabChild> */}
                                     <StickySlideTabChild id={"productDetail_detail"} title={t("detailInfo")}>
                                         <PaddingWrapper padding={"0px 10px"}>
                                             <Container maxWidth={720}>
-                                                <QuillViewer value={product.content} />
+                                                {/* <QuillViewer value={product.content} /> */}
+                                                <img src={product.images[0].url} style={{ width: "100%" }} />
                                             </Container>
                                         </PaddingWrapper>
                                     </StickySlideTabChild>
@@ -263,7 +277,7 @@ function ProductDetail() {
                         :
                         <div className={style.sidePanel}>
                             {
-                                userName &&
+                                // userName &&
                                 <ProductDetailOrderSummary product={product} />
                             }
                         </div>

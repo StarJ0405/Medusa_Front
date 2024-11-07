@@ -1,6 +1,6 @@
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import P from "components/P";
 import FlexChild from "layouts/flex/FlexChild";
 import HorizontalFlex from "layouts/flex/HorizontalFlex";
@@ -19,7 +19,8 @@ import initialSearchCondition from "InitialData/InitialSearchCondition.json";
 function CategoryPanel(props) {
     const { t } = useTranslation();
     const [categories, setCategories] = useState();
-    const [brands, setBrands] = useState();
+    const [allProducts, setAllProducts] = useState([]);
+    const [brands, setBrands] = useState([]);
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [activeCategoryId, setActiveCategoryId] = useState();
     const [scroll, setScroll] = useState(true);
@@ -27,13 +28,37 @@ function CategoryPanel(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        requester.findAllCategoriesOnlyTitle((result) => {
-            setCategories(result.data);
+        // products 배열을 순회하며 title만 추출하여 brands 배열로 저장
+        if (allProducts && allProducts.length > 0) {
+            const newTitles = allProducts.map(product => product.title);
+            setBrands(prevBrands => {
+                const allTitles = [...prevBrands, ...newTitles];
+                return Array.from(new Set(allTitles));
+            });
+        }
+    }, [allProducts]);
+
+    useEffect(() => {
+        console.log("brands 어케저장 : ", brands)
+    }, [brands])
+
+    useEffect(() => {
+
+        let data = "";
+        medusaRequester.getAllCategories(data, (result) => {
+            setCategories(result.product_categories)
+        })
+        // requester.findAllCategoriesOnlyTitle((result) => {
+        //     setCategories(result.data);
+        // })
+        medusaRequester.getAllProducts(data, (result) => {
+            console.log("다 불러와 : ", result)
+            setAllProducts(result.products)
         })
 
-        requester.findAllBrandsOnlyTitle((result) => {
-            setBrands(result.data);
-        });
+        // requester.findAllBrandsOnlyTitle((result) => {
+        //     setBrands(result.data);
+        // });
 
         window.addEventListener('scroll', updateScroll);
 
@@ -83,9 +108,20 @@ function CategoryPanel(props) {
         navigate(`/productList/category/${category.id}`)
     }
 
+    // const onBrandClick = (brand) => {
+    //     let searchCondition = clone(initialSearchCondition);
+    //     searchCondition.brands = [brand.id];
+    //     navigate(`/productList/search`, {
+    //         state: {
+    //             productSearchCondition: searchCondition
+    //         }
+    //     })
+
+    // }
+
     const onBrandClick = (brand) => {
         let searchCondition = clone(initialSearchCondition);
-        searchCondition.brands = [brand.id];
+        searchCondition.brands = [brand];
         navigate(`/productList/search`, {
             state: {
                 productSearchCondition: searchCondition
@@ -126,7 +162,7 @@ function CategoryPanel(props) {
                                             categories.map((category, index) =>
                                                 <FlexChild key={index}>
                                                     <div onClick={() => onCategoryClick(category)} className={style.categoryRow} onMouseOver={() => onCategoryRowMouseOver(category.id)} onMouseLeave={() => onCategoryRowMouseLeave(category.id)}>
-                                                        <p>{category.title}</p>
+                                                        <p>{category.name}</p>
                                                     </div>
                                                     {/* <CategoryRow data={category} /> */}
                                                 </FlexChild>
@@ -165,13 +201,13 @@ function CategoryPanel(props) {
                             </FlexChild>
                             <FlexChild>
                                 {
-                                    brands &&
+                                    brands && brands.length > 0 &&
                                     <VerticalFlex alignItems={"flex-start"}>
                                         {
                                             brands.map((brand, index) =>
                                                 <FlexChild key={index}>
                                                     <div onClick={() => onBrandClick(brand)} className={style.categoryRow} onMouseOver={() => onCategoryRowMouseOver(brand.id)} onMouseLeave={() => onCategoryRowMouseLeave(brand.id)}>
-                                                        <p>{brand.title}</p>
+                                                        <p>{brand}</p>
                                                     </div>
                                                     {/* <CategoryRow data={category} /> */}
                                                 </FlexChild>
