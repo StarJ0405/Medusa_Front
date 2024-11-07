@@ -1,4 +1,4 @@
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import ProductCard from "components/card/product/ProductCard";
 import Dummy from "components/Dummy";
 import P from "components/P";
@@ -19,7 +19,9 @@ import style from "./WeeklyBestSeller.module.css";
 function WeeklyBestSeller(props) {
     const { isMobile } = useContext(BrowserDetectContext);
     const [products, setProducts] = useState();
+    const [medusaProducts, setMedusaProducts] = useState();
     const [slides, setSlides] = useState();
+    const [medusaSlides, setMedusaSlides] = useState();
 
     useEffect(() => {
         requester.findWeeklyBestSeller((result) => {
@@ -36,6 +38,15 @@ function WeeklyBestSeller(props) {
             setProducts(result.data);
         });
     }, []);
+
+    useEffect(() => {
+        let data = "";
+        medusaRequester.getBestSellerProducts(data, (result) => {
+            let slideList = rpad2D(result.products, isMobile ? 2 : 4, null);
+            setMedusaSlides(slideList);
+            setMedusaProducts(result.products)
+        })
+    }, [])
 
     return (
         <div className={isMobile ? style.mobileSwiperWrap : style.swiperWrap}>
@@ -60,8 +71,8 @@ function WeeklyBestSeller(props) {
                             <FlexChild>
                                 <VerticalFlex gap={10}>
                                     {
-                                        products &&
-                                        products.map((product, index) => {
+                                        medusaProducts &&
+                                        medusaProducts.map((product, index) => {
                                             return (
                                                 <FlexChild key={index}>
                                                     <HorizontalFlex gap={10} >
@@ -86,7 +97,7 @@ function WeeklyBestSeller(props) {
                 <FlexChild width={!isMobile && "72%"} >
                     <Swiper navigation modules={[Navigation]}>
                         {
-                            slides && slides.map((slide, slideIndex) =>
+                            medusaSlides && medusaSlides.map((slide, slideIndex) =>
                                 <SwiperSlide key={slideIndex}>
                                     <HorizontalFlex gap={10}>
                                         {
