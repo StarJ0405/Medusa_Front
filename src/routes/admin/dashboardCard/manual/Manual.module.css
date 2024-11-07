@@ -1,0 +1,17 @@
+.wrap{
+    padding : 10px;
+    background-color: white;
+    height : 100% ;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px var(--box-shadow-color);
+}
+
+.line{
+    width : 100% ;
+    height : 1px ;
+    border-bottom: 1px solid #eee;
+}
+
+.text{
+    padding : 0px 2px ;
+}

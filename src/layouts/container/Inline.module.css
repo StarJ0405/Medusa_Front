@@ -1,0 +1,8 @@
+.inline {
+    width:initial;
+    height:initial;
+}
+
+.inline > * {
+    display: inline-block;
+}

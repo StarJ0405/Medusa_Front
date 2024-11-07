@@ -1,0 +1,11 @@
+.horizontalLine{
+    width: 100%;
+    height: 2px;
+    background-color: #999;
+}
+
+.line{
+    width : 100% ;
+    height: 1px;
+    background-color: #eee;
+}

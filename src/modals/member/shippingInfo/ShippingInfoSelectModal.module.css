@@ -1,0 +1,25 @@
+.wrap {
+    padding:5px 10px 100px 5px;
+    overflow: scroll;
+    height: 60vh;
+    
+}
+
+.shippingInfoCard {
+    position:relative;
+    background-color: white;
+    padding:10px;
+    border:1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 10%);
+}
+
+.defaultShippingInfoSticker {
+    position:absolute;
+    top:0;
+    left:0;
+    width:initial;
+    height:initial;
+    padding:1px 3px;
+    background-color: var(--main-color-light);
+}

@@ -1,0 +1,32 @@
+.wrap{
+    background-color: white;
+    
+    height: 100% ;
+    box-shadow: 3px 3px 5px var(--box-shadow-color);
+    border-radius: 5px;
+}
+
+.text{
+    padding : 2px ;
+}
+
+
+.label{
+    background-color:#383E58 ;
+    padding : 5px ;
+}
+
+.productArea{
+    padding : 15px ;
+}
+
+.line{
+    width: 1px;
+    height: 200px;
+    border-left:1px solid #eee;
+}
+
+.dummyWrap{
+    cursor: pointer;
+    
+}

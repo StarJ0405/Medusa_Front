@@ -1,0 +1,59 @@
+.wrapper {
+    z-index: 9999;
+    position : absolute;
+    top : 240px;
+    left : 0px;
+    width:600px;
+    height:1000px;
+    /* border:1px solid black; */
+    overflow: hidden;
+    background-color: white;
+}
+
+.colorSelectArea {
+    height:600px;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(3, minmax(50%, auto)); */
+    gap: 10px;
+}
+
+.colorCardArea {
+    width:100px;
+    height:100px;
+    margin: auto;
+    /* margin-bottom: 10px; */
+}
+
+.colorBlock {
+    display: inline-block;
+    cursor:pointer;
+    /* padding:5px; */
+    width:15px;
+    height:15px;
+    border:1px solid black;
+}
+
+.inline{
+    width:auto;
+    height:auto;
+}
+
+.inline *{
+    display:inline-block;
+   
+}
+
+.button {
+    background-color: black;
+    color:white;
+    margin:10px;
+}
+
+.generatedSpectrum{
+
+}
+.generatedSpectrum:hover {
+    border:1px solid black;
+}

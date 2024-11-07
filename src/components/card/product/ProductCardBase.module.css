@@ -1,0 +1,125 @@
+:root {
+    --sticker-height:20px;
+}
+
+.imageArea {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    border-radius: var(--border-radius-small);
+}
+
+.imageArea.before::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.04);
+    border-radius: var(--border-radius-small);
+}
+.imageArea.before:hover::before {
+    background: rgba(0,0,0,.1);
+}
+
+.productImage {
+    width:100%;
+    height: 100%;
+}
+
+.currentAmountArea {
+
+}
+
+.beforeAmountArea {
+
+}
+
+.discountRateArea {
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: var(--main-color);
+    width: fit-content;
+    margin: auto;
+}
+
+.commentArea {
+    background-color: var(--comment-color);
+}
+
+.currentAmount {
+    text-align: center;
+    font-size: var(--font-size-large);
+    /* font-weight: var(--font-weight-bold); */
+    font-style: italic;
+}
+
+.beforeAmount {
+    text-align: center;
+    text-decoration: line-through;
+    color:var(--font-color-disabled);
+    font-size: var(--font-size-large);
+}
+
+.discountRate {
+    text-align: center;
+    font-size: var(--font-size-xsmall);
+    color:white;
+    padding:0px 10px;
+    
+}
+
+.comment {
+    text-align: center;
+    font-size: var(--font-size-large);
+    color:white;
+}
+
+.spanningStickerArea {
+    position : absolute;
+    bottom: calc(var(--sticker-height) * -0.5);
+    height: var(--sticker-height);
+    
+}
+
+.spanningSticker {
+    width:auto;
+    margin:auto;
+    background-color: var(--main-color);
+    border-radius: 50px;
+  
+}
+
+.spanningStickerContent {
+    font-size: var(--font-size-large);
+    font-weight : var(--font-weight-bold);
+    align-self: center;
+    color : white;
+    padding: 0px 8px;
+}
+
+.imageNestedStickerArea {
+    position : absolute;
+    bottom: 5px;
+    height: var(--sticker-height);
+    
+}
+
+.imageNestedSticker {
+    width:auto;
+    margin:auto;
+    background-image: linear-gradient(94deg, var(--button-color-start), var(--button-color-end));
+    border-radius: var(--border-radius-normal);
+  
+}
+
+.imageNestedStickerContent  {
+    font-size: var(--font-size-small);
+    line-height:var(--sticker-height);
+    font-weight : var(--font-weight-bold);
+    align-self: center;
+    color : white;
+    padding: 0px 8px;
+}

@@ -1,0 +1,1 @@
+export const fileRootPath = "http://worldintrest1.cafe24.com/fileServer/files";

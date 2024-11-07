@@ -1,0 +1,23 @@
+:root {
+  --sellerRegister-font-color: red;
+}
+
+.container {
+  width: 1200px;
+  height: 500px;
+}
+
+.test {
+  color: black;
+}
+
+.red {
+  color: var(--sellerRegister-font-color);
+}
+
+.buttonEclipse {
+  background-color: red;
+  border-radius: var(--border-radius-normal);
+  color: white;
+  padding: 10px;
+}

@@ -1,0 +1,36 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.label{
+    display: flex;
+    align-items : center;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    background-color: #383E58;
+    color: white;
+    padding : 10px; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.contentWrap{
+    padding : 20px ;
+}
+
+.topWrap{
+    padding : 10px 20px ;
+    background-color: #eee;
+}
+
+.contentArea{
+    padding : 20px 10px ;
+}
+.line{
+    height: 1px;
+    background-color: #eee;
+}

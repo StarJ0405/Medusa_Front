@@ -1,0 +1,9 @@
+.wrap {
+    display:table;
+    height:100%;
+}
+
+.wrap > * {
+    display:table-cell;
+    vertical-align: middle;
+}

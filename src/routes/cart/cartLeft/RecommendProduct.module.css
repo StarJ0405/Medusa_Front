@@ -1,0 +1,13 @@
+.recommendProductContainer {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px 30px;
+}
+.title {
+  font-weight: bold;
+}
+
+.productList {
+  display: flex;
+}

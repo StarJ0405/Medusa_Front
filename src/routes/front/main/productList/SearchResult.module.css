@@ -1,0 +1,63 @@
+.icon {
+    width: 100%;
+}
+
+.displayTypeIcon {
+    width: 100%;
+    fill: #6f6f6f;
+    color: #6f6f6f;
+}
+
+.displayTypeIcon.active {
+    fill: var(--main-color);
+    color: var(--main-color);
+}
+
+.listWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.listWrap.list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    
+    /* justify-content: center; */
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 48%;
+}
+
+.grid{
+    flex : 0 0 30%;
+}
+
+.mobileSearchBar {
+    position: fixed;
+    top:var(--headerHeight);
+    height:35px;
+    z-index: 1000;
+    padding:0px 10px 5px 10px;
+    background-color: #f2f2f2;
+}
+
+.list {
+    position: relative;
+}
+
+.filter{
+    cursor: pointer;
+    width: 100px;
+    height:30px;
+    padding: 0px 10px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    color : white ;
+}

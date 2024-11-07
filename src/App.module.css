@@ -1,0 +1,8 @@
+.toast {
+    z-index: 10001;
+    position: relative;
+}
+
+.toast>* {
+    z-index :inherit;
+}

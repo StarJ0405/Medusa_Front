@@ -1,0 +1,12 @@
+[
+    { "name": "--bg-color" },
+    { "name": "--bg-top" },
+    { "name": "--main-color" },
+    { "name": "--couponArea-color-start" },
+    { "name": "--couponArea-color-end" },
+    { "name": "--button-color-start" },
+    { "name": "--button-color-end" },
+    { "name": "--comment-color" },
+    { "name": "--event-color" },
+    { "name": "--userArea-color" }
+]

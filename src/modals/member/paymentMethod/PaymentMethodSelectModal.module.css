@@ -1,0 +1,17 @@
+.wrap {
+    padding:5px 10px 100px 5px;
+    
+}
+
+.paymentMethodCard {
+    position:relative;
+    background-color: white;
+    padding:10px;
+    border:1px solid #ddd;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 10%);
+}
+
+.icon {
+    width:80px;
+}

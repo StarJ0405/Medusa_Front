@@ -1,0 +1,102 @@
+
+.imgWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 20px 0;
+    
+}
+
+.titleWrap{
+    border-bottom: 2px solid var(--line-color-lg);
+    
+}
+.verticalLine{
+    width : 1px ;
+    height: 70px;
+    background-color: var(--line-color);
+}
+
+.mobileVerticalLine{
+    width : 1px ;
+    height: 30px;
+    background-color: var(--line-color);
+}
+
+.deliveryWrap{
+    border-bottom: 1px solid var(--line-color);
+}
+
+.horizontalLine{
+    width : 100% ;
+    height: 2px;
+    background-color: var(--line-color-lg);
+
+}
+.mobileHorizontalLine{
+    width : 100% ;
+    height: 1px;
+    background-color: var(--line-color);
+}
+
+.mobileTitle{
+    display: flex;
+    justify-content: center;
+    color : white;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    background-color: var(--main-color);
+    padding: 1vh 0 ;
+}
+
+
+.userWelcome{
+    display: flex;
+    font-size: 14pt;
+}
+
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    height: 40px;
+}
+
+.mypageBar{
+    position: absolute;
+    bottom: -100px ;
+    background-color: white;
+    padding : 20px 20px ;
+    /* border: 1px solid var(--main-color); */
+    box-shadow: 1px 2px 2px var(--main-color);
+    border-radius: 3px;
+}
+.wrap{
+    position: relative;
+}
+.iconWrap{
+    position: relative;
+}
+.count{
+    position: absolute;
+    top: 0;
+    right: 25%;
+    width: 15px;
+    height: 15px;
+    background-color: var(--main-color);
+    color: white ;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontalCardWrap{
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* box-shadow: 1px 2px 2px var(--main-color); */
+}

@@ -1,0 +1,20 @@
+.wrap {
+    overflow: hidden;
+}
+
+.flag {
+    width: fit-content;
+    padding:40px 30px;
+    text-align: center;
+}
+
+.tranparentText {
+    width:max-content;
+    background-color: #fff;
+    border-radius: 50px;
+    color: #000;
+    padding: 8px 25px;
+    font-weight: bolder;
+    font-size: 15px;
+    mix-blend-mode: lighten;
+}

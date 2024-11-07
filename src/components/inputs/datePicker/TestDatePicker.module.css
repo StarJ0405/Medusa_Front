@@ -1,0 +1,41 @@
+.container{
+ position: relative;
+ width: 100%;
+ 
+}
+
+.inputDatePicker{
+    width: 180px;
+    border: 1px solid #999;
+    border-radius: 3px ;
+}
+
+.inputDatePicker.date {
+    width: 150px;
+}
+
+.calendar{
+    position: absolute;
+    top: 15%;
+    right: 55%;
+    width: 20px;
+    height: 20px;
+    background-color: #f7f8f8;
+    border-top: 5px solid red;
+    border-left: 1px solid #999 ;
+    border-right: 1px solid #999 ;
+    border-bottom: 1px solid #999;
+}
+
+.calendar2{
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    width: 20px;
+    height: 20px;
+    background-color: #f7f8f8;
+    border-top: 5px solid red;
+    border-left: 1px solid #999 ;
+    border-right: 1px solid #999 ;
+    border-bottom: 1px solid #999;
+}

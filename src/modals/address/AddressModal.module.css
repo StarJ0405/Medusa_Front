@@ -1,0 +1,41 @@
+.wrap{
+    height: 60vh;
+    overflow-y: scroll;
+    
+}
+
+.circle{
+    width: 10px;
+    height: 10px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.verticalLine{
+    width: 1px;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+.horizontalLine{
+    width: 100%;
+    height: 1px;
+    background-color: var(--line-color);
+}
+
+.gridWrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px ;
+}
+
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 17% ;
+    height: 30px;
+    border: 1px solid var(--line-color);
+    
+    border-radius: 3px;
+}

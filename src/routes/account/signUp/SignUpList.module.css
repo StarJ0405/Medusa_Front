@@ -1,0 +1,8 @@
+:root {
+    --sellerRegister-font-color: red;
+  }
+  
+  .table {
+    width: 100%;
+    border: 1px solid #444;
+  }

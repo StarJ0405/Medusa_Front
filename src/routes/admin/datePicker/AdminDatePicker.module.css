@@ -1,0 +1,38 @@
+.container{
+    position: relative;
+    width: 100%;
+    
+   }
+   
+   .inputDatePicker{
+       width: 270px;
+       height : 35px ;
+       padding : 0px 15px 0px 10px;
+       border: 1px solid #999;
+       border-radius: 3px ;
+       text-align: right;
+       background-color: var(--admin-table-bg-color);
+       color : var(--admin-text-color) ;
+
+   }
+   .icon{
+       position: absolute;
+       top: 8%;
+       right: 44%;
+       pointer-events: none;
+       
+   }
+   
+   .calendar2{
+       position: absolute;
+       top: 15%;
+       right: 3%;
+       width: 20px;
+       height: 20px;
+       background-color: #f7f8f8;
+       border-top: 5px solid red;
+       border-left: 1px solid #999 ;
+       border-right: 1px solid #999 ;
+       border-bottom: 1px solid #999;
+   }
+   

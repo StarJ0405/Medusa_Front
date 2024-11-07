@@ -1,0 +1,13 @@
+.wrap{
+    padding : 20px ;
+    background-color: white;
+    height: 100%;
+    cursor: pointer;
+}
+
+.iconArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding :10px 25px;
+}

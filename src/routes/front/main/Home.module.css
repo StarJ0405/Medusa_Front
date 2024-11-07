@@ -1,0 +1,112 @@
+.mobileSearchBar {
+    position: fixed;
+    top:var(--headerHeight);
+    height:35px;
+    z-index: 999;
+    padding:0px 10px 5px 10px;
+    background-color: #f2f2f2;
+}
+
+.bannerArea {
+
+}
+
+.newProductArea {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.hotProductArea {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.bannerImage {
+    width: 100%;
+}
+
+
+
+.icon {
+    width: 100%;
+}
+
+.displayTypeIcon {
+    width:100%;
+}
+
+.listWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.categoryIcon {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 5%;
+}
+
+.categoryIcon.mobile {
+    flex: 1 0 30%;
+}
+
+.image {
+    width:100%;
+    /* height:50px; */
+}
+
+.categoryItem {
+    cursor: pointer;
+}
+
+.swiperWrap{
+    background-color: #f4f7ff;
+    padding : 30px ;
+}
+
+.mobileSwiperWrap{
+    background-color: #fff;
+    padding : 20px ;
+}
+
+.indexCircle{
+    background-color: #555457;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+}
+.imgIndexCircle{
+    position: absolute;
+    top : 2% ;
+    left: 3%;
+    background-color: #555457;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+    opacity: 0.8;
+}
+
+.imgMobileIndexCircle{
+    position: absolute;
+    top : 3% ;
+    left: 3%;
+    background-color: #555457;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+    opacity: 0.8;
+}

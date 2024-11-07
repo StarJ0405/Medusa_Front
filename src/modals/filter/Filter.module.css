@@ -1,0 +1,10 @@
+.buttonList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    cursor: pointer;
+    max-height:30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

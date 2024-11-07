@@ -1,0 +1,42 @@
+.wrap{
+    background-color: white;
+    
+    height: 100% ;
+    box-shadow: 3px 3px 5px var(--box-shadow-color);
+    border-radius: 5px;
+}
+
+.line{
+    width : 100% ;
+    height : 1px ;
+    border-bottom: 1px solid #eee;
+}
+
+.text{
+    padding : 2px ;
+}
+
+.boxArea{
+    border: 1px solid #383E58;
+    padding : 15px ;
+    position: relative;
+}
+.boxWrap{
+    padding : 10px ;    
+}
+
+.label{
+    background-color:#383E58 ;
+    padding : 5px ;
+}
+
+.count{
+    position: absolute;
+    width : 30px ;
+    height : 30px ;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top : -10px ;
+    right: -10px;
+    color : white ;
+}

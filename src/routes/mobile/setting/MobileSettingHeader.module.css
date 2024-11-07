@@ -1,0 +1,12 @@
+.header{
+    padding-left : 10px ;
+    display: flex;
+    background-color: var(--main-color-dark) ;
+    color : white ;
+    gap: 20px ;
+    line-height: 38px;
+    font-size : 18px ;
+    font-weight: bold;
+    
+    
+}

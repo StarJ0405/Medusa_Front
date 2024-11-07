@@ -1,0 +1,77 @@
+
+.menuBar{
+    /* padding: 1rem; */
+    background: transparent;
+}
+
+.tabs {
+
+}
+
+.tabs li{
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    color: black;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    
+}
+
+.tabs li:hover{
+    color: red;
+}
+
+.tabs li.active > .bullet {
+    position: relative;
+    left: 50%;
+    bottom: -10px;
+    height: 3px;
+    width: 24px;
+    border-radius: 1.5px;
+    background-color: red;
+    transform: translate(-50%);
+    animation: expandWith .3s;
+}
+
+.contentArea {
+    overflow-y: auto;
+}
+
+.child {
+    padding : 20px ;
+}
+
+@keyframes expandWith{
+    0% {
+        width:0
+    }
+    to {
+        width:24px
+    }
+}
+
+
+
+.circle{
+    background-color: red;
+    width : 40px ;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14pt;
+    margin-left: 20px;
+    position: relative;
+}
+
+.border{
+    width: 100% ;
+    height: 2px ;
+    background-color: red;
+    position: absolute;
+    right: -30px;
+}

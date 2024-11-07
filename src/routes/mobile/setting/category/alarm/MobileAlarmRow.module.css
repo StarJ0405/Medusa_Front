@@ -1,0 +1,10 @@
+.list{
+    padding : 10px ;
+    font-size: 14px;
+    background-color: white;
+}
+
+.toggleWrap{
+    width : 100% ;
+    height: 100%;
+}

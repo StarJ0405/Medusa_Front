@@ -1,0 +1,35 @@
+.section {
+  position: relative;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+
+.sectionWrap {
+  position:relative;
+  width:unquote("min(100%, 1200px)");
+  height:100%;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.topSection{
+  height: 100%;
+  position: relative;
+}
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+} 
+
+.categorySelect{
+  padding:10px 20px;
+  border:1px solid var(--main-color);
+  color:var(--main-color);
+  background-color: white;
+}
+

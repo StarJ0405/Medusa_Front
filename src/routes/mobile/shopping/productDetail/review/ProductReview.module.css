@@ -1,0 +1,40 @@
+.container{
+    background-color: white;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.color {
+    color : blue ;
+}
+
+.etc{
+    
+    justify-content: center;
+    height: 100%;
+}
+.area{
+    background-color: #ddd;
+    padding : 15px ;
+    border-radius: 10px;
+    
+}
+
+.cardArea{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin : 5px ;
+}
+
+.allView{
+    color : skyblue ;
+    padding: 10px;
+}
+
+.textarea{
+    height:100px;
+}

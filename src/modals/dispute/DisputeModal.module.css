@@ -1,0 +1,102 @@
+.header{
+    border-bottom: 1px solid black;
+}
+
+.wrap{
+    
+    overflow-y: scroll;
+    height: 65vh;
+    
+}
+
+.border{
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    
+}
+
+.borderBottom{
+    border-bottom: 2px solid #999;
+}
+.photoBox{
+    cursor: pointer;
+    height: 90px;
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex : 0 1 90%   ;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    padding-top: 60px ;
+    width: 25%;
+}
+
+.progressIndicator{
+    position: relative;
+    height: 60px;
+    
+}
+
+.circleLeft{
+    width: 45px ;
+    height: 45px;
+    background-color: red;
+    border-radius: 50%;
+    color : white;
+    font-size : 16pt ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    left: 35%;
+    position: absolute;
+    z-index: 999;
+}
+
+.circleRight{
+    width: 45px ;
+    height: 45px;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 50%;
+    color : red;
+    font-size : 16pt ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    right: 35%;
+    position: absolute;
+}
+
+.line{
+    position: absolute;
+    top : 50% ;
+    right: 40%;
+    width :20%;
+    height: 2px;
+    background-color: red;
+}
+
+.textLeft{
+    position:absolute ;
+    left: 33% ;
+    bottom: -35%;
+    font-weight: bold;
+}
+
+.textRight{
+    position:absolute ;
+    right: 31% ;
+    bottom: -35%;
+    font-weight: bold;
+}
+
+.heightBorder{
+    width: 1px;
+    height : 80px ;
+    background-color: #bbb;
+}

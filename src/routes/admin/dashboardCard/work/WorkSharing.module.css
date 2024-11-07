@@ -1,0 +1,24 @@
+.wrap{
+    background-color: white;
+    height: 100% ;
+    box-shadow: 3px 3px 5px var(--box-shadow-color);
+    border-radius: 5px;
+}
+
+.line{
+    width : 100% ;
+    height : 1px ;
+    border-bottom: 1px solid #eee;
+}
+
+.text{
+    padding : 2px ;
+}
+.textWrap{
+    padding : 10px ;
+}
+
+.label{
+    background-color:#383E58 ;
+    padding : 5px ;
+}

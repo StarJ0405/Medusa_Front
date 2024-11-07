@@ -1,0 +1,387 @@
+:root {
+  --bg-color: #f2f2f2;
+  --bg-top: #fafafa;
+  --loginButton-color: #e1e1e1;
+  --main-color-light: #fff0f0;
+  
+  --main-color-dark: #840b25;
+  --menuBar-color: #c40d2e;
+  --header-bg-color: white;
+  --searchBar-color: #e1e1e1;
+  --couponArea-color-start: #ef7a00;
+  --couponArea-color-end: #fbd100;
+  --button-color-start: #ff0a0a;
+  --button-color-end: #ff7539;
+  --comment-color: #ff6363;
+  --event-color: #ff8aa2;
+  --userArea-color: #ffca5c;
+  --font-size-xsmall: 11px;
+  --font-size-small: 12px;
+  --font-size-normal: 13px;
+  --font-size-large: 14px;
+  --font-size-xlarge: 16px;
+  --font-size-2xlarge: 18px;
+  --font-size-3xlarge: 20px;
+  --font-color-disabled: #999;
+  --border-radius-small: 4px;
+  --border-radius-normal: 8px;
+  --padding-around-normal: 10px;
+  --category-icon-color: #aaaaaa;
+  --font-weight-thin: 400;
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
+  --page-info-bg: #fbfbfb;
+  --page-info-title: #7b7b7b;
+  --characteristic-color: #c1c1c1;
+  --cart-color: #aaaaaa;
+
+
+  --main-color: #296aff;
+  --main-color-light: #f4f7ff;
+  --main-end-color: #fda874;
+  --vendor-bg-color: #dfdfdf;
+  --user-bg-color: #efefef;
+  --font-color: #000000;
+  --font-faint-color: #707070;
+  --line-color: #bebebe;
+  --line-color-lg: #707070;
+  --border-size: 1px;
+  --font-size: 14px ;
+  --font-size-sm: 10px ;
+  --font-size-lg: 19px ;
+  --white-space: 15px ;
+  --header-height: 40px;
+  --title-height: 44px;
+  --sub-title-height: 50px;
+  --side-white-space: 20px;
+  --box-color: #efefef ;
+  --box-shadow-color: #ddd;
+
+
+  --btn-height: 30px;
+  --btn-font-size: 19px;
+  --btn-border-radius: 3px;
+  
+  --admin-main-color : #5471e6 ;
+  --admin-line-color :  #efefef;
+  --admin-text-color : #727171 ;
+  --admin-table-bg-color : #f0f0f8;
+
+
+  
+
+
+}
+
+.Toastify__toast-container {
+  height: fit-content;
+}
+
+body {
+  display: block;
+  margin: 0px;
+  /* background-color: var(--bg-color); */
+  align-items: center;
+  font-family: "LeferiBaseRegular", "ZCOOLXiaoWei";
+  overflow-y: scroll;
+}
+
+div {
+  /* border: 1px solid black; */
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 0px;
+  white-space: pre-wrap;
+  margin-bottom: 0px;
+  font-size: var(--font-size);
+}
+
+iframe {
+  width: 99%;
+}
+
+input {
+  outline: none !important;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:hover {
+  /* box-shadow: 0 0 3px #719ece; */
+}
+
+input:focus {
+  /* box-shadow: 0 0 3px #719ece; */
+}
+
+input::placeholder {
+  opacity: 0.6;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+img {
+  /* width: 100%; */
+}
+
+.Toastify__toast-container {
+  height: fit-content;
+}
+
+.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+  max-width: 100% !important;
+}
+
+.container-lg {
+  padding:0 !important;
+}
+
+.body.flex-grow-1.px-3 {
+  padding:0 !important;
+}
+
+.newSwiper{
+  width : 45% !important;
+}
+
+.nav-link {
+  /* color: black !important; */
+}
+
+.table-responsive {
+  overflow-x: visible;
+}
+
+.accordion-button>div {
+  overflow-x: hidden;
+}
+
+.CTextArea{
+  border-radius: 0;
+}
+
+.chartjs-tooltip {
+  width: max-content;
+}
+
+
+
+
+.myDragHandle {
+  width: 30px;
+  height: 30px;
+  
+  position: absolute;
+  z-index: 1;
+}
+
+
+.react-datepicker__month-container {
+  background-color: white;
+}
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: none;
+}
+.react-datepicker__day--keyboard-selected{
+  background-color: black;
+  border-radius: 50%;
+}
+.react-datepicker__day--keyboard-selected:hover{
+  background-color: black;
+  border-radius: 50%;
+  
+}
+
+.react-datepicker__day--in-range{
+  border-radius: 50%;
+  background-color: black;
+}
+.react-datepicker__day--in-range:hover{
+  border-radius: 50%;
+  background-color: black;
+  scale: 1.1;
+}
+.react-datepicker__day:hover{
+  border-radius: 50%;
+  background-color: black;
+  color: white ;
+}
+.react-datepicker__day--in-selecting-range{
+  border-radius: 50%;
+  background-color: black !important;
+}
+.react-datepicker__day--selected{
+  border-radius: 50%;
+  background-color: black;
+}
+
+
+.mySwiper .swiper-pagination-progressbar {
+  background: #E0E0E0;
+  
+  width: 35%;
+  left: 52% ;
+}
+
+.mySwiperMobile .swiper-pagination-progressbar {
+  background: #E0E0E0;
+  position: relative;
+  width: 75%;
+  
+}
+
+.mySwiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: black;
+}
+.mySwiperMobile .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: black;
+}
+.custom-pagination {
+  display: flex;
+  justify-content: center; /* 페이지네이션 가운데 정렬 */
+  margin-top: 10px; /* 프로그래스바와의 간격 */
+}
+
+.custom-pagination-bullet {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.custom-pagination-bullet.active {
+  font-weight: bold;
+}
+
+.swiper-custom-pagination{
+  position: absolute;
+  
+  top : 24% ;
+}
+/* 네비게이션 및 페이지네이션 컨테이너 */
+
+.swiper-navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -4%; /* 또는 프로그래스바의 세로 위치에 맞게 조정 */
+  left: 89%;
+  
+  width: 10%;
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+.swiper-navigation-container-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top:10px ;
+  left: 38% ;
+  width: 20%;
+  
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+/* 페이지 숫자 위치 조정 */
+.swiper-pagination-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 24% ;
+  left : 0% ;
+  pointer-events: none;
+  color : black ;
+  font-weight: bold;
+  user-select: none;
+}
+.swiper-pagination-custom-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0 ;
+  user-select: none;
+  left : 0% ;
+  pointer-events: none;
+  color : black ;
+  font-weight: bold;
+  
+  
+  
+}
+
+/* 네비게이션 버튼 위치 조정 */
+.swiper-button-prev, .swiper-button-next {
+  color: #000; /* 버튼 색상 */
+  /* 필요에 따라 추가 스타일 */
+  position: absolute;
+  text-align: right;
+  
+
+}
+
+/* 이전 버튼 */
+.swiper-button-prev {
+  margin-right: 0px; /* 페이지네이션과의 간격 */
+  
+  
+}
+
+/* 다음 버튼 */
+.swiper-button-next {
+  margin-left: 0px; /* 페이지네이션과의 간격 */
+}
+
+.react-datepicker__month-container{
+  width:initial !important;
+}
+
+.Mui-checked {
+  color : black !important;
+}

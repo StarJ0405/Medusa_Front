@@ -1,0 +1,89 @@
+.header{
+    border-bottom: 1px solid black;
+}
+
+.wrap{
+    padding: 10px ;
+}
+
+.borderBottom{
+    border-bottom: 1px solid #999;
+    padding-bottom: 15px;
+}
+
+.borderTop{
+    border-top : 2px solid #999 ;
+}
+
+
+.photoBox{
+    cursor: pointer;
+    height: 90px;
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex : 0 1 90%   ;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    padding-top: 60px ;
+    width: 30%;
+}
+
+.circle{
+    width: 80px ;
+    height: 80px;
+    border: 1px solid var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 999;
+    background-color: white;
+}
+
+.circleHome{
+    width: 80px ;
+    height: 80px;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 99;
+    background-color: white;
+}
+
+.mobileLine{
+    width : 37% ;
+    height: 2px;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.line{
+    width : 20% ;
+    height: 2px;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.deliveryWrap{
+    position: relative;
+    padding : 60px ; 
+}
+
+.verticalLine{
+    width : 2px ;
+    height: 80px;
+    
+    background-color: var(--main-color);
+}

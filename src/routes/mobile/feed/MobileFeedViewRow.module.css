@@ -1,0 +1,96 @@
+.container{
+    margin-bottom: 10px;
+    
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.background{
+    
+    border-radius: 10px;
+}
+
+.img{
+    width : 100% ;
+    height: 100%;
+}
+
+.imgArea{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.wrap{
+    
+    width : 100% ;
+    height: 100%;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.logoWrap{
+    
+    width : 100% ;
+    height: 100%;
+    padding-left: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.subImg1Wrap{
+    padding : 4px 2px 4px 4px ;
+    width : 100% ;
+    height: 100%;
+    border-top-left-radius: 15% ;
+    border-bottom-left-radius: 15% ;
+    overflow: hidden;
+}
+.subImg2Wrap{
+    padding : 4px ;
+    width : 100% ;
+    height: 100%;
+    border-top-right-radius: 15% ;
+    border-bottom-right-radius:15% ;
+    
+    overflow: hidden;
+}
+
+.companyWrap{
+    padding-left: 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titleWrap{
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.text{
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.rowWrap{
+    background-color: white;
+    
+}
+
+.nation{
+    color : var(--category-icon-color) ;
+    font-size: 13px;
+}

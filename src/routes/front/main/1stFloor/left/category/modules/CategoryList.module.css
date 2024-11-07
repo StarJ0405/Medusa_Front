@@ -1,0 +1,20 @@
+.title {
+  font-weight: bold;
+  padding: 10px 0 10px 4px;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: orangered;
+}
+
+.list {
+  font-size: 13px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.list:hover {
+  color: #ff472e;
+  text-decoration: underline;
+}

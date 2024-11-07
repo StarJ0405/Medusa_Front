@@ -1,0 +1,31 @@
+.container {
+    position:relative;
+    font-size:var(--font-size-small);
+    color:#666;
+    z-index: 999;
+}
+
+.flag {
+    border-radius: 50%;
+    height:30px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px #ddd;
+}
+
+.list {
+    display:none;
+}
+
+.list.show {
+    color:#666;
+    display:block;
+    position:absolute;
+    height: initial;
+    width:initial;
+    top:35px;
+    left:0px;
+    background-color: transparent;
+    
+    /* box-shadow: 0 5px 8px 0 rgb(0 0 0 / 10%); */
+    
+}

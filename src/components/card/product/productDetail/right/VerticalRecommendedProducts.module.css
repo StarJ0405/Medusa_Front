@@ -1,0 +1,7 @@
+.price::before{
+    content: "₩ " ;
+}
+
+.price{
+    text-align: center;
+}

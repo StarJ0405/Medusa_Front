@@ -1,0 +1,45 @@
+.wrap {
+    position:relative;
+    background-color: white;
+}
+
+.icon {
+    width: 100%;
+}
+
+.displayTypeIcon {
+    width: 100%;
+    fill: #6f6f6f;
+    color: #6f6f6f;
+}
+
+.displayTypeIcon.active {
+    fill: var(--main-color);
+    color: var(--main-color);
+}
+
+.listWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.listWrap.list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 min(200px, 40%);
+}
+
+.card:last-child {
+    /* flex: 0 0 10%; */
+}
+

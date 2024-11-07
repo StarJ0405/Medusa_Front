@@ -1,0 +1,55 @@
+.imgArea{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    
+}
+
+.title{
+    font-weight: bold;
+    font-size : 20px ;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.headerArea {
+   
+    z-index: 100;
+    height: max-content;
+    padding : 15px ;
+    background-color: white;
+    /* border-bottom:1px solid var(--main-color); */
+}
+
+.company{
+    
+    
+}
+
+.footerArea {
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    height:var(--footerHeight);
+    z-index: 100;
+    background-color: white;
+}
+
+.icon{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding : 15px 35px ;
+}
+
+.content{
+    text-align: center;
+    
+}
+
+.text{
+    padding-top : 10px ;
+}

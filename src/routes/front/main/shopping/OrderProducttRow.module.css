@@ -1,0 +1,92 @@
+.productWrap {
+    position: relative;
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    overflow: hidden;
+}
+
+.imgWrap {
+    position: relative;
+    width: 100px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.img {
+    width: 100%;
+}
+
+.titleWrap {
+    background-color: white;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.inputWrap {
+    max-width: 250px;
+}
+
+.info {
+    padding: 10px;
+}
+
+.contentWrap {
+    padding: 0px 1%;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+.title:hover {
+    text-decoration: underline;
+}
+
+.tag {
+    font-size: 14px;
+    color: #6f6f6f;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+.label {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.checkboxArea {
+    position: absolute;
+    top: 0;
+    width: initial;
+    height: initial;
+}
+
+.buttonWrap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.buttonWrapMobile {
+    cursor: pointer;
+}

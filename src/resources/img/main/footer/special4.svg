@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ebebeb;
+        stroke: #c40d2e;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        font-size: 11.267px;
+        fill: #c40d2e;
+        font-family: KoreanDREAM5Regular;
+      }
+    </style>
+  </defs>
+  <g id="대지_4" data-name="대지 4">
+    <path id="타원_2_복사_3" data-name="타원 2 복사 3" class="cls-1" d="M825.432,27a47.824,47.824,0,1,1-47.825,47.824A47.824,47.824,0,0,1,825.432,27Z" transform="translate(-750)"/>
+    <text id="合" class="cls-2" transform="translate(45.073 94.334) scale(5.708 5.725)">合</text>
+  </g>
+</svg>

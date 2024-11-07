@@ -1,0 +1,137 @@
+.container{
+    width : 100% ;
+    height: 150px;
+    position: relative;
+    margin: 10px 20px 20px 20px ;
+}
+
+.pricaArea {
+    
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+}
+
+.card {
+    overflow: hidden;
+    width: initial;
+    user-select: none;
+}
+.card:hover{
+    box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
+}
+
+.archCard{
+    width : 100% ;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnailWrap {
+    position: relative;
+    border:10px solid red;
+}
+
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding : 10px ;
+    
+}
+.thumbnail.horizontal {
+    
+    
+    position:absolute;
+    top : -10% ;
+    
+    width:35%;
+    transform: translateX(-35%);
+    
+   min-width: 165px;
+   max-width: 180px;
+}
+.wrap {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
+}
+
+.wrap.horizontal {
+    margin-top:10%;
+}
+
+.wrap:hover {
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 10%);
+}
+
+
+.cardWrap {
+    
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.image {
+    width: 100%;
+    
+}
+
+.image.arch{
+    /* width : 30% ; */
+    
+}
+
+.image.horizontal {
+    width:40%;
+    transform: translateX(20%);
+}
+
+.beforePriceArea {
+    background-color: white;
+}
+
+.currentPriceArea {
+    background-color: var(--main-color);
+}
+
+.priceTag {
+    width:90%;
+    border-radius: 50px;
+    overflow: hidden;
+    border:1px solid var(--main-color);
+    background-color: var(--main-color);
+}
+
+.circle{
+    background-color: white;
+    text-align: center;
+    line-height: 30px;
+    right: 0;
+    width : 30px ;
+    height: 30px;
+    border-radius: 50%;
+    
+    position: absolute;
+    transform: translate(40% ,-90%);
+    box-shadow: 2px 2px 2px 2px #eee;
+
+}
+
+.labelArea{
+    
+    color : white ;
+    opacity: 0.8;
+    padding : 5px ;
+
+    height: 26%;
+    position: absolute;
+    bottom: 2%;
+}

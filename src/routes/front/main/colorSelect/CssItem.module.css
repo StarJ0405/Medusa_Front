@@ -1,0 +1,25 @@
+.inline{
+    width:auto;
+    height:auto;
+}
+
+.inline *{
+    display:inline-block;
+   
+}
+
+.colorBlock {
+    display: inline-block;
+    cursor:pointer;
+    /* padding:5px; */
+    width:25px;
+    height:25px;
+    border:1px solid black;
+}
+
+.button {
+    background-color: black;
+    color : white;
+    padding:1px 5px;
+    border-radius: 3px;
+}

@@ -1,0 +1,52 @@
+.wrap{
+    padding: 60px;
+    overflow-y: scroll;
+    height: 75vh;
+
+}
+
+.boxWrap{
+    border: 1px solid #eee;
+}
+
+.listBox{
+    border-bottom: 1px solid #eee;
+    padding : 10px 20px;
+    cursor: pointer;
+}
+
+.addCategoryWrap{
+    background-color: #f5f6fb;
+    padding : 20px ;
+    
+}
+.contentWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.circle{
+    width : 7px ;
+    height: 7px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoryWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f6fb ;
+    padding : 10px 15px ;
+    gap: 10px ;
+    cursor: pointer;
+}
+.categoryWrap.selected {
+    background-color: #383e58 ;
+    color:white;
+}

@@ -1,0 +1,17 @@
+.horizontalLine{
+    width: 100%;
+    height: 2px;
+    background-color: #999;
+}
+
+.line{
+    width : 100% ;
+    height: 1px;
+    background-color: #eee;
+}
+
+.verticalLine{
+    width : 1.5px ;
+    height : 50px ;
+    background-color: black;
+}

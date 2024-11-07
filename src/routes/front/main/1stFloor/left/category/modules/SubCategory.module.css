@@ -1,0 +1,27 @@
+.categoryRow {
+    padding-left: 10px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .categoryRow:hover {
+    border-left: 1px solid var(--category-icon-color);
+    border-bottom: 2px solid var(--bg-color);
+  }
+  
+  .categoryRow:hover>.overlay {
+    display: block;
+  }
+  
+  .categoryIconArea {
+    text-align: center;
+    font-size: var(--font-size-normal);
+    color: var(--category-icon-color);
+  }
+  
+  .categoryTitle {
+    display: inline-block;
+    font-size: var(--font-size-normal);
+    color: #222;
+    padding-left: 5px;
+  }

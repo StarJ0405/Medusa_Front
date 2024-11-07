@@ -1,0 +1,98 @@
+.wrap{
+    
+    width: 100%;
+    height: 100vh;
+}
+
+.circle1{
+    position: absolute;
+    width: 150%;
+    min-width: 1000px;
+    z-index: 99;
+    left: -35% ;
+    top: 25% ;
+    bottom: -100%;
+    overflow: hidden;
+}
+
+.circle2{
+    position: absolute;
+    width: 130%;
+    min-width:300px;
+    top:0;
+    right: -50% ;
+    overflow: hidden;
+    
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.leftWrap{
+    position: relative;
+    height: 100vh;
+    background-color: #e84518;
+    overflow: hidden;
+}
+
+.rightWrap{
+    width: 50% ;
+    z-index: 999;
+    height: 100vh ;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    position: absolute;
+    width : 30% ;
+    z-index: 99;
+    left: 35%;
+    top: 45% ;
+    filter:invert(100%) sepia(100%) saturate(0%) hue-rotate(133deg) brightness(102%) contrast(103%) ;
+}
+
+.logo2{
+    filter: invert(37%) sepia(36%) saturate(7094%) hue-rotate(354deg) brightness(95%) contrast(92%);
+}
+
+.inputWrap{
+    position: relative;
+}
+
+.eye{
+    position: absolute;
+    right: 4%;
+    bottom: 20%;
+}
+
+.loginCircle1{
+    width : 40px ;
+    height: 40px;
+    background-color: #e84518;
+    border-radius: 50%;
+    color: white ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginCircle2{
+    width : 40px ;
+    height: 40px;
+    background-color: #e84518;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.qrCode{
+    width: 95%;
+    
+}

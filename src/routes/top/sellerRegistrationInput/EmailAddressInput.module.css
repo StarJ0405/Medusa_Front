@@ -1,0 +1,50 @@
+:root {
+  --emailAddressFontError-font-color: #e62e04;
+  --emailAddressFontSuccess-font-color: blue;
+  --emailAddressInputError-border: 1px solid #e62e04;
+  --emailAddressInputSuccess-border: 1px solid rgb(133, 133, 133);
+}
+
+.requestMessage {
+  font-size: 14px;
+  width: 100%;
+  color: var(--emailAddressFontError-font-color);
+}
+
+.validMessage {
+  font-size: 14px;
+  color: var(--emailAddressInputSuccess-border);
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.validMessage.valid {
+  color: var(--emailAddressFontSuccess-font-color);
+}
+
+.validMessage.invalid {
+  color: var(--emailAddressFontError-font-color);
+}
+
+.inputError {
+  border: var(--emailAddressInputError-border);
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.inputSuccess {
+  border: var(--emailAddressInputSuccess-border);
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.inputTitle {
+  padding-bottom: 8px;
+}
+
+.inputBox {
+  padding-bottom: 16px;
+}

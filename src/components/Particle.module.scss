@@ -1,0 +1,44 @@
+.container {
+	position : absolute;
+	top:-30px;
+	left:-100px;
+	// border:1px solid black;
+	height:100px;
+	width:calc(100% + 60px);
+	opacity: 0.3;
+	
+}
+
+.particle {
+	position: absolute;
+ 	border-radius: 50%;
+}
+
+$center : 150;
+
+@for $i from 1 through 30 {
+	@keyframes particle-animation-#{$i} {
+		100% {
+			transform: translate((random(240) * 1px), (random(10) * 1px));
+		}
+	}
+	  
+	.particle:nth-child(#{$i}){   
+		// animation: particle-animation-#{$i} 30s infinite;
+		$result:$center - ($i * 10px);
+		$resultSign:abs($result)/$result;
+		$size: abs($center - ($i * ( random(100) / 10 ) * 1px));   
+		opacity: random(30)/100;
+		height: $size * 0.7;
+		width: $size * 0.7;
+		// animation-delay: -$i * .2s;
+		@if $resultSign > 0 {
+			transform: translate($i * 20px);
+		}@else {
+			transform: translate($i * 10px);
+		}
+		// transform: translate($i * 10px);
+		background: hsl(random(360), 70%, 50%);
+	}
+}
+   

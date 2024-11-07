@@ -1,0 +1,10 @@
+.text {
+    position: relative;
+    background-color: #ebebeb;
+    width:50px;
+    height:max-content;
+}
+
+.image {
+    background-color: #ebebeb;
+}

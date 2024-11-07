@@ -1,0 +1,48 @@
+.icon {
+  cursor: pointer;
+  height: 30px;
+}
+
+.detailView {
+  width: min(800px, 100%) !important;
+  left: unset !important;
+  right: -800px;
+  transition: all 0.15s, ease 0.15s !important;
+  background-color: white !important;
+  border: 1px solid #ddd;
+  overflow-y: scroll;
+  color: black !important;
+}
+
+.detailView.show {
+  right: 0%;
+}
+
+.detailContainer {
+  width: 100%;
+}
+
+.categoryTitleArea {
+  cursor: pointer;
+}
+
+.categoryTitleArea:hover {
+  color: var(--main-color);
+}
+
+.interactionButton {
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.interactionButton:hover {
+  color: var(--main-color);
+}
+
+.productTitleArea {
+  cursor: pointer;
+}
+
+.productTitleArea:hover {
+  color: var(--main-color);
+}

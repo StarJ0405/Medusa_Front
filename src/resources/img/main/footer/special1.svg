@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ebebeb;
+        stroke: #c40d2e;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+
+      .cls-2 {
+        font-size: 11.267px;
+        fill: #c40d2e;
+        font-family: KoreanDREAM5Regular;
+      }
+    </style>
+  </defs>
+  <g id="대지_1" data-name="대지 1">
+    <circle id="타원_2" data-name="타원 2" class="cls-1" cx="74.828" cy="74.828" r="47.828"/>
+    <text id="多" class="cls-2" transform="translate(44.465 94.334) scale(5.708 5.725)">多</text>
+  </g>
+</svg>

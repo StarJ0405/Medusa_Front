@@ -1,0 +1,246 @@
+$color: #212121;
+
+$color-drop-light: #ECEFF1;
+$color-drop-dark: #607D8B;
+$color-dropping-light: #E8F5E9;
+$color-dropping-dark: #4CAF50;
+$color-preview-item: white;
+$color-disabled: #F5F5F5;
+$color-card: #FFFFFF;
+$color-background: #90A4AE;
+$color-loader: #90A4AE;
+
+$color-button-1: #607D8B;
+$color-button-2: #FFFFFF;
+
+.container {
+  width:100%;
+  height:100%;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+.card {
+  min-width: 288px;
+  margin: auto;
+  width: 500px;
+  font-weight: lighter;
+  max-width: calc(100% - 32px);
+  padding: 1.5em 1em;
+  position: relative;
+  background: $color-card;
+  color: $color;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(black, .35), 0 3px 6px rgba(black, .65);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.fileDrag {
+  $gap: 10px;
+  $speed: 1s;
+  $stroke: 1px;
+  cursor: default;
+  background-color: $color-drop-light;
+  color: $color-drop-dark;
+  background-image: 
+    linear-gradient(to top, currentColor $gap,$color-card  $gap),
+    linear-gradient(to right, currentColor $gap,$color-card  $gap),
+    linear-gradient(to bottom, currentColor $gap,$color-card  $gap),
+    linear-gradient(to left, currentColor $gap,$color-card  $gap);
+  background-size: 
+    $stroke $gap*2,
+    $gap*2 $stroke,
+    $stroke $gap*2,
+    $gap*2 $stroke;
+  background-repeat: 
+    repeat-y,
+    repeat-x,
+    repeat-y,
+    repeat-x;
+  animation: background-position $speed linear infinite;
+  will-change: background-position;
+  .iconArea {
+    width:20px;
+    height:20px;
+  }
+  &.hover {
+    background-color: $color-dropping-light;
+    color: $color-dropping-dark;
+    .iconArea {
+      svg {
+        animation: bounce 1s infinite ease-in-out;
+      }
+    }
+  }
+  
+  @at-root {
+    @keyframes background-position {
+      from {
+      background-position: 
+        0% 0px,
+        0px 100%,
+        100% 0px,
+        0px 0%;
+      }
+      to {
+      background-position: 
+        0% 4 * $gap,
+        4 * $gap 100%,
+        100% -4 * $gap,
+        -4 * $gap 0%;
+      }
+    }
+  }
+}
+
+
+.preview {
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+  max-width: 200px;
+  max-height: 100px;
+  overflow: auto;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+.previewItem {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin: 5px 0;
+  background: $color-preview-item;
+  
+  &.disabled {
+    background: $color-disabled;
+    pointer-events: none;
+    .button {
+      opacity: 0.5;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  left: -10em;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.loader {
+  height: 60px;
+  width: 60px;
+  position: relative;
+}
+
+.loaderItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  margin: -5px;
+  border-radius: 100%;
+  background: $color-loader;
+  animation: load-item .8s ease-in-out infinite;
+  
+  @for $i from 0 to 3 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: $i*-.2s;
+    }
+  }
+}
+
+@keyframes load-item {
+  from {
+    transform: rotate(0deg) translateY(20px);
+  }
+  to {
+    transform: rotate(360deg) translateY(20px);
+  }
+}
+
+.button {
+  font-size: .8em;
+  margin-right: .5em;
+  padding: .35em .5em;
+  color: currentColor;
+  border: 1px solid;
+  cursor: pointer;
+  background: transparent;
+  color: $color-button-1;
+  white-space: nowrap;
+  font-weight: lighter;
+  text-transform: uppercase;
+  // pointer-events: none;
+  &:hover, &:focus {
+    background: $color-button-1;
+    border-color: $color-button-1;
+    color: $color-button-2;
+  }
+  &:active {
+    background: mix($color-button-1, $color-button-2, 90%);
+    border-color: mix($color-button-1, $color-button-2, 90%);
+    color: $color-button-2;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: $color;
+}
+.fileList {
+
+}
+
+.previewImage {
+  display: inline-block;
+  margin: 2px;
+  padding: 5px;
+  width:100px;
+  height:100px;
+}
+.fileName {
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+.fileExt {
+  flex: 1;
+}
+
+.inputCover {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border-radius: 2px;
+}
+
+
+
+
+.spacer {
+  flex: 1;
+}
+
+.label {
+  width:100%;
+  height:100%;
+}
+

@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+}
+
+.stickyTop {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: white;
+    z-index: 1;
+}
+
+.icon {
+    color: black;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.icon.selected {
+    background-color: blue;
+}
+
+.icon:hover {
+    z-index: 1;
+    transform: scale(2);
+    color: var(--main-color);
+}
+
+.brandGroup {
+    padding:10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    height:fit-content !important;
+    max-height:500px !important;
+    overflow-y: scroll;
+    background-color: white;
+    gap:30px;
+}

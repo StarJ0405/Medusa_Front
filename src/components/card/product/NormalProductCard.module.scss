@@ -1,0 +1,250 @@
+.wrap {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
+}
+
+.wrap.horizontal {
+    margin-top:10%;
+}
+
+.wrap:hover {
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 10%);
+}
+
+.titleArea{
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    
+}
+
+.thumbnail.horizontal {
+    position:absolute;
+    bottom:18%;
+    right:0;
+    width:40%;
+    min-width: 130px;
+    max-width:140px;
+   
+}
+
+.cardWrap {
+    /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.buttonWrap {
+    position:relative;
+    z-index: 99;
+}
+
+.button {
+    border-radius: 50%;
+    position: absolute;
+    width:30px;
+    height:30px;
+}
+
+.cartButton{
+    top : 0% ;
+    right : 5px ;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px #ddd;
+    border-radius: 50%;
+    background-color: white;
+    transform:translateY(-50%);
+}
+
+.cartButton.horizontal{
+    position: absolute;
+    top : 50% ;
+    right : 0 ;
+    width : 30px ;
+    height: 23%;
+    max-width: 25px;
+    max-height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px #ddd;
+    border-radius: 50%;
+    background-color: white;
+}
+.shoppingIcon.activeShopping{
+    color : red ;
+    
+}
+
+.wishButton{
+    top : -50px;
+    right : 5px ;
+    /* border: 1px solid #ddd; */
+    /* box-shadow: 1px 1px #ddd; */
+    background-color: white;
+}
+
+.wishButton.active{
+    /* background-color: salmon; */
+    color : white ;
+    
+}
+
+.wishButton.horizontal{
+    position: absolute;
+    /* transform: translate(730%, -150%); */
+    top : 50% ;
+    right : 37%;
+    width : 6% ;
+    height: 23%;
+    max-width: 25px;
+    max-height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid #ddd; */
+    /* box-shadow: 1px 1px #ddd; */
+    border-radius: 50%;
+    background-color: white;
+}
+
+.likeIcon{
+    color : #ddd ;
+}
+
+.likeIcon.activeLike{
+    color : red ;    
+}
+
+.pricaArea {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+}
+
+.image.horizontal {
+    width:40%;
+    
+    transform: translateX(20%);
+}
+
+.beforePriceArea {
+    background-color: white ;
+}
+
+.currentPriceArea {
+    background-color: var(--main-color);
+}
+
+.priceTag {
+    width:90%;
+    border-radius: 50px;
+    overflow: hidden;
+    border:1px solid var(--main-color);
+    background-color: var(--main-color);
+}
+
+.indexCircle{
+    position:absolute;
+    background-color: #555457;
+    top:0;
+    left:0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+}
+.heart {
+//   width:100%;
+  height:100%;
+  background: none;
+  border: none;
+  padding: 0;
+  // transform : translateX(50%);
+  transform: scale(var(--button-scale, 1)) translateZ(0) translateX(9px);
+  transition: transform .2s;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  .heartFlip {
+      --base: 12px;
+      --duration: .3s;
+      --active: #ea4673;
+      --inactive: #d1d6ee;
+      display :flex;
+      width: var(--base);
+      height: calc(var(--base) + var(--base) / 2);
+      border-radius: calc(var(--base) / 2) calc(var(--base) / 2) 0 0;
+      position: relative;
+      transform-origin: 50% 66.66%;
+      transform-style: preserve-3d;
+      transform: rotate(var(--rotate, -45deg));
+      transition: background var(--duration), transform var(--duration) ease;
+      background: var(--heart-background, var(--inactive));
+      &:before,
+      &:after {
+          content: '';
+          width: calc(var(--base) / 2);
+          height: var(--base);
+          border-radius: var(--pseudo-border-radius, calc(var(--base) / 2) 0 0 calc(var(--base) / 2));
+          position: absolute;
+          left: var(--pseudo-left, -50%);
+          transform-origin: var(--pseudo-origin, 100%) 50%;
+          bottom: 0;
+          background: var(--heart-background, var(--inactive));
+          filter: brightness(var(--pseudo-filter, 50%));
+          transform: translateX(1%) rotateY(var(--pseudo-rotate, 90deg)) translateZ(0);
+          transition: background var(--duration), transform var(--duration) ease, filter var(--duration);
+      }
+      &:after {
+          --pseudo-border-radius: 0 calc(var(--base) / 2) calc(var(--base) / 2) 0;
+          --pseudo-left: 100%;
+          --pseudo-origin: 0;
+          filter: brightness(var(--pseudo-filter-second, 100%));
+          transform: translateX(-1%) rotateY(var(--pseudo-rotate-second, 0deg)) translateZ(0);
+      }
+  }
+  &.active {
+    --button-scale: .95;
+      .heartFlip {
+          --rotate: 45deg;
+          --pseudo-filter: 100%;
+          --pseudo-filter-second: 50%;
+          --pseudo-rotate: 0deg;
+          --pseudo-rotate-second: 90deg;
+          --heart-background: var(--active);
+      }
+  }
+}
+
+// .heart {
+//   background: none;
+//   border: none;
+//   padding: 0;
+//   transform: scale(var(--button-scale, 1)) translateZ(0);
+//   transition: transform .2s;
+//   &:active {
+//       --button-scale: .95;
+//   }
+// }

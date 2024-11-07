@@ -1,0 +1,14 @@
+.questionsWrap{
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px #aaa;
+    padding: 10px ;
+}
+
+.questionContent{
+    font-size : 14px ;
+}
+
+.answer{
+    color : skyblue ;
+}

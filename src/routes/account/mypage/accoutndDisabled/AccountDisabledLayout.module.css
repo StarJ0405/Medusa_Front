@@ -1,0 +1,16 @@
+.horizontalLine{
+    width: 100%;
+    height: 2px;
+    background-color: var(--line-color-lg);
+}
+
+.line{
+    width : 100% ;
+    height: 1px;
+    background-color: var(--line-color);
+}
+
+.iconWrap{
+    
+    width: 20px;
+}

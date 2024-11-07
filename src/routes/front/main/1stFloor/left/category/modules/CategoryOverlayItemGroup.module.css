@@ -1,0 +1,30 @@
+.itemGroup {
+    padding:5px;
+  }
+  
+  .hashTagArea {
+    padding-bottom: 5px;
+  }
+
+  .hashTag {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-large);
+    cursor: pointer;
+  }
+  
+  
+  .hashTag:hover {
+    color: orangered;
+  }
+  
+  .item {
+    font-size: var(--font-size-small);
+    cursor: pointer;
+    /* padding-left: 10px; */
+    margin: 5px 3px 3px 0px;
+  }
+  
+  .item:hover {
+    color: #ff472e;
+    text-decoration: underline;
+  }

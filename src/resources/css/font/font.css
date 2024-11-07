@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "GmarketSansBold";
+    font-display: fallback;
+    src: url("./GmarketSansTTFBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "LeferiBaseRegular";
+    font-display: fallback;
+    src: url("./LeferiBaseRegular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "LeferiPointWhite";
+    font-display: fallback;
+    src: url("./LeferiPointWhite.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cafe24Ohsquare";
+    font-display: fallback;
+    src: url("./Cafe24Ohsquare.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cafe24Ohsquareair";
+    font-display: fallback;
+    src: url("./Cafe24Ohsquareair.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ZCOOLXiaoWei";
+    font-display: fallback;
+    src: url("./ZCOOLXiaoWei-Regular.ttf") format("truetype");
+}

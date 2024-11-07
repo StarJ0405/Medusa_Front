@@ -1,0 +1,122 @@
+.container{
+    background-color: white;
+    height: 100%;
+    
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    padding : 20px ;
+    background-color: white;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #5471e6;
+    color: white;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.button {
+    background-color: #5471e6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+
+.productWrap{
+    padding : 0 10px ;
+}
+
+.productWrap:hover{
+    padding : 0 10px ;
+    background-color: #54712630;
+}
+
+.label {
+    display: inline-block;    
+}
+
+.checkbox {
+    height:30px;
+    background-color: #ffffff;
+    
+}
+
+input[type=checkbox] {
+    display: none;
+    
+  }
+
+.checkboxIcon{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.checkboxIcon::before, .checkboxIcon::after{
+    content : '' ;
+    display: inline-block;
+    width : 3px ;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(102,102,102);
+    position: absolute ;
+    transform-origin: left top;
+    
+}
+.checkboxIcon::before{
+    top: 10px ;
+    left : 2px ;
+    transform: rotate(-25deg);
+}
+
+.checkboxIcon::after{
+    top : 28px ;
+    left : 12px ;
+    transform: rotate(-145deg);
+    height: 27px;
+}
+.checkbox input:checked + .checkboxIcon {
+    border-color: rgb(102,102,102);
+  }
+
+.checkbox input:checked + .checkboxIcon::before{
+    width: 3px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--admin-main-color);
+    transition: all 0.15s ease;
+}
+.checkbox input:checked + .checkboxIcon::after{
+    width: 3px;
+    height: 27px;
+    border-radius: 10px;
+    background-color: var(--admin-main-color);
+    transition: all 0.15s ease 0.15s ;
+}
+.memoIcon{
+    filter: invert(41%) sepia(28%) saturate(5704%) hue-rotate(215deg) brightness(98%) contrast(84%);   
+}

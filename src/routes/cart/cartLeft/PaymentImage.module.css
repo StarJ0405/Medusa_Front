@@ -1,0 +1,12 @@
+.paymentImage {
+  width: 76px;
+  height: 32px;
+  background-color: #99ccff;
+  cursor: pointer;
+  color: white;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,33 @@
+.container{
+    padding : 15px ;
+    background-color: var(--main-color-dark) ;
+    color : white ;
+    font-weight: bold;
+    
+    opacity: 0.8;
+  }
+
+  .accountArea{
+    padding-left : 10px ;
+    
+    display: flex;
+    background-color: var(--main-color-dark) ;
+    
+    color : white ;
+    gap: 20px ;
+    line-height: 38px;
+    font-size : 18px ;
+    font-weight: bold;
+  }
+  
+  .account{
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size : 22px ;
+  }
+  
+  .setting{
+    padding-right: 15px;
+    cursor: pointer;
+  }
+  

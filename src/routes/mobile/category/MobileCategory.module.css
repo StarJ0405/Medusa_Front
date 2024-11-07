@@ -1,0 +1,30 @@
+.container {
+    background-color: white;
+}
+
+.listWrap {
+    height: initial;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 30%;
+}
+
+.tagImage {
+    width: 100%;
+}
+
+.mobileSearchBar {
+    position: fixed;
+    top: var(--headerHeight);
+    height: 35px;
+    z-index: 1000;
+    padding: 0px 10px 5px 10px;
+    background-color: #f2f2f2;
+}

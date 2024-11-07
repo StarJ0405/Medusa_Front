@@ -1,0 +1,40 @@
+:root {
+    --headerHeight : 50px;
+    --footerHeight : 60px;
+}
+
+.container {
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.headerArea {
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 100;
+    height:var(--headerHeight);
+    background-color: #f4f4f4;
+}
+
+.mainArea {
+    background-color: #f4f4f4;
+}
+
+.footerArea {
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    height:var(--footerHeight);
+    z-index: 100;
+    background-color: white;
+}
+
+.dummyForHeader {
+    height:var(--headerHeight);
+}
+
+.dummyForFooter {
+    height:var(--footerHeight);
+}

@@ -1,0 +1,11 @@
+.productCard {
+    /* background-color: white; */
+    /* margin-left: 5px; */
+    border-radius: var(--border-radius-normal);
+    overflow: visible;
+    
+}
+
+.productCard:first-child {
+    /* margin-left: 0px; */
+}

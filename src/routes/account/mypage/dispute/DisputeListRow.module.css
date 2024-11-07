@@ -1,0 +1,24 @@
+.wrap{
+    border-bottom: 1px solid #999;
+    
+}
+
+.imgWrap{
+    width: 120px;
+    padding : 10px ;
+}
+
+.border{
+    border-right: 1px solid #999;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.detailButton{
+    font-size : 10pt ;
+    color : #999 ;
+    cursor: pointer;
+}

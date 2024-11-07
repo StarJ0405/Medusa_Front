@@ -1,0 +1,69 @@
+.swiper {
+    width:100%;
+    height:100%;
+    border-radius: 0px;
+}
+
+.swiper-slide {
+    /* width:100% !important;
+    height:100% !important; */
+}
+
+.swiper-slide > div {
+    background-color: transparent !important;
+    /* width:100% !important;
+    height:100% !important; */
+}
+
+.swiper-pagination {
+    height:15px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #e6e6e6 !important;
+    opacity: 1 !important;
+    height:6px !important;
+
+}
+.swiper-pagination-bullet-active {
+    /* width:15px !important; */
+    /* border-radius: 5px !important; */
+    background-color: var(--main-color) !important;
+}
+
+.swiper > .swiper-button-prev, .swiper > .swiper-button-next {
+    display: flex;
+    color:white !important;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.swiper-button-prev {
+    left:0px !important;
+}
+
+.swiper-button-next {
+    right:0px !important;
+}
+
+
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    font-size:20px !important;
+}
+
+.bannerSwiper > .swiper-button-prev, .bannerSwiper > .swiper-button-next {
+    display: none !important;
+}
+
+.swiper:hover > .swiper-button-prev, .swiper:hover > .swiper-button-next {
+    display: flex !important;
+}
+
+.swiper-button-disabled {
+    display:none !important;
+}
+
+.swiper:hover > .swiper-button-disabled {
+    display:none !important;
+}

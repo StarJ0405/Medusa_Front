@@ -1,0 +1,27 @@
+.signInButton {
+  width: 100%;
+  height: 34px;
+  background-color: orange;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.messageTextBox {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.buttonBox {
+  padding-top: 10px;
+}
+.sellerRegister {
+  color: #08c;
+  margin-left: auto;
+}
+
+.sellerRegisterBox {
+  width: 100%;
+}

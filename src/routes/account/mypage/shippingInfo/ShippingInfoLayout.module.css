@@ -1,0 +1,30 @@
+.horizontalLine{
+    width: 100%;
+    height: 2px;
+    background-color: #999;
+}
+.topLine{
+    border-bottom: 2px solid var(--line-color-lg);
+    }
+    
+
+.line{
+    width : 100% ;
+    height: 1px;
+    background-color: #eee;
+}
+
+.iconWrap{
+    width: 20px;
+}
+
+.borderBottom{
+    border-bottom: 1px solid var(--line-color);
+}
+
+.circle{
+    width : 30px ;
+    height: 30px;
+    border : 8px solid var(--main-color) ;
+    border-radius: 50%;
+}

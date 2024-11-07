@@ -1,0 +1,41 @@
+.header{
+    border-bottom: 1px solid  var(--line-color-lg);
+}
+
+.wrap{
+   height: 75vh;
+}
+
+.borderBottom{
+    border-bottom: 1px solid #999;
+    
+}
+
+.photoBox{
+    cursor: pointer;
+    height: 55px;
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex : 0 1 90%   ;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    padding-top: 60px ;
+    width: 30%;
+}
+
+.textareaWrap{
+    position: relative;
+    padding: 0 15px 15px 15px ;
+}
+
+.textLength{
+    font-size:  9pt;
+    color : var(--main-color) ;
+    position : absolute ;
+    bottom: 15%;
+    right: 7% ;
+}

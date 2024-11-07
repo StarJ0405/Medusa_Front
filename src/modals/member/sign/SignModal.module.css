@@ -1,0 +1,22 @@
+.dummyImg{
+    width: 70px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+
+.titleLine{
+    width : 100% ;
+    height: 2px;
+    background-color: #999;
+}
+
+.line{
+    width : 100% ;
+    height: 1px;
+    background-color: var(--line-color);
+}
+
+.wrap{
+    padding : 10px ;
+}

@@ -1,0 +1,167 @@
+.wrap {
+    position : relative;
+    display: flex;
+    gap:10px;
+}
+
+.sidePanel {
+    border: 1px solid #ddd;
+    padding : 20px 10px ;
+    background-color: white;
+    width:max(20%, 350px);
+    height:100%;
+    position : sticky;
+    top:100px;
+}
+
+.header {
+    background-color: white;
+    // border-bottom:1px solid black;
+}
+
+.footer {
+    height:100%;
+    z-index: 4000;
+    text-align: right;
+}
+
+.footer.mobile {
+    background-color: white;
+}
+
+
+.summaryContainer{ 
+    background-color: white;
+}
+
+.summaryWrap {
+    width:100%;
+    height:100%;
+    border:1px solid red;
+}
+
+.patternWrap {
+    background-color: white;
+    padding:0px;
+}
+
+
+.thumbnailArea {
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 500px;
+}
+
+.thumbnailImageArea {
+    padding:35% 15% 10% 15%;
+}
+
+.imageWrap {
+    position:relative;
+}
+
+.thumbnailImage {
+    width:100%;
+    margin:auto;
+}
+
+.productSupport {
+    width:100%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(40%);
+    left:0;
+    z-index: 1;
+}
+
+.productOverlay {
+    position:absolute;
+}
+.specArea {
+
+}
+
+.specIcon {
+    width:100%;
+}
+
+.priceWrap{
+    padding : 10px 20px;
+    background-color: #fd384f;
+    border-radius: 5px;
+}
+
+
+.quantityWrap{
+    padding : 15px ;
+}
+
+.quantity::before{
+    content : "남은 수량 : " ;
+}
+
+.buttonWrap{
+    display: flex;
+    height:initial;
+    background-color: white;
+    border:1px solid black;
+}
+
+.deliveryTitle{
+    font-weight: bold;
+    font-size : 18px ;
+    padding: 10px 0;
+}
+
+.delivery{
+    font-size: 14px;
+    padding : 10px 0 35px 10px ;
+}
+
+.inputWrap{
+    width : 200px ;
+}
+
+.productTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.searchBarArea {
+    padding: 5px 0px;
+    .searchBar {
+        border:1px solid var(--main-color);
+        overflow: hidden;
+        background-color: white;
+        border-radius: 50px;
+        .searchTextArea {
+            padding:0px 20px;
+            .searchTextInput {
+                width:100%;
+                height:100%;
+                background-color: transparent;
+            }
+        }
+    }
+    .searchButtonArea {
+        text-align: center;
+        height:initial;
+    }
+}
+
+.text{
+    color : rgb(200,200,200) ;
+    font-weight: bold;
+}
+
+.guide{
+    padding-bottom: 10px;
+}
+
+.textContent{
+    font-weight: bold;
+}

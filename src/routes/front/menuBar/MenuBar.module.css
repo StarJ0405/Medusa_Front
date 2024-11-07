@@ -1,0 +1,26 @@
+.container {
+    height:40px;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+  
+}
+.container.mobile {
+    position : sticky;
+    top:50px; 
+    z-index: 999;
+}
+
+.menu {
+    font-size: 17px;
+    font-weight:700;
+    cursor: pointer;
+}
+
+.menu.active {
+    color:var(--main-color);
+}
+
+.menu.mobile {
+    font-size: 12px;
+    cursor: pointer;
+}

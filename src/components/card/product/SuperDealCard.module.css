@@ -1,0 +1,41 @@
+.wrap {
+    padding:2%;
+    /* box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%); */
+}
+
+.card {
+    cursor: pointer;
+    background-color: white;
+    /* border:1px solid #ddd; */
+}
+
+.card:hover {
+    box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
+}
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+}
+
+.beforePriceArea {
+    height :100%;
+}
+
+.currentPriceArea {
+    background-color: var(--main-color);
+}
+
+.priceTag {
+    width:90%;
+    border-radius: 50px;
+    overflow: hidden;
+    border:1px solid var(--main-color);
+    background-color: var(--main-color);
+}

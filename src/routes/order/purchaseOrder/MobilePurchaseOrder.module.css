@@ -1,0 +1,12 @@
+.container{
+    cursor: pointer;
+    border-bottom: 1px solid #bbb;
+}
+
+.row{
+    padding : 5px ;
+    white-space: wrap;
+}
+.rowQuantity{
+    padding-right: 15px;
+}

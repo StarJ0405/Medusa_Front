@@ -1,0 +1,46 @@
+.container{
+    padding : 20px ;
+    background-color: white;
+}
+
+.newCard{
+    display: flex;
+    background-color: #FFF7F4 ;
+    padding-left : 15px ;
+    align-items: center;
+    
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.cardImg{
+    color : red ;
+}
+
+.slash{
+    line-height: 50px;
+}
+
+.border{
+    width : 100% ;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #ddd;
+}
+
+.contentWrap{
+    display: flex;
+    padding-top: 30px;
+}
+
+.radio{
+    margin-top: 5px;
+    margin-right : 10px ;
+}
+
+.guide{
+    font-size: 12px;
+}

@@ -1,0 +1,38 @@
+.themeArea {
+  display: flex;
+  width: 200px;
+
+  background-color: white;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  margin-right: 40px;
+
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.name {
+  width: 110px;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.themeArea:hover > .name {
+  color: #ff472e;
+}
+
+.imgArea {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+
+  border-radius: 5px;
+  background-color: plum;
+  transform: translateY(-10px);
+}
+.img {
+  width: 100%;
+  height: 100%;
+}

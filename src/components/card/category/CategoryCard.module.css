@@ -1,0 +1,82 @@
+.wrap {
+    width:100px;
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.wrap.horizontal {
+    margin-top:10%;
+}
+
+.wrap:hover {
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 10%);
+}
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.thumbnail.horizontal {
+    position:absolute;
+    bottom:20%;
+    right:0;
+    width:40%;
+    min-width: 130px;
+    max-width:140px;
+   
+}
+
+.cardWrap {
+    /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.card {
+    width:120px;
+    padding:10px 0px;
+    user-select: none;
+}
+
+.titleArea {
+
+}
+
+.pricaArea {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+}
+
+.image.horizontal {
+    width:40%;
+    transform: translateX(20%);
+}
+
+.beforePriceArea {
+    background-color: white;
+}
+
+.currentPriceArea {
+    background-color: var(--main-color);
+}
+
+.priceTag {
+    width:90%;
+    border-radius: 50px;
+    overflow: hidden;
+    border:1px solid var(--main-color);
+    background-color: var(--main-color);
+}

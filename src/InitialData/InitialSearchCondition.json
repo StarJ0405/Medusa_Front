@@ -1,0 +1,31 @@
+{
+    "keyword": null,
+    "price": {
+        "from": 0,
+        "to": 30000
+    },
+    "brands": [],
+    "categories": [],
+    "cooling": {
+        "from": 0,
+        "to": 5
+    },
+    "weight": {
+        "from": 0,
+        "to": 5
+    },
+    "blow": {
+        "from": 0,
+        "to": 5
+    },
+    "fresh": {
+        "from": 0,
+        "to": 5
+    },
+    "sweet": {
+        "from": 0,
+        "to": 5
+    },
+    "productId" : null,
+    "promotions" : []
+}

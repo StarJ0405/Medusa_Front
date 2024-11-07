@@ -1,0 +1,23 @@
+.questionArea{
+    background-color: white;
+    padding : 10px ;
+}
+
+.question{
+    font-weight: bold;
+}
+
+.color{
+    color : skyblue ;
+}
+
+.original{
+    color : cornflowerblue ;
+    font-size: 14px;
+    padding : 5px ;
+}
+
+.date{
+    font-size: 14px;
+    color : #aaa ;
+}

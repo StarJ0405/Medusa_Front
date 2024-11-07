@@ -1,0 +1,26 @@
+.thumbnail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailOverlay {
+    position: absolute;
+    width:100%;
+    height:100%;
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailVideo {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailVideo > iframe {
+    width: 100%;
+    height: 100%;
+}

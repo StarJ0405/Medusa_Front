@@ -1,0 +1,48 @@
+.swiperWrap{
+    background-color: transparent;
+    padding : 30px ;
+}
+
+.mobileSwiperWrap{
+    background-color: transparent;
+    padding : 10px ;
+}
+
+.indexCircle{
+    background-color: #555457;
+    width: 25px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : white ;
+}
+.imgIndexCircle{
+    position: absolute;
+    top : 2% ;
+    left: 3%;
+    background-color: #555457;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+    opacity: 0.8;
+}
+
+.imgMobileIndexCircle{
+    position: absolute;
+    top : 3% ;
+    left: 3%;
+    background-color: #555457;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color : white ;
+    opacity: 0.8;
+}

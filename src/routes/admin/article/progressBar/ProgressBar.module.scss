@@ -1,0 +1,33 @@
+.progressBarContainer {
+    height: 40px;
+    width: 100%;
+    background-color: #e0e0de;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progressBarFiller {
+    height: 100%;
+    border-radius: inherit;
+    text-align: right;
+}
+
+.progressBarLabel1 {
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 7%;
+    font-size: 17pt;
+    
+}
+
+.progressBarLabel2 {
+    padding: 5px;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 2%;
+    font-size: 17pt;
+}

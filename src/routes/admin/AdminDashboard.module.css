@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    touch-action: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dropzone {
+    flex: 1;
+    gap:10px;
+    width:100%;
+    height: 100vh;
+  }
+  
+  .dropzone.left {
+  }
+  
+  .gridItem {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding:5px;
+  }
+  
+  .gridItemContent {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+  }
+  

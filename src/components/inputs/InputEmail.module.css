@@ -1,0 +1,64 @@
+.wrap{
+    position: relative;
+    transition : all .1s;
+    
+}
+.wrap.vaild{
+    
+    transition : all .1s;
+}
+
+.wrap.active{
+    border-bottom: 2px solid var(--main-color);
+    transition : all .1s;
+}
+.wrap.disabled{
+    background-color: var(--user-bg-color) !important;
+    
+}
+
+.placeHolder{
+    position: absolute;
+    top: -10px;
+    color: var(--font-faint-color) ;
+    transition : all .1s;
+    pointer-events: none;
+    padding: 0 0 0 20px;
+}
+
+.placeHolder:focus{
+    
+}
+
+.placeHolder.active{
+    top: 0 ;
+    font-weight: bold;
+    font-size: 10.5px ;
+    color: var(--font-color);
+    transition : all .1s;
+    
+}
+
+.defaultPlaceHolder{
+    top: 13px ;
+    
+}
+
+.readOnly{
+    font-weight: bold;
+    font-size: 10.5px ;
+    color: var(--font-color);
+    transition : all .1s;
+    top: -10px ;
+    
+}
+
+
+
+.flex{
+    display: flex;
+}
+
+.flex > div{
+    font-size: 9px ;
+}

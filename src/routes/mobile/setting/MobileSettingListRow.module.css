@@ -1,0 +1,13 @@
+.list{
+    padding : 10px ;
+    font-size: 14px;
+}
+
+.listOption{
+    padding-right: 15px;
+    font-size: 14px ;
+}
+
+.container{
+    cursor: pointer;
+}

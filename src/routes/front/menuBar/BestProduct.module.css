@@ -1,0 +1,51 @@
+.wrap {
+  padding: 15px;
+  width: max-content;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.area {
+  width: 100%;
+  height: 900px;
+  background-color: black;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.mobileSearchBar {
+  position: fixed;
+  top: var(--headerHeight);
+  height: 35px;
+  z-index: 1000;
+  padding: 0px 10px 5px 10px;
+  background-color: #f2f2f2;
+}
+
+.topBg{
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+}
+
+.cardWrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex : 1 1 min(200px, 40%) ;
+  flex-wrap: wrap;
+  gap : 15px ;
+}

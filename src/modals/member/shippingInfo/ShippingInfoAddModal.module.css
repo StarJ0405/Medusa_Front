@@ -1,0 +1,13 @@
+.wrap{
+    height: max-content;
+    
+    
+}
+.pure > div > div > div {
+    /* width:initial; */
+}
+
+
+.button{
+    width : 200px ;
+}

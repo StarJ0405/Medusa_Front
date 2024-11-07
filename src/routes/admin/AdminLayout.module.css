@@ -1,0 +1,10 @@
+.container {
+    display:inline-block;
+    height:100vh;
+}
+
+.menuBar{
+    display:inline-block;
+    background-color: white;
+}
+

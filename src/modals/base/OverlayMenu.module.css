@@ -1,0 +1,112 @@
+.mask {
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    animation: modal-bg-show 250ms;
+}
+
+.wrap {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal {
+    position: fixed;
+    right:0px;
+    top:0px;
+    overflow: hidden;
+    /* border-radius: 0px 10px 10px 0px; */
+    text-align: center;
+    background-color: white;
+    word-break: break-all;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation: modal-show 250ms;
+}
+
+.header {
+    font-weight: 700;
+    /* border-radius: 10px 10px 0px 0px; */
+    border-bottom: 1px solid #dee2e6;
+    height:50px;
+}
+
+.headerCloseButton {
+    width: 100%;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+
+.headerTitle {
+    text-align: left;
+    color: white ;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: #f1f1f1;
+    border-top: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: right;
+}
+
+.footer>button {
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: #999;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+
+@keyframes modal-show {
+    from {
+        margin-left: -80%;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes modal-bg-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,85 @@
+
+.accountArea{
+  padding-left : 10px ;
+  
+  display: flex;
+  background-color: var(--main-color-dark) ;
+  color : white ;
+  gap: 20px ;
+  line-height: 38px;
+  font-size : 18px ;
+  font-weight: bold;
+}
+
+.account{
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size : 22px ;
+}
+
+.signUpWrap{
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.signUp{
+  color : #2E90FF ;
+}
+
+.title{
+  font-size: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.orderHeaderWrap{
+  padding : 15px ;
+  background-color: var(--main-color-dark) ;
+  color : white ;
+  font-weight: bold;
+}
+
+
+.footerArea {  
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  height:var(--footerHeight);
+  z-index: 100;
+  background-color: white;
+}
+
+.setting{
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+
+.myProfileWrap{
+  background-color: white;
+  padding : 10px ;
+}
+
+.profileWrap{
+  padding-left: 15px;
+}
+
+.myPageWrap{
+  padding-top: 10px;
+}
+
+.point{
+  padding-left: 10px;
+}
+
+.progressBarWrap{
+  width : 100% ;
+  height: 100%;
+}
+
+.number{
+  padding-right: 10px;
+}

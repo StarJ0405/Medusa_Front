@@ -1,0 +1,114 @@
+.titleContainer{
+    background-color: #666;
+    position: relative;
+}
+
+.titleWrap{
+    position : absolute ;
+    background-color: rgba(0,0,0,0.6);
+    color : white ;
+    width : 500px ;
+    height: 120px;
+    left : 140px ;
+    top : 20% ;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    line-height: 75px;
+}
+
+.subTitle{
+    font-size: 18px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.refundContainer{
+    background-color: white;
+    padding : 30px 80px 30px 30px ;
+    border-bottom-left-radius:5px ;
+    border-bottom-right-radius: 5px;
+    
+}
+
+.refunded{
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.refundedContent{
+    padding-top : 10px ;
+    height: 120px;
+    font-size : 15px ;
+}
+
+.refundedWrap{
+    border-bottom: 1px dotted black;
+}
+
+.link{
+    color : rgb(46, 156, 195) ;
+    cursor: pointer;
+    width :max-content;   
+}
+
+.border{
+    height: 10px;
+    border-bottom: 3px dotted #ddd;
+}
+
+.refundedItem{
+    padding : 35px ;
+}
+.refundedItemTitle{
+    font-size: 24px;
+    height: 80px;
+}
+
+.refundGuideContainer{
+    background-color: white;
+    padding : 30px 80px 30px 30px ;
+    margin-top : 20px;
+    border-radius: 5px;
+}
+.refundGuideTitle{
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 10px;
+    padding-top: 50px ;
+}
+
+.refundGuideSubTitle{
+    font-size: 24px;
+    padding-bottom: 10px;
+    padding-top : 10px ;
+}
+
+.refundGuideContent{
+    font-size: 14px;
+    padding-top : 10px ;
+}
+
+.linkConsumers{
+    color : #06C ;
+    cursor: pointer;
+    width :max-content;
+    padding-top: 60px;
+    padding-bottom: 10px;
+}
+.question{
+    padding-top: 20px;
+    font-size : 18px ;
+}
+.chatLink{
+    padding-top:20px ;
+    padding-bottom: 30px;
+    cursor: pointer;
+    color : rgb(46, 156, 195) ;
+}

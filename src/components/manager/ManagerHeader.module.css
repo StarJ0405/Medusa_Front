@@ -1,0 +1,14 @@
+.navContainer {
+    width:initial;
+    position:fixed;
+    top:0;
+    right:0;
+    transform: translate(-10px, 25%);
+}
+
+.nav {
+    display: flex;
+    flex : 0 1;
+    flex-direction: row;
+    align-items: center;
+}

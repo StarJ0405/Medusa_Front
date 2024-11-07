@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+    background-color: white;
+}
+
+.container.mobile {
+    background-color: white;
+}
+
+.sticky {
+    position: sticky;
+    top:0;
+    z-index: 1000;
+}

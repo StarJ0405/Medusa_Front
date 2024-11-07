@@ -1,0 +1,52 @@
+.container {}
+
+
+.wrapper {
+  padding: 20px 28px;
+  margin: 0;
+  height: 300px;
+  background-color: #273c75;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  border: solid 2px white;
+  margin: 0 auto;
+
+}
+
+.input {
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 8px;
+  width: 100%;
+  color: #666;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+.title {
+  font-size: 48px;
+  color: white;
+}
+
+
+.tagContainer {
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+}
+
+.button {
+  width: 130px;
+  height: 38px;
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 32px;
+  margin: 0 auto;
+}

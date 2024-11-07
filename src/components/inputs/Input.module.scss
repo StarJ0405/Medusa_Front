@@ -1,0 +1,182 @@
+.wrap {
+    position:relative;
+    display: table;
+    height: 100%;
+    overflow: hidden;
+    .input {
+        height:31px;
+        // height:100%;
+        border-top : 1px solid #ddd ;
+        border-bottom: 1px solid #ddd;
+        width:100%;
+        // box-shadow: 2px 2px 2px 2px  #666;
+        // &.input:focus {
+        //     transition: all .1s;
+        //     border : 2px solid orange;
+            
+        // }
+    }
+}
+
+
+.input.moveUp {
+    top:10px;
+}
+.input.invalid{
+    // border : 2px solid red;
+}
+
+.input.valid{
+    // border : 1px solid #666 ;
+}
+
+.input.displayNone{
+    display: none;
+}
+
+.placeHolderArea {
+    display: table-cell;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    left:20px;
+    pointer-events: none;
+}
+
+.placeHolder {
+    pointer-events: none;
+    color:gray;
+    text-align: left;
+    vertical-align: middle;
+    font-size: var(--font-size-2xlarge);
+}
+
+.input {
+    height : 31px;
+    text-align: center;
+    font-size: var(--font-size-2xlarge);
+    
+    
+}
+
+.input.withPlaceHolder {
+    padding-top:15px;
+}
+
+.input:focus + .placeHolderArea > div > .placeHolder,
+.input:focus + .placeHolderArea > div > .moveUp,
+.input:valid + .placeHolderArea > div > .moveUp {
+    vertical-align: top;
+    font-size: var(--font-size-normal);
+    transition : all .1s;
+}
+
+.buttonArea {
+    display:grid;
+    align-items:center;
+    justify-items: end; 
+    position:absolute;
+    top:0px;
+    right:20px;
+    text-align: right;
+    pointer-events: none;
+}
+
+.clearButton {
+    display: table-cell;
+    pointer-events: all;
+    display: inline-block;
+    width:18px !important;
+    height:18px !important;
+    border-radius: 50%;
+    color:white;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+    cursor: pointer;
+
+}
+
+.requestMessage {
+    display:none;
+    font-size: 14px;
+    width: 100%;
+    padding-top : 5px ;
+    align-self: left;
+    text-align: left;
+    color: var(--emailAddressFontError-font-color);
+ }
+
+ .requestMessage.active {
+    display:block;
+ }
+
+.labelId{
+    width : 100px ;
+    text-align: left;
+    line-height: 45px;
+        
+}
+
+.labelWrap{
+    display: flex;
+}
+
+.leftArrow{
+    background-color: white;
+    width : 35px ;
+    height: 31px;
+    border: 1px solid #ddd ;
+    border-top-left-radius:5px ;
+    border-bottom-left-radius: 5px;
+    color : #bbb ;
+    cursor: pointer;
+    user-select: none;
+}
+.leftArrow.active{
+    background-color: #eee;
+}
+
+.rightArrow{
+    background-color: white;
+    border: 1px solid #ddd ;
+    width : 35px ;
+    height: 31px;
+    border-bottom-right-radius:5px ;
+    border-top-right-radius: 5px;
+    color : #bbb ;
+    cursor: pointer;  
+    user-select: none;
+}
+
+.tagContainer {
+    display: flex;
+    flex-flow: row wrap;
+    height: auto;
+}
+
+.lineHeight{
+    line-height: 40px;
+}
+
+.inputTextWrap{
+    position: relative;
+}
+
+.buttonArea2{
+    display:grid;
+    align-items:center;
+    justify-items: end; 
+    position:absolute;
+    top:0px;
+    right:20px;
+    text-align: right;
+    pointer-events: none;
+}
+
+.displayNone{
+    display: none;
+}
+

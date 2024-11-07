@@ -1,0 +1,23 @@
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0;
+    height:initial;
+}
+
+.button{
+    width: max-content ;
+    padding : 5px 15px 5px 15px ;
+    background-color: #ddd;
+    white-space: nowrap ;
+    border: 3px solid #eee;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.button.active{
+    background-color: white;
+    /* opacity: 0.8; */
+    border: 3px solid var(--main-color);
+    color : var(--main-color) ;
+}

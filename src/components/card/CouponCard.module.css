@@ -1,0 +1,134 @@
+:root {
+    --punchhole-size:5px;
+    --punchhole-border-size:100vw;
+    --coupon-left-color : var(--main-color);
+    --coupon-right-color : var(--main-color);
+    --coupon-cuttingline-color : white;
+}
+
+.coupon {
+    display: inline-block;
+    /* border-radius: 8px; */
+    overflow: hidden;
+    -webkit-animation: blink 0.3s linear 0s infinite alternate;
+    -webkit-mask: radial-gradient(circle at 10px, #0000 3px, red 0); 
+  -webkit-mask-position: -10px;
+  -webkit-mask-size: 100% 10px;
+}
+
+.left > .content {
+    position:absolute;
+    top:0px;
+    z-index: 2;
+    padding:5px 10px;    
+}
+
+.right > .content {
+    position:absolute;
+    top:0px;
+    z-index: 2; 
+}
+
+.left > .content:after {
+    content : "";
+    position: absolute;
+    top: calc(var(--punchhole-size) * 0.5);
+    right    : -1.5px;
+    height  : calc(100% - var(--punchhole-size));
+    border-right: 2px dotted var(--coupon-cuttingline-color);
+}
+
+.left {
+    width:80%;
+    display:inline-block;
+    position:relative;
+    overflow: hidden;
+}
+
+.right {
+    width:20%;
+    display:inline-block;
+    position:relative;
+    overflow: hidden;
+}
+
+.top {
+    height: 50%;
+    position:relative;
+    overflow: hidden;
+}
+
+.bottom {
+    height: 50%;
+    position:relative;
+    overflow: hidden;
+}
+
+.punchHole {
+    position:absolute;
+    width:var(--punchhole-size);
+    height:var(--punchhole-size);
+    border-radius: 50%;
+    box-sizing: content-box;
+    
+}
+
+.left > .top > .punchHole {
+    top : calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    right: calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    border : var(--punchhole-border-size) solid var(--coupon-left-color);
+}
+
+.left > .bottom > .punchHole {
+    bottom : calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    right: calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    border : var(--punchhole-border-size) solid var(--coupon-left-color);
+}
+
+.right > .top > .punchHole {
+    top : calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    left : calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    border : var(--punchhole-border-size) solid var(--coupon-right-color);
+}
+
+.right > .bottom > .punchHole {
+    bottom : calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    left: calc(calc(var(--punchhole-size) * -0.5) - var(--punchhole-border-size));
+    border : var(--punchhole-border-size) solid var(--coupon-right-color);
+}
+
+.couponAmount {
+    color:white;
+    font-size: var(--font-size-3xlarge);
+    font-weight: var(--font-weight-normal);
+}
+
+.movingIcon {
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    right: calc(50% - 8px);
+    position:absolute;
+    -webkit-animation: motion 0.3s linear 0s infinite alternate;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.movingIconText {
+    color:var(--coupon-right-color);
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+}
+
+        
+@keyframes motion {
+	0% {right: calc(40% - 8px);}
+	100% {right: calc(50% - 8px);}
+}
+
+@keyframes blink {
+	0% {opacity: 1}
+	100% {opacity: 0.85}
+}
+

@@ -1,0 +1,97 @@
+.imgWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 20px 0;
+
+}
+
+.wrap {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.more {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.scarchWrap {
+    display: flex;
+
+}
+
+.selectButton {
+    background-color: white;
+    border: 1px solid #999;
+    padding: 2px 20px;
+    color: #999;
+    display: flex;
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--main-color);
+    height: 60px;
+    padding: 0 20px;
+
+}
+
+.mobileButton {
+    background-color: var(--main-color);
+    height: 40px;
+    padding: 0 20px;
+
+}
+
+.mobileButton:hover {
+    background-color: #999;
+}
+
+.headerWrap {
+    background-color: #eee;
+    padding-left: 15px;
+}
+
+.tableHeaderWrap {
+    background-color: #eee;
+    border-top: 1px solid #999;
+    padding: 5px 0;
+}
+
+.inputWrap {
+    position: relative;
+}
+
+.calendar {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 20px;
+    height: 20px;
+    background-color: #f7f8f8;
+    border-top: 5px solid red;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+
+.active {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.deliveryWrap {
+    padding:0px 20px;
+}
+
+
+.horizontalCardWrap{
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* box-shadow: 1px 2px 2px var(--main-color); */
+}

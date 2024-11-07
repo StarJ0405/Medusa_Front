@@ -1,0 +1,48 @@
+.layout {
+  display: inline-block;
+}
+
+
+
+.outlet {
+  display: inline-block;
+}
+
+
+.categoryHeader {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+}
+
+.categoryArea {
+  position:relative;
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+.categoryRow {
+  padding: 15px 20px;
+  cursor: pointer;
+
+}
+
+.categoryRow:hover {
+  color: var(--main-color);
+}
+
+.categoryOverlay {
+  position:absolute;
+  display:none;
+  top:0;
+  left:100%;
+  width:100%;
+  height:100%;
+  background-color: white;
+  border-left:1px solid #ddd;
+}
+
+.categoryOverlay.show {
+  display:block;
+  box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
+}
+

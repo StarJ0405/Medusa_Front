@@ -1,0 +1,124 @@
+.SlideToggle {
+    display: inline-block;
+    height: 24px;
+    padding: 0.3em;
+    white-space: nowrap;
+  
+    label {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    input {
+      margin: -1px;
+      padding: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      position: absolute;
+    }
+  }
+  
+  .SlideToggle--focused .SlideToggleBar {
+    border: 1px solid #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0, 98, 204, 0.28);
+  }
+  
+  .SlideToggleDisabled {
+    cursor: not-allowed;
+  
+    .SlideToggleBar {
+      background: #e5e5e5;
+    }
+
+    
+
+    
+  
+    .SlideToggleHandle {
+      cursor: not-allowed;
+      background: #bdbdbd;
+    }
+  }
+  
+  .SlideToggleBar {
+    position: relative;
+    font-family: sans-serif;
+    text-align: center;
+    background: #bdbdbd;
+    display: flex;
+    flex-direction: row;
+    width: 38px;
+    border-radius: 1em;
+    height: 12px;
+    
+  
+    &--green {
+      background: #6cc644;
+    }
+    &--blue {
+      background: #157efb;
+    }
+    &--yellow {
+      background: #fdca5c;
+    }
+    &--gold {
+      background: #fda95c;
+    }
+    &--orange {
+      background: #fd8157;
+    }
+    &--pink {
+      background: #fc4d70;
+    }
+    &--violet {
+      background: #dc19a4;
+    }
+    &--red {
+      background: #db3340;
+    }
+  }
+  
+  .SlideToggleHandle {
+    position: absolute;
+    transform: translate3d(1px, 0, 0);
+    top: -4px;
+    left : -1px ;
+    height: 20px;
+    width: 20px;
+    background: #ddd;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    // box-shadow: 0 1px 1px 0px #626262;
+    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+  
+    &--toggled {
+      transform: translate3d(19px, 0, 0);
+      transition: all 0.2s ease;
+      transition-property: transform;
+    }
+  }
+
+  .SlideToggleHandleToggled{
+    transform: translate3d(19px, 0, 0);
+      transition: all 0.2s ease;
+      transition-property: transform;
+      background: var(--main-color);
+  }
+
+  .SlideToggleBar.SlideToggleBarColor {
+    background: var(--couponArea-color-start);
+    
+  }
+  
+  .SlideToggle__label {
+    margin-left: 0.5em;
+    font-size: 0.9rem;
+  }
+  

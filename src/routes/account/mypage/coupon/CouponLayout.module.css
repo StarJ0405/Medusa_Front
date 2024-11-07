@@ -1,0 +1,5 @@
+.header{
+    background-color: var(--box-color);
+    padding:20px 0;
+    border-top: 2px solid var(--font-color-disabled);
+}

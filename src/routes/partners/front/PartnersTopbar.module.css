@@ -1,0 +1,89 @@
+.columns {
+    height:40px;
+    float:left;
+    display: flex;
+}
+
+.column {
+    height:40px;
+    float:left;
+    cursor: pointer;
+}
+.column:hover {
+    background-color: white;
+}
+
+.itemTitle {
+    display: inline-block;
+    padding:0px 5px;
+}
+
+.topBarItem {
+    position:relative;
+    font-size:var(--font-size-small);
+    color:#666;
+    padding:0px 10px;
+    z-index:1001;
+    cursor: pointer;
+    
+}
+
+.topBarItem:hover {
+    color:var(--main-color);
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+}
+
+
+.subItemList {
+    display:none;
+    
+}
+
+.subItemList.show {
+    color:#666;
+    display:block;
+    position:absolute;
+    width: fit-content;
+    height: max-content;
+    top:40px;
+    right:0px;
+    background-color: white;
+    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 10%);
+    padding-top:5px;
+    padding-bottom:10px;
+    
+}
+
+.topBarFlag {
+    width:12px;
+    display: inline-block;
+}
+
+.topBarSubItem {
+    padding:5px 20px;
+    display: inline-block;
+    cursor:pointer;
+}
+.topBarSubItem:hover {
+    color:var(--main-color);
+}
+
+.topBarSubItemTitle {
+    width:70px;
+    display: inline-block;
+}
+
+.topBarSubItemFlag {
+    width:12px;
+    display: inline-block;
+    padding-right:10px;
+}
+
+.logoWrap{
+    line-height: 40px;
+}
+
+.logo{
+    width : 120px ;
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.toolbar {}
+
+.toolbar * {
+    width: auto;
+}
+
+.wrapper {}
+
+.wrapper * {
+    height: auto;
+}
+
+
+.editor {
+    background-color: white;
+
+}
+
+.preview {
+    position: relative;
+    border: 0.0625rem solid #d7e2eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+.pure div{
+    width:auto;
+    height:auto;
+    background-color: white;
+}

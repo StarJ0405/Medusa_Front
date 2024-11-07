@@ -1,0 +1,1 @@
+export const WAS = "http://localhost:8080/";

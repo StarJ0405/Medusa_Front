@@ -1,0 +1,24 @@
+.wrap {
+   
+}
+
+.circle {
+    width: 100%;
+    position: relative;
+    height:initial;
+    border-radius: 50%;
+    max-width:60px;
+    margin: auto;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.titleArea {
+    text-align: center;
+    font-size: min(4vw, 15px);
+    padding:10px 0px 0px 0px;
+}

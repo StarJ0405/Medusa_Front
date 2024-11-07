@@ -1,0 +1,34 @@
+.container{
+    background-color: white;
+    height: 100%;
+}
+
+.titleWrap{
+    padding : 20px ;
+}
+
+
+.selectButton{
+    background-color: white;
+    border: 1px solid #999;
+    padding : 5px 15px ;
+    color : #999 ;
+    display: flex;
+    /* flex: 1 1 100%; */
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    width: max-content;
+    border-radius: 5px;
+}
+
+.active{
+    background-color: var(--admin-table-bg-color);
+    color : var(--admin-main-color) ;
+}
+
+.select{
+    width : 150px ;
+    padding : 5px ;
+    color : #aaa ;
+}

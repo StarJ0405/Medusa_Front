@@ -1,0 +1,35 @@
+.brandImage {
+    width: 100%;
+}
+
+.item{
+    flex: 1 1 31%;
+    border: 1px solid #bbb;
+    padding : 10px ;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.item:hover{
+    background-color: var(--main-color);
+    color : white ;
+    
+}
+
+.wrap{
+    display: flex ;
+    
+    flex-wrap: wrap ;
+    gap: 10px;
+    width: 90%;
+}
+
+.textButton {
+    color:black;
+    cursor: pointer;
+}
+
+.textButton:hover {
+    color:var(--main-color);
+}

@@ -1,0 +1,43 @@
+:root {
+  --mobileNumberFontError-font-color: red;
+  --mobileNumberFontSuccess-font-color: blue;
+  --mobileNumberInputError-border: 1px solid red;
+  --mobileNumberInputSuccess-border: 1px solid rgb(118, 118, 118);
+}
+
+.requestMessage {
+  font-size: 14px;
+  width: 100%;
+  color: var(--emailAddressFontError-font-color);
+}
+
+.validMessage {
+  font-size: 14px;
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.validMessage.valid {
+  color: var(--mobileNumberFontSuccess-font-color);
+}
+
+.inputError {
+  border: var(--mobileNumberInputError-border);
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+}
+
+.inputSuccess {
+  border: var(--mobileNumberInputSuccess-border);
+  border-radius: 5px;
+}
+
+.inputTitle {
+  padding-bottom: 8px;
+}
+
+.inputBox {
+  padding-bottom: 16px;
+}

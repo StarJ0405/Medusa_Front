@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "myShopping",
+    "blocks": [
+      {
+        "contents": [
+          {
+            "id": 1,
+            "row": "trackOrder",
+            "to": "/mypage/trackOrder",
+            "icon": "myPageListShipping"
+          }
+        ]
+      },
+      {
+        "contents": [
+          {
+            "id": 1,
+            "row": "cart",
+            "to": "/shopping/cart",
+            "icon": "myPageListCart"
+          },
+          {
+            "id": 2,
+            "row": "wishList",
+            "to": "/wishList",
+            "icon": "myPageListWishlist"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "myActivity",
+    "blocks": [
+      {
+        "contents": [
+          {
+            "id": 3,
+            "row": "restock",
+            "to": "/mypage/restock",
+            "icon": "myPageListRestock"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "계정관리",
+    "blocks" : [
+      {
+        "contents": [
+          {
+            "id": 1,
+            "row": "계정정보",
+            "to": "/mypage/accountInfo",
+            "icon": "myPageListUserInfo"
+          },
+          {
+            "id": 2,
+            "row": "배송지등록 및 관리",
+            "to": "/mypage/shippingInfo",
+            "icon": "myPageListAddress"
+          },
+          {
+            "id": 4,
+            "row": "로그아웃",
+            "to": "/mypage/logout",
+            "icon": "myPageListUserInfo"
+          }
+        ]
+      }
+    ]
+    
+  }
+]

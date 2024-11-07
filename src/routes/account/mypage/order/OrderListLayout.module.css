@@ -1,0 +1,16 @@
+.deliveryWrap{
+    padding: 20px;
+}
+
+.imgWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 20px 0;
+    
+}
+
+.wrap{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}

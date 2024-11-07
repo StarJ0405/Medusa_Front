@@ -1,0 +1,30 @@
+.wrap{
+    border-top : 1px solid #999;
+    border-bottom: 1px solid #999;
+    
+}
+
+.imgWrap{
+    width: 120px;
+    padding : 10px ;
+}
+
+.border{
+    border-right: 1px solid #999;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.trackButton{
+  
+
+    cursor: pointer;
+    padding : 0px 5px ;
+    border-radius: 2px;
+    color: #999;
+    border: 1px solid #999;
+    font-size: 8pt;
+}

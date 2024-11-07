@@ -1,0 +1,11 @@
+.paragraph {}
+
+.ellipsis {
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hover:hover{
+    text-decoration: underline;
+}

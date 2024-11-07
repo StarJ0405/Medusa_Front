@@ -1,0 +1,110 @@
+.container {
+    height:100%;
+    overflow:hidden;
+}
+.menuBar{
+    /* padding: 1rem; */
+    background: transparent;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.text{
+    font-size: var(--font-size-lg);
+}
+
+.tabs li{
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    color: black;
+    padding: 20px;
+    pointer-events: none;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+/* .tabs li:hover{
+    color: red;
+} */
+.mobileLine{
+    position: absolute;
+    width: 80px;
+    top: 40px;
+    left: 42.5% ;
+    height: 2px;
+    background-color: var(--main-color);
+}
+
+.line{
+    position: absolute;
+    width: 70px;
+    top: 40px;
+    left: 42.5% ;
+    height: 2px;
+    background-color: var(--main-color);
+}
+
+.circle{
+    width : 40px ;
+    height: 40px;
+    border: 2px solid #b1b1b1;
+    background-color: #dfdfdf;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    z-index: 99;
+    
+}
+
+.tabs li.active > .circle {
+    position: relative;
+    left: 50%;
+    border: 2px solid var(--main-color);
+    color: var(--main-color) ;
+    background-color: white;
+    transform: translate(-50%);
+    /* animation: expandWith .3s; */
+}
+
+
+/* .tabs li.active > .bullet {
+    z-index: 9;
+    position: relative;
+    left: 50%;
+    
+    height: 50px;
+    width: 50px;
+    border: 1px solid red;
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(-50%);
+     animation: expandWith .3s;  } */
+ 
+
+.contentArea {
+    height : 100%;
+    /* overflow-y: scroll; */
+}
+
+.child {
+    padding : 20px ;
+}
+/* 
+@keyframes expandWith{
+    0% {
+        width:0
+    }
+    to {
+        width:24px
+    }
+} */

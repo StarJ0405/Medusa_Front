@@ -1,0 +1,21 @@
+.container {
+    height:100%;
+    overflow-y: scroll;
+}
+
+.thumbnailHandle {
+    cursor: pointer;
+}
+
+.titleArea{
+    background-color: #e7e7e7;
+    padding : 10% ;
+    
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contentArea{
+    padding : 10px ;
+    width : 75% ;
+}
