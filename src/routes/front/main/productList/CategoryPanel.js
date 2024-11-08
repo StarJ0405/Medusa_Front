@@ -178,7 +178,7 @@ function CategoryPanel(props) {
                     </div>
                 </FlexChild>
 
-                <FlexChild>
+                {/* <FlexChild>
                     <div className={style.categoryArea} onMouseOver={onCategoryAreaMouseOver} onMouseLeave={onCategoryAreaMouseLeave}>
                         <VerticalFlex>
                             <FlexChild height={40}>
@@ -209,7 +209,7 @@ function CategoryPanel(props) {
                                                     <div onClick={() => onBrandClick(brand)} className={style.categoryRow} onMouseOver={() => onCategoryRowMouseOver(brand.id)} onMouseLeave={() => onCategoryRowMouseLeave(brand.id)}>
                                                         <p>{brand}</p>
                                                     </div>
-                                                    {/* <CategoryRow data={category} /> */}
+                                     
                                                 </FlexChild>
                                             )
                                         }
@@ -217,11 +217,9 @@ function CategoryPanel(props) {
                                 }
                             </FlexChild>
                         </VerticalFlex>
-                        {/* <div className={clsx(style.categoryOverlay, { [style.show]: isOverlayVisible })}>
 
-            </div> */}
                     </div>
-                </FlexChild>
+                </FlexChild> */}
             </VerticalFlex>
         </div>
     );

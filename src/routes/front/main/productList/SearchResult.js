@@ -189,7 +189,7 @@ function SearchResult(props) {
                             <FlexChild maxWidth={1200}>
                                 <VerticalFlex>
                                     <FlexChild height={10}></FlexChild>
-                                    <FlexChild alignItems={"flex-start"}>
+                                    {/* <FlexChild alignItems={"flex-start"}>
                                         <div className={style.filter} onClick={filterClick}>
                                             <HorizontalFlex>
                                                 <FlexChild width={"initial"}>
@@ -204,7 +204,7 @@ function SearchResult(props) {
                                                 </FlexChild>
                                             </HorizontalFlex>
                                         </div>
-                                    </FlexChild>
+                                    </FlexChild> */}
                                     <FlexChild>
                                         <AnimatedSwitch animationClass={"fade"}>
                                             <CardList data={categoryId === "all" ? medusaProducts : list} template={"normal"} />

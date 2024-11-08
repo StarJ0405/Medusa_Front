@@ -4,14 +4,14 @@
 }
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 .fade-exit {
   opacity: 1;
 }
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 /* Fade and Scale transition */
@@ -22,7 +22,7 @@
 .fade-scale-enter-active {
   transform: scale(1);
   opacity: 1;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 .fade-scale-exit {
   transform: scale(1);
@@ -31,7 +31,7 @@
 .fade-scale-exit-active {
   transform: scale(0.8);
   opacity: 0;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 
 /* Flip transition */
@@ -42,7 +42,7 @@
 .flip-enter-active {
   transform: rotateY(0);
   opacity: 1;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 .flip-exit {
   transform: rotateY(0);
@@ -51,7 +51,7 @@
 .flip-exit-active {
   transform: rotateY(90deg);
   opacity: 0;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 
 /* Zoom transition */
@@ -62,7 +62,7 @@
 .zoom-enter-active {
   transform: scale(1);
   opacity: 1;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 .zoom-exit {
   transform: scale(1);
@@ -71,7 +71,7 @@
 .zoom-exit-active {
   transform: scale(0.9);
   opacity: 0;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 
 /* Slide transition */
@@ -80,12 +80,12 @@
 }
 .slide-enter-active {
   transform: translateX(0);
-  transition: transform 300ms ease-in-out;
+  transition: transform 200ms ease-in-out;
 }
 .slide-exit {
   transform: translateX(0);
 }
 .slide-exit-active {
   transform: translateX(-100%);
-  transition: transform 300ms ease-in-out;
+  transition: transform 200ms ease-in-out;
 }

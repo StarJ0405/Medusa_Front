@@ -39,7 +39,10 @@ function MenuBar(props) {
                     {text}
                 </div> */}
                 <NavLink to={url} className={({ isActive }) => clsx(style.menu, { [style.active]: isActive }, { [style.mobile]: isMobile })} >
-                    {text}
+                    <div style={{ width: "100%", height: "100%", padding: `${isMobile ? "0px":"0px 50px"}` }}>
+                        {text}
+                    </div>
+
                 </NavLink >
             </Center>
         );
@@ -53,12 +56,12 @@ function MenuBar(props) {
                         !isMobile &&
                         <FlexChild></FlexChild>
                     }
-                    <FlexChild width={isMobile && "initial"}>
+                    <FlexChild width={"initial"}>
                         <Tab text={t("allProducts")} url={"/productList/category/all"} />
                     </FlexChild>
                     {
                         categories && categories.map((category, index) =>
-                            <FlexChild key={index} width={isMobile && "initial"}>
+                            <FlexChild key={index} width={"initial"}>
                                 <Tab text={category.name} url={`/productList/category/${category.id}`} />
                             </FlexChild>
                         )

@@ -57,12 +57,15 @@ function NewProductSwiper(props) {
 
     return (
         <Container>
-            <div>
-                <Swiper autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                }}
+            <div style={{ padding: "0px 10px" }}>
+                <Swiper
+                    loop={true}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    }}
+                    cssMode={true}
                     // effect={"fade"}
                     navigation modules={[Navigation, Autoplay, EffectCreative, EffectFade]}>
                     {
@@ -72,10 +75,10 @@ function NewProductSwiper(props) {
                                     {
                                         isMobile ?
                                             <div style={{ position: "relative" }}>
-                                                <img src={slide.thumbnail} style={{ width: "100%", position: "absolute" }} />
+                                                {/* <img src={slide.thumbnail} style={{ width: "100%", position: "absolute" }} /> */}
                                                 <img src={slide.thumbnail} style={{ width: "100%", zIndex: -1 }} />
-                                                <div style={{ position: "absolute", bottom: "5%", left: "50%", transform: "translateX(-50%)" }}>
-                                                    <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]}>
+                                                <div style={{ position: "absolute", bottom: "0%", left: "50%", transform: "translateX(-50%)", boxShadow: "0 -50px 50px rgba(0, 0, 0, 0.5)" }}>
+                                                    <Swiper loop={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]} cssMode={true}>
                                                         {
                                                             slide.variants && slide.variants.map((product, index) =>
                                                                 <SwiperSlide key={index}>
@@ -96,7 +99,7 @@ function NewProductSwiper(props) {
                                                             </div>
                                                         </FlexChild>
                                                         <FlexChild>
-                                                            <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
+                                                            <Swiper loop={true} cssMode={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
                                                                 {
                                                                     slide.variants && slide.variants.map((product, index) =>
                                                                         <SwiperSlide key={index}>

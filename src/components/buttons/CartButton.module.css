@@ -1,0 +1,45 @@
+.chatButton {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 220px;
+    left: 50%;
+    z-index: 1000;
+    border: 1px solid #e1e1e1;
+    cursor: pointer;
+    background-color: white;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    bottom: 160px;
+    left: 50%;
+    width: initial;
+    min-width: 300px;
+    height: initial;
+    z-index: 9999;
+}
+
+.overlay.visible {
+    display: block;
+}
+
+.overlayWrap {
+    position: relative;
+}
+
+.overlayCloseButtonArea {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-50px);
+    z-index: 10000;
+}
+
+.overlayCloseButton {
+    color : white;
+    font-size: 25px;
+}
