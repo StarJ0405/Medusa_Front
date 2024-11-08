@@ -35,7 +35,7 @@ function SeriesRow(props) {
                     <>
 
                         <FlexChild padding={"20px"}>
-                            <NormalProductCard data={data} />
+                            {/* <NormalProductCard data={data} /> */}
                         </FlexChild>
                     </>
                 )) : null}

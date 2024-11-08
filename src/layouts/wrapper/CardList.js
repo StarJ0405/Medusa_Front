@@ -26,6 +26,7 @@ function CardList(props) {
     const GALLERY = 0;
     const LIST = 1;
     const [currentType, setCurrentType] = useState(GALLERY);
+    const { isMobile } = useContext(BrowserDetectContext);
 
     useEffect(() => {
         initDummies();
@@ -128,10 +129,10 @@ function CardList(props) {
                     </PaddingWrapper>
                 </FlexChild>
                 <FlexChild>
-                    <div className={clsx(style.listWrap, { [style.list]: currentType === LIST })}>
+                    <div className={clsx(style.listWrap, { [style.list]: currentType === LIST }, { [style.mobile]: isMobile })}>
                         {
                             props.data ? props.data.map((product, index) =>
-                                <div className={style.card} key={index} style={{ flex: `1 1 min(200px, 35%)` }}>
+                                <div className={clsx(style.card, { [style.mobile]: isMobile })} key={index} >
                                     {
                                         currentType === LIST ?
                                             <ProductCard data={product} template={props.template} type={"horizontal"} />

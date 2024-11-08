@@ -1,6 +1,6 @@
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 import style from "./FrontLayout.module.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "routes/mobile/front/header/Header";
 import clsx from "clsx";
@@ -15,6 +15,7 @@ import { WishReducer } from "shared/redux/reducers/shopping/WishReducer";
 import { AuthContext } from "providers/AuthProvider";
 import ChatButton from "components/buttons/ChatButton";
 import TopButton from "components/buttons/TopButton";
+import CartButton from "components/buttons/CartButton";
 
 function FrontLayout() {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -33,7 +34,7 @@ function FrontLayout() {
                     dispatch(WishReducer.actions.refreshProducts(result.data));
                 }
             })
-        }else {
+        } else {
             dispatch(CartReducer.actions.refreshCart([]));
             dispatch(WishReducer.actions.refreshProducts([]));
         }
@@ -42,18 +43,18 @@ function FrontLayout() {
     return (
         <>
             <style> {`div {width:100%; }`}</style>
-            <div className={clsx(style.container, {[style.mobile] : isMobile})}>
+            <div className={clsx(style.container, { [style.mobile]: isMobile })}>
                 {/* {!isMobile && <TopBar />} */}
                 <div className={clsx(style.sticky, style.header)}>
                     <Header />
                 </div>
-                {!isMobile && <MenuBar />}
                 <div className={style.outlet}>
                     <Outlet />
                 </div>
                 <Dummy height={65} />
                 <Footer />
             </div>
+            {/* <CartButton /> */}
             <ChatButton />
             <TopButton />
         </>

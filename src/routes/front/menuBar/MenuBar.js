@@ -9,7 +9,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import style from "./MenuBar.module.css";
 import clsx from "classnames";
 import { useTranslation } from "react-i18next";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import initialSearchCondition from "InitialData/InitialSearchCondition.json";
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 
@@ -19,10 +19,17 @@ function MenuBar(props) {
     const { isMobile } = useContext(BrowserDetectContext);
     const navigate = useNavigate();
 
+    // useEffect(() => {
+    //     requester.findAllCategoriesOnlyTitle((result) => {
+    //         setCategories(result.data);
+    //     });
+    // }, []);
+
     useEffect(() => {
-        requester.findAllCategoriesOnlyTitle((result) => {
-            setCategories(result.data);
-        });
+        let data = "";
+        medusaRequester.getAllCategories(data, (result) => {
+            setCategories(result.product_categories)
+        })
     }, []);
 
     const Tab = ({ text, url }) => {
@@ -32,7 +39,10 @@ function MenuBar(props) {
                     {text}
                 </div> */}
                 <NavLink to={url} className={({ isActive }) => clsx(style.menu, { [style.active]: isActive }, { [style.mobile]: isMobile })} >
-                    {text}
+                    <div style={{ width: "100%", height: "100%", padding: `${isMobile ? "0px":"0px 50px"}` }}>
+                        {text}
+                    </div>
+
                 </NavLink >
             </Center>
         );
@@ -46,19 +56,19 @@ function MenuBar(props) {
                         !isMobile &&
                         <FlexChild></FlexChild>
                     }
-                    <FlexChild width={isMobile && "initial"}>
+                    <FlexChild width={"initial"}>
                         <Tab text={t("allProducts")} url={"/productList/category/all"} />
                     </FlexChild>
                     {
                         categories && categories.map((category, index) =>
-                            <FlexChild key={index} width={isMobile && "initial"}>
-                                <Tab text={category.title} url={`/productList/category/${category.id}`} />
+                            <FlexChild key={index} width={"initial"}>
+                                <Tab text={category.name} url={`/productList/category/${category.id}`} />
                             </FlexChild>
                         )
                     }
-                    <FlexChild width={isMobile && "initial"}>
+                    {/* <FlexChild width={isMobile && "initial"}>
                         <Tab text={t("byBrand")} url={"/productList/brand"} />
-                    </FlexChild>
+                    </FlexChild> */}
                     {/* <FlexChild>
                         <Tab text={t("series")} url={"productList/series"} />
                     </FlexChild> */}

@@ -69,7 +69,7 @@ function SimpleProductCard(props) {
                                     <SquareWrapper>
                                         {
                                             skeleton ? <SkeletonImage width={100} />
-                                                : <img className={style.image} src={data.image} alt={""} />
+                                                : <img className={style.image} src={data.thumbnail} alt={""} />
                                         }
                                     </SquareWrapper>
                                 </div>
@@ -77,7 +77,7 @@ function SimpleProductCard(props) {
                                 <div className={style.thumbnail} >
                                     <GiftSticker />
                                     <SquareWrapper>
-                                        <img className={style.image} src={data.image} alt={""} />
+                                        <img className={style.image} src={data.thumbnail} alt={""} />
                                     </SquareWrapper>
                                 </div>
                         }
@@ -101,7 +101,7 @@ function SimpleProductCard(props) {
                                     :
                                     <Center textAlign={"left"}>
                                         <P ellipsis size={11} weight={"900"}>{data.title}</P>
-                                        <P textAlign={"right"} size={"12px"} color={"var(--main-color)"}>&#8361; {userName?addCommas(data.currentPrice ? data.currentPrice : data.price):"-"}</P>
+                                        <P textAlign={"right"} size={"12px"} color={"var(--main-color)"}>&#8361; {userName?addCommas(data.prices[0].amount):"-"}</P>
                                     </Center>
                             }
                         </PaddingWrapper>

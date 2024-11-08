@@ -17,12 +17,12 @@ import Center from "layouts/wrapper/Center";
 import Dummy from "components/Dummy";
 import ProductSwiper from "components/ProductSwiper";
 
-function Category () {
+function Category() {
     const [newProducts, setNewProducts] = useState();
     const [brands, setBrands] = useState();
 
-    
-    
+
+
 
     const seriesData = [
         {
@@ -43,14 +43,14 @@ function Category () {
     ]
 
     useAltEffect(() => {
-        requester.getNewProducts( (result) => {
+        requester.getNewProducts((result) => {
             setNewProducts(result.data);
         });
         requester.getAllBrands((result) => {
             setBrands(result.data);
         })
     }, [])
-    
+
 
 
     return (
@@ -74,75 +74,73 @@ function Category () {
                 </FlexChild>
             </VerticalFlex> */}
             <Container width={1200} backgroundColor={"white"}>
-            <VerticalFlex gap={30}>
-                {
-                    brands && brands.map((brand, index) =>
-                        <FlexChild key={index} height={400}>
-                            <HorizontalFlex>
-                                {
-                                    index % 2 === 0 ?
-                                        <FlexChild width={"25%"}>
-                                            <div className={style.brandWrap}>
-                                                <img className={style.brandThumbnail} src={brand.image} />
-                                                <div className={style.brandTitleArea}>
-                                                    <div className={style.brandTitleBackground}>
+                <VerticalFlex gap={30}>
+                    {
+                        brands && brands.map((brand, index) =>
+                            <FlexChild key={index} height={400}>
+                                <HorizontalFlex>
+                                    {
+                                        index % 2 === 0 ?
+                                            <FlexChild width={"25%"}>
+                                                <div className={style.brandWrap}>
+                                                    <img className={style.brandThumbnail} src={brand.image} />
+                                                    <div className={style.brandTitleArea}>
+                                                        <div className={style.brandTitleBackground}>
 
-                                                    </div>
-                                                    <div className={style.brandTitleForeground}>
-                                                        <Center>
-                                                            <P size={"35px"} color={brand.color} weight={"bold"}>{brand.titleKr}</P>
-                                                            <Dummy height={5}/>
-                                                            <a className={style.moreButton} style={{ backgroundColor: brand.color }}>더 보러가기</a>
-                                                        </Center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </FlexChild>
-                                        :
-                                        <FlexChild overflowX={"hidden"}>
-                                            <div className={style.swiperWrap}>
-                                                {
-                                                    brand.children ? <ProductSwiper products={brand.children} cols={4} innerTemplate={"normal"} gap={20} navigation pagination /> : null
-                                                }
-                                            </div>
-                                        </FlexChild>
-                                }
-                                {
-                                    index % 2 === 0 ?
-                                        <FlexChild overflowX={"hidden"}>
-                                            <div className={style.swiperWrap}>
-                                                {
-                                                    brand.children ? <ProductSwiper products={brand.children} cols={4} innerTemplate={"normal"} gap={20} navigation pagination /> : null
-                                                }
-                                            </div>
-                                        </FlexChild>
-                                        :
-                                        <FlexChild width={"25%"}>
-                                            <div className={style.brandWrap}>
-                                                <img className={style.brandThumbnail} src={brand.image} />
-                                                <div className={style.brandTitleArea}>
-                                                    <div className={style.brandTitleBackground}>
-
-                                                    </div>
-                                                    <div className={style.brandTitleForeground}>
-                                                        <Center>
-                                                            <P size={"35px"} color={brand.color} weight={"bold"}>{brand.titleKr}</P>
-                                                            <Dummy height={5}/>
-                                                            <a className={style.moreButton} style={{ backgroundColor: brand.color }}>더 보러가기</a>
-                                                        </Center>
+                                                        </div>
+                                                        <div className={style.brandTitleForeground}>
+                                                            <Center>
+                                                                <P size={"35px"} color={brand.color} weight={"bold"}>{brand.titleKr}</P>
+                                                                <Dummy height={5} />
+                                                                <a className={style.moreButton} style={{ backgroundColor: brand.color }}>더 보러가기</a>
+                                                            </Center>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </FlexChild>
-                                }
+                                            </FlexChild>
+                                            :
+                                            <FlexChild overflowX={"hidden"}>
+                                                <div className={style.swiperWrap}>
+                                                    {
+                                                        brand.children ? <ProductSwiper products={brand.children} cols={4} innerTemplate={"normal"} gap={20} navigation pagination /> : null
+                                                    }
+                                                </div>
+                                            </FlexChild>
+                                    }
+                                    {
+                                        index % 2 === 0 ?
+                                            <FlexChild overflowX={"hidden"}>
+                                                <div className={style.swiperWrap}>
+                                                    {
+                                                        brand.children ? <ProductSwiper products={brand.children} cols={4} innerTemplate={"normal"} gap={20} navigation pagination /> : null
+                                                    }
+                                                </div>
+                                            </FlexChild>
+                                            :
+                                            <FlexChild width={"25%"}>
+                                                <div className={style.brandWrap}>
+                                                    <img className={style.brandThumbnail} src={brand.image} />
+                                                    <div className={style.brandTitleArea}>
+                                                        <div className={style.brandTitleBackground}>
 
+                                                        </div>
+                                                        <div className={style.brandTitleForeground}>
+                                                            <Center>
+                                                                <P size={"35px"} color={brand.color} weight={"bold"}>{brand.titleKr}</P>
+                                                                <Dummy height={5} />
+                                                                <a className={style.moreButton} style={{ backgroundColor: brand.color }}>더 보러가기</a>
+                                                            </Center>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </FlexChild>
+                                    }
+                                </HorizontalFlex>
 
-                            </HorizontalFlex>
-
-                            {/* <NormalProductCard data={product} /> */}
-                        </FlexChild>)
-                }
-            </VerticalFlex>
+                                {/* <NormalProductCard data={product} /> */}
+                            </FlexChild>)
+                    }
+                </VerticalFlex>
             </Container>
         </>
     )

@@ -12,7 +12,7 @@ import { items } from "InitialData/Items";
 import PropTypes from 'prop-types';
 import { useState, useEffect, useContext } from "react";
 import { rpad2D } from "shared/utils/Utils";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import Container from "layouts/container/Container";
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 import 'swiper/css/effect-creative';
@@ -21,12 +21,8 @@ import 'swiper/css/effect-fade';
 function NewProductSwiper(props) {
     const { isMobile } = useContext(BrowserDetectContext);
     const [brands, setBrands] = useState();
-    useEffect(() => {
-        requester.getNewProducts((result) => {
-            setBrands(groupByBrandId(result.data));
-        });
-
-    }, []);
+    const [medusaNewProducts, setMedusaNewProducts] = useState();
+    const [newProducts, setNewProducts] = useState();
 
     const groupByBrandId = (products) => {
         return Object.values(products.reduce((grouped, product) => {
@@ -39,29 +35,52 @@ function NewProductSwiper(props) {
         }, {}));
     };
 
+    useEffect(() => {
+        if (medusaNewProducts) {
+            setNewProducts(medusaNewProducts[0].rule.conditions[0].products)
+        }
+    }, [medusaNewProducts])
+
+    useEffect(() => {
+        requester.getNewProducts((result) => {
+            setBrands(groupByBrandId(result.data));
+        });
+    }, []);
+
+    useEffect(() => {
+        let data = "NEW";
+        medusaRequester.getDiscountsProducts(data, (result) => {
+            setMedusaNewProducts(result.products)
+            // console.log("medusa 통신 New Products Result : ", result)
+        })
+    }, [])
+
     return (
         <Container>
-            <div>
-                <Swiper autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                }}
+            <div style={{ padding: "0px 10px" }}>
+                <Swiper
+                    loop={true}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    }}
+                    cssMode={true}
                     // effect={"fade"}
                     navigation modules={[Navigation, Autoplay, EffectCreative, EffectFade]}>
                     {
-                        brands && brands.map((slide, index) =>
+                        newProducts && newProducts.map((slide, index) =>
                             <SwiperSlide key={index}>
                                 <div style={{ backgroundColor: "white" }}>
                                     {
                                         isMobile ?
                                             <div style={{ position: "relative" }}>
-                                                <img src={slide.brand.image} style={{ width: "100%", position: "absolute" }} />
-                                                <img src={slide.brand.image} style={{ width: "100%", zIndex: -1 }} />
-                                                <div style={{ position: "absolute", bottom: "5%", left: "50%", transform: "translateX(-50%)" }}>
-                                                    <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]}>
+                                                {/* <img src={slide.thumbnail} style={{ width: "100%", position: "absolute" }} /> */}
+                                                <img src={slide.thumbnail} style={{ width: "100%", zIndex: -1 }} />
+                                                <div style={{ position: "absolute", bottom: "0%", left: "50%", transform: "translateX(-50%)", boxShadow: "0 -50px 50px rgba(0, 0, 0, 0.5)" }}>
+                                                    <Swiper loop={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]} cssMode={true}>
                                                         {
-                                                            slide.products && slide.products.map((product, index) =>
+                                                            slide.variants && slide.variants.map((product, index) =>
                                                                 <SwiperSlide key={index}>
                                                                     <ProductCard data={product} template={"simple"} />
                                                                 </SwiperSlide>
@@ -76,13 +95,13 @@ function NewProductSwiper(props) {
                                                     <VerticalFlex gap={10}>
                                                         <FlexChild>
                                                             <div className={style.header}>
-                                                                {slide.brand.title}
+                                                                {slide.title}
                                                             </div>
                                                         </FlexChild>
                                                         <FlexChild>
-                                                            <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
+                                                            <Swiper loop={true} cssMode={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
                                                                 {
-                                                                    slide.products && slide.products.map((product, index) =>
+                                                                    slide.variants && slide.variants.map((product, index) =>
                                                                         <SwiperSlide key={index}>
                                                                             <ProductCard data={product} template={"normal"} />
                                                                         </SwiperSlide>
@@ -92,9 +111,9 @@ function NewProductSwiper(props) {
                                                         </FlexChild>
                                                     </VerticalFlex>
                                                 </FlexChild>
-                                                <FlexChild >
+                                                <FlexChild>
                                                     <div>
-                                                        <img src={slide.brand.image} style={{ width: "100%" }} />
+                                                        <img src={slide.thumbnail} style={{ width: "100%" }} />
                                                     </div>
                                                 </FlexChild>
                                             </HorizontalFlex>

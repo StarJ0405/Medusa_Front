@@ -21,12 +21,16 @@ import { useNavigate } from "react-router-dom";
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 import { useContext } from "react";
 import MypageContentHeader from "./header/MypageContentHeader";
+import medusaClient from "shared/MedusaClient";
+import { AuthContext } from "providers/AuthProvider";
+import { deleteCookie } from "shared/medusa/action";
 
 function Logout() {
     const dispatch = useDispatch();
     const { t } = useTranslation();
     const navigate = useNavigate();
     const { isMobile } = useContext(BrowserDetectContext);
+    // const { userName } = useContext(AuthContext);
 
     const onLogoutClick = () => {
         NiceModal.show("confirm", {
@@ -36,6 +40,7 @@ function Logout() {
             onConfirm: onConfirm,
             onCancel: onCancel
         });
+
     }
 
     const onConfirm = () => {
@@ -50,6 +55,11 @@ function Logout() {
         dispatch(VendorReducer.actions.reset());
         dispatch(PointReducer.actions.reset());
         navigate("/", { replace: true });
+        medusaClient.auth.deleteSession()
+            .then(() => {
+                deleteCookie("_medusa_jwt")
+                console.log("logOut Success")
+            })
     }
 
     const onCancel = () => {

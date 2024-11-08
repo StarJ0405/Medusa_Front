@@ -34,28 +34,29 @@ import style from "./DesktopHeader.module.css";
 import SearchBar from "./SearchBar";
 import NiceModal from "@ebay/nice-modal-react";
 import CustomIcon from "components/icons/CustomIcon";
+import MenuBar from "../menuBar/MenuBar";
 
 function DesktopHeader(props) {
   const { isMobile } = useContext(BrowserDetectContext);
   const { userName } = useContext(AuthContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [headerHeight, setHeaderHeight] = useState(80);
-  const [scroll, setScroll] = useState(true);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [headerHeight, setHeaderHeight] = useState(80);
+  // const [scroll, setScroll] = useState(true);
+  // const [scrollPosition, setScrollPosition] = useState(0);
 
-  useEffect(() => {
-    window.addEventListener('scroll', updateScroll);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', updateScroll);
 
-    return () => {
-      window.removeEventListener('scroll', updateScroll);
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener('scroll', updateScroll);
+  //   }
+  // }, [])
 
-  const updateScroll = debounce(() => {
-    let scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    setScrollPosition(scrollPosition);
-  }, 30); // 실행 주기(ms)를 조정할 수 있습니다.
+  // const updateScroll = debounce(() => {
+  //   let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  //   setScrollPosition(scrollPosition);
+  // }, 30); // 실행 주기(ms)를 조정할 수 있습니다.
 
   const onLoginClick = () => {
     NiceModal.show("memberSignIn");
@@ -64,26 +65,28 @@ function DesktopHeader(props) {
     NiceModal.show("memberSignTabModal");
   }
 
-  useEffect(() => {
-    if (scroll) {
-      if (scrollPosition < 160) {
-        setHeaderHeight(80);
-        setScroll(false);
-      }
-    } else {
-      if (scrollPosition >= 160) {
-        setHeaderHeight(50);
-        setScroll(true);
-      }
-    }
-  }, [scrollPosition]);
+  // useEffect(() => {
+  //   if (scroll) {
+  //     if (scrollPosition < 160) {
+  //       setHeaderHeight(80);
+  //       setScroll(false);
+  //     }
+  //   } else {
+  //     if (scrollPosition >= 160) {
+  //       setHeaderHeight(50);
+  //       setScroll(true);
+  //     }
+  //   }
+  // }, [scrollPosition]);
 
   return (
     <div className={style.container}>
       <VerticalFlex>
         <FlexChild>
-          <div className={style.wrap} style={{ backgroundColor: "white", height: headerHeight }} >
-            <div className={clsx(style.paddingWrap, { [style.scroll]: scroll })}>
+          <div className={style.wrap} style={{ backgroundColor: "white", height: "80px" }} >
+            {/* <div className={style.wrap} style={{ backgroundColor: "white", height: headerHeight }} > */}
+            <div className={style.paddingWrap}>
+              {/* <div className={clsx(style.paddingWrap, { [style.scroll]: scroll })}> */}
               <Container maxWidth={1200}>
                 <HorizontalFlex gap={20}>
                   <FlexChild width={"initial"} padding={10}>
@@ -147,7 +150,9 @@ function DesktopHeader(props) {
                   </FlexChild>
                 </HorizontalFlex>
               </Container>
+              <MenuBar />
             </div>
+
           </div>
         </FlexChild>
         <FlexChild>

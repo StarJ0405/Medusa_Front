@@ -4,7 +4,7 @@ import VerticalFlex from "layouts/flex/VerticalFlex";
 import HorizontalFlex from "layouts/flex/HorizontalFlex";
 import { rpad2D, decode, getLocalStorage, getCurrentLanguageCode, clone } from "shared/utils/Utils";
 import PaddingWrapper from "layouts/wrapper/PaddingWrapper";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 import { useState, useEffect, useContext, useRef } from "react";
 import useAltEffect from "shared/hooks/useAltEffect";
@@ -43,7 +43,7 @@ import slide1 from "resources/img/main/banner/mainBanner_7.png";
 import slide2 from "resources/img/main/banner/mainBanner_1.png";
 import slide3 from "resources/img/main/banner/mainBanner_2.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectFade, EffectCreative } from "swiper";
 import ProductCard from "components/card/product/ProductCard";
 import banner from "resources/img/logo/worldvape_banner.jpg";
 import banner2 from "resources/img/logo/worldvape_banner2.jpg";
@@ -58,6 +58,9 @@ import { globalProducts } from "InitialData/Items";
 import { HistoryReducer } from "shared/redux/reducers/history/HistoryReducer";
 import { useDispatch } from "react-redux";
 import WeeklyBestSeller from "components/swiper/WeeklyBestSeller";
+import AnimatedSwitch from "components/AnimatedSwitch";
+import 'swiper/css/effect-creative';
+import 'swiper/css/effect-fade';
 
 function Home() {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -65,12 +68,20 @@ function Home() {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const [restockSlide, setRestockSlide] = useState([]);
+    const [medusaRestock, setMedusaRestock] = useState([]);
+    const [medusaRestockSlide, setMedusaRestockSlide] = useState([]);
     const [bestProducts, setBestProducts] = useState([]);
     const [products, setProducts] = useState([]);
     const preventRef = useRef(true);
     const obsRef = useRef(null);
     const [page, setPage] = useState(1);
     const pageRef = useRef(1);
+
+    const [medusaProducts, setMedusaProducts] = useState([]);
+    const chunkArray = (array, size) =>
+        Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>
+            array.slice(i * size, i * size + size)
+        );
 
     useEffect(() => {
         const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
@@ -84,7 +95,7 @@ function Home() {
     }, []);
 
     const search = (page) => {
-        let data = {page : page ? page : 0, pageSize:10};
+        let data = { page: page ? page : 0, pageSize: 10 };
         console.log("search", data);
         requester.searchProductsPage(data, (result) => {
             setProducts((prevData) => [...prevData, ...result.data]);
@@ -100,7 +111,7 @@ function Home() {
         const entry = entries[0];
         if (entry.isIntersecting) {
             console.log("obsHandler", pageRef.current);
-            search(pageRef.current);
+            // search(pageRef.current);
         }
     };
 
@@ -114,6 +125,9 @@ function Home() {
     //     }
     // });
 
+    useEffect(() => {
+        console.log("reStockSlide : ", restockSlide)
+    }, [restockSlide])
 
     useEffect(() => {
         requester.getRestockProducts((result) => {
@@ -130,6 +144,31 @@ function Home() {
             // NiceModal.show("warning");
         }
     }, [isMobile]);
+
+    useEffect(() => {
+        let data = "";
+        medusaRequester.getAllProducts(data, (result) => {
+            setMedusaProducts(result.products)
+        })
+    }, [])
+
+    useEffect(() => {
+        let data = "RESTOCK";
+        medusaRequester.getDiscountsProducts(data, (result) => {
+            setMedusaRestockSlide(result.products)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (medusaRestockSlide.length > 0 && medusaRestockSlide[0].rule) {
+            setMedusaRestock(medusaRestockSlide[0].rule.conditions[0].products)
+        }
+    }, [medusaRestockSlide])
+
+    useEffect(() => {
+        // console.log("###################### medusaProducts 잘 받아오냐? ", medusaProducts)
+        // console.log("@@@@@@@@@@@@@@@@@@@@@@ 기존 products 구조는 어떻게 생겼냐? ", products)
+    }, [medusaProducts, products])
 
     return (
         <Container>
@@ -161,60 +200,96 @@ function Home() {
                                 </Center>
                             </FlexChild>
                             <FlexChild padding={10}>
-                                {
-                                    isMobile
-                                        ?
-                                        <ProgressbarSwiper totalSlides={restockSlide.length}>
-                                            {
-                                                restockSlide && restockSlide.map((slide, index) =>
-                                                    <SwiperSlide key={index}>
-                                                        <HorizontalFlex gap={10}>
-                                                            {
-                                                                slide.map((product, index2) =>
-                                                                    <FlexChild key={index2} padding={"10px 0px"}>
-                                                                        {
-                                                                            product.id &&
-                                                                            <ProductCard data={product} template={"normal"} />
-                                                                        }
-
-                                                                        {/* <MockItem index={41} /> */}
-                                                                    </FlexChild>)
-                                                            }
-
-                                                            {/* <Dummy height={"20px"} event /> */}
-                                                        </HorizontalFlex >
-                                                    </SwiperSlide>
-                                                )
-                                            }
-                                        </ProgressbarSwiper>
-
-
-                                        :
-                                        <div style={{ position: "relative" }}>
-                                            <ProgressbarSwiper totalSlides={restockSlide.length}>
+                                <div style={{ position: "relative" }}>
+                                    {/* <ProgressbarSwiper totalSlides={medusaRestock.length}>
                                                 {
-                                                    restockSlide && restockSlide.map((slide, index) =>
+                                                    medusaRestock && medusaRestock.length > 0 && medusaRestock.map((slide, index) =>
                                                         <SwiperSlide key={index}>
                                                             <HorizontalFlex gap={10}>
                                                                 {
-                                                                    slide.map((product, index2) =>
-                                                                        <FlexChild key={index2} padding={10}>
+                                                                    slide.variants && slide.variants.map((product, index2) =>
+                                                                        <FlexChild
+                                                                            key={index2}
+                                                                            padding={10}>
                                                                             {
-                                                                                product.id &&
-                                                                                <ProductCard data={product} template={"normal"} />
+                                                                                <ProductCard
+                                                                                    data={product}
+                                                                                    template={"normal"} />
                                                                             }
-                                                                            {/* <MockItem index={41} /> */}
                                                                         </FlexChild>)
                                                                 }
-
-                                                                {/* <Dummy height={"20px"} event /> */}
                                                             </HorizontalFlex >
                                                         </SwiperSlide>
                                                     )
                                                 }
-                                            </ProgressbarSwiper>
-                                        </div>
-                                }
+                                            </ProgressbarSwiper> */}
+                                    <Swiper
+                                        loop={true}
+                                        autoplay={{
+                                            delay: 5000,
+                                            disableOnInteraction: false,
+                                            pauseOnMouseEnter: true
+                                        }}
+                                        cssMode={true}
+                                        // effect={"fade"}
+                                        navigation modules={[Navigation, Autoplay, EffectCreative, EffectFade]}>
+                                        {
+                                            medusaRestock && medusaRestock.map((slide, index) =>
+                                                <SwiperSlide key={index}>
+                                                    <div style={{ backgroundColor: "white" }}>
+                                                        {
+                                                            isMobile ?
+                                                                <div style={{ position: "relative"}}>
+                                                                    {/* <img src={slide.thumbnail} style={{ width: "100%", position: "absolute" }} /> */}
+                                                                    <img src={slide.thumbnail} style={{ width: "100%", zIndex: -1, }} />
+                                                                    <div style={{ position: "absolute", bottom: "0%", left: "50%", transform: "translateX(-50%)", boxShadow: "0 -50px 50px rgba(0, 0, 0, 0.5)" }}>
+                                                                        <Swiper loop={true} cssMode={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]}>
+                                                                            {
+                                                                                slide.variants && slide.variants.map((product, index) =>
+                                                                                    <SwiperSlide key={index}>
+                                                                                        <ProductCard data={product} template={"simple"} />
+                                                                                    </SwiperSlide>
+                                                                                )
+                                                                            }
+                                                                        </Swiper>
+                                                                    </div>
+                                                                </div>
+                                                                :
+                                                                <HorizontalFlex gap={30}>
+                                                                    <FlexChild width={"70%"}>
+                                                                        <VerticalFlex gap={10}>
+                                                                            <FlexChild>
+                                                                                <div className={style.header}>
+                                                                                    {slide.title}
+                                                                                </div>
+                                                                            </FlexChild>
+                                                                            <FlexChild>
+                                                                                <Swiper  loop={true} cssMode={true} autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
+                                                                                    {
+                                                                                        slide.variants && slide.variants.map((product, index) =>
+                                                                                            <SwiperSlide key={index}>
+                                                                                                <ProductCard data={product} template={"normal"} />
+                                                                                            </SwiperSlide>
+                                                                                        )
+                                                                                    }
+                                                                                </Swiper>
+                                                                            </FlexChild>
+                                                                        </VerticalFlex>
+                                                                    </FlexChild>
+                                                                    <FlexChild >
+                                                                        <div>
+                                                                            <img src={slide.thumbnail} style={{ width: "100%" }} />
+                                                                        </div>
+                                                                    </FlexChild>
+                                                                </HorizontalFlex>
+                                                        }
+                                                    </div>
+                                                </SwiperSlide>
+                                            )
+                                        }
+                                    </Swiper>
+                                </div>
+
                             </FlexChild>
                         </VerticalFlex>
                     </Container>
@@ -232,12 +307,17 @@ function Home() {
                     </FlexChild> */}
                 <FlexChild>
                     <Container maxWidth={1200} >
-                        <CardList title={t("best")} headerIcon={crown} data={bestProducts} template={"normal"} />
+                        {/* <CardList title={t("best")} headerIcon={crown} data={bestProducts} template={"normal"} /> */}
                     </Container>
                 </FlexChild>
                 <FlexChild>
                     <Container maxWidth={1200} >
-                        <CardList title={"전체상품"} data={products} template={"normal"} />
+                        {/* 기존 */}
+                        {/* <CardList title={"전체상품"} data={products} template={"normal"} /> */}
+                        {/* 메두사 */}
+                        {medusaProducts && medusaProducts.length > 0 &&
+                            <CardList title={"전체상품"} data={medusaProducts} template={"normal"} />
+                        }
                     </Container>
                 </FlexChild>
                 <FlexChild>

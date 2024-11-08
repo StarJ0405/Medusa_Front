@@ -25,7 +25,7 @@ import { AuthContext } from 'providers/AuthProvider'
 
 function NormalProductCard(props) {
     const { data, type, skeleton } = props;
-    const {userName} = useContext(AuthContext);
+    const { userName } = useContext(AuthContext);
     const { t } = useTranslation();
     const navigate = useNavigate();
     const [wish, setWish] = useState(false);
@@ -105,7 +105,7 @@ function NormalProductCard(props) {
                                 <SquareWrapper>
                                     {
                                         skeleton ? <SkeletonImage width={100} />
-                                            : <img className={style.image} src={data.image} alt={""} />
+                                            : <img className={style.image} src={data.thumbnail} alt={""} />
                                     }
                                 </SquareWrapper>
                             </div>
@@ -117,7 +117,7 @@ function NormalProductCard(props) {
                                         props.rank &&
                                         <div className={style.indexCircle}>{props.rank}</div>
                                     }
-                                    <img className={style.image} src={data.image} alt={""} />
+                                    <img className={style.image} src={data.thumbnail} alt={""} />
                                 </SquareWrapper>
                             </div>
                     }
@@ -155,8 +155,8 @@ function NormalProductCard(props) {
                                 </Center>
                                 :
                                 <Center width={"100%"} maxWidth={200} textAlign={"left"}>
-                                    <P ellipsis size={12} weight={"900"}>{data.brandTitle}</P>
-                                    <P ellipsis size={12} weight={"900"}>{data.title}</P>
+                                    <P  ellipsis size={12} weight={"900"}>{data.brandTitle}</P>
+                                    <P  ellipsis size={12} weight={"900"}>{data.title}</P>
                                     <HorizontalFlex gap={10} justifyContent={"flex-end"}>
                                         {
                                             data.currentPrice && userName &&
@@ -164,13 +164,34 @@ function NormalProductCard(props) {
                                                 <P textAlign={"right"} size={"14px"} weight={"bold"} color={"red"}>{100 - data.currentPrice / data.price * 100}%</P>
                                             </FlexChild>
                                         }
-                                        <FlexChild justifyContent={"flex-end"}>
-                                            <P textAlign={"right"} size={"14px"} weight={"bold"} color={data.currentPrice ? "gray" : "var(--main-color)"} textDecoration={data.currentPrice && "line-through"}>&#8361; {userName?addCommas(data.price):"-"}</P>
-                                        </FlexChild>
+                                        {/* products로 받을 때 */}
+                                        {data && data.variants && data.variants.length > 0 &&
+                                            <FlexChild justifyContent={"flex-end"}>
+                                                <P textAlign={"right"} size={"14px"} weight={"bold"} color={data.variants[0].prices[0].amount ? "gray" : "var(--main-color)"} textDecoration={data.currentPrice && "line-through"}>&#8361;
+                                                    {
+                                                        // userName ? 
+                                                        addCommas(data.variants[0].prices[0].amount)
+                                                        //  : "-"
+                                                    }</P>
+                                            </FlexChild>
+                                        }
+                                        {/* variants를 받을 때 */}
+                                        {data && data.prices && data.prices.length > 0 &&
+                                            <FlexChild justifyContent={"flex-end"}>
+                                                <P textAlign={"right"} size={"14px"} weight={"bold"} color={data.prices[0].amount ? "gray" : "var(--main-color)"} textDecoration={data.currentPrice && "line-through"}>&#8361;
+                                                    {
+                                                        // userName ? 
+                                                        addCommas(data.prices[0].amount)
+                                                        //  : "-"
+                                                    }</P>
+                                            </FlexChild>
+                                        }
                                     </HorizontalFlex>
                                     {
-                                        data.currentPrice
-                                            ? <P textAlign={"right"} size={"14px"} weight={"bold"} color={"var(--main-color)"}>&#8361; {userName ? addCommas(data.currentPrice):"-"}</P>
+                                        // data.currentPrice
+                                        data && data.variants && data.variants.length > 0 && data.currentPrice
+                                            // ? <P textAlign={"right"} size={"14px"} weight={"bold"} color={"var(--main-color)"}>&#8361; {userName ? addCommas(data.variants[0].prices[0].amount) : "-"}</P>
+                                            ? <P textAlign={"right"} size={"14px"} weight={"bold"} color={"var(--main-color)"}>&#8361; {addCommas(data.variants[0].prices[0].amount)}</P>
                                             : <P textAlign={"right"} size={"14px"} weight={"bold"} color={"var(--main-color)"}>{" "}</P>
                                     }
                                     {/* <Inline>

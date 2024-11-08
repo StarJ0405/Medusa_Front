@@ -4,7 +4,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import HorizontalFlex from "layouts/flex/HorizontalFlex";
 import { Provider, useSelector, useDispatch } from "react-redux";
 import useAltEffect from "shared/hooks/useAltEffect";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import { BrowserDetectContext } from "providers/BrowserEventProvider";
 import { CartReducer } from "shared/redux/reducers/shopping/CartReducer";
 import Inline from "layouts/container/Inline";
@@ -26,6 +26,7 @@ import style from "./ShoppingLayout.module.css";
 import AccordionText from "components/accordion/AccordionText";
 import CustomButton from "components/buttons/CustomButton";
 import { addCommas, calculateDeliveryFee } from "shared/utils/Utils";
+import { getOrSetCart } from "shared/medusa/action";
 
 function Cart(props) {
     const { t } = useTranslation();
@@ -48,6 +49,18 @@ function Cart(props) {
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedDeliveryFee, setSelectedDeliveryFee] = useState(0);
 
+    const [medusaCart, setMedusaCart] = useState();
+    const [cartItems, setCartItems] = useState([]);
+
+    const fetchMedusaCart = async () => {
+        try {
+            const cart = await getOrSetCart("kr");
+            setMedusaCart(cart);
+        } catch (error) {
+            console.error("Failed to fetch Medusa cart:", error);
+        }
+    };
+
     useAltEffect(() => {
         requester.getAllCartProducts((result) => {
             if (result.code === 0) {
@@ -56,8 +69,18 @@ function Cart(props) {
                 // NiceModal.show("memberSignIn");
             }
         })
-        
     }, []);
+
+    useEffect(() => {
+        fetchMedusaCart();
+    }, [])
+
+    useEffect(() => {
+        console.log("medusaCart : ", medusaCart)
+        if (medusaCart) {
+            setCartItems(medusaCart.items)
+        }
+    }, [medusaCart])
 
     const findSelectedProductById = (id) => {
         const key = Object.keys(products).find(product => products[product].id === id);
@@ -99,7 +122,7 @@ function Cart(props) {
     }, [products]);
 
     useEffect(() => {
-        
+
         if (selectedList) {
             let sum = 0;
             let sumQuantity = 0;
@@ -192,7 +215,7 @@ function Cart(props) {
         width: '130px',
 
     }
-    
+
     const mobileBtnStyle = {
         backgroundColor: 'var(--main-color)',
         color: 'white',
@@ -214,16 +237,16 @@ function Cart(props) {
                             { width: 150, text: t("etc"), alignItems: "flex-start" }
                         ]
                     }>
-                    {products && products.length > 0 && products.map((product, index) => (
-                        <CartRow key={index} index={index} data={product} />
-                    )) }
+                    {cartItems && cartItems.length > 0 && cartItems.map((item, index) => (
+                        <CartRow key={index} index={index} data={item} />
+                    ))}
                 </CheckCircleGroup>
             </FlexChild>
             <FlexChild>
                 <VerticalFlex>
                     <FlexChild>
                         <AccordionWrapper style={accordionStyle}>
-                            <AccordionText  header={
+                            <AccordionText header={
                                 <Center width={"100%"} textAlign={isMobile ? "left" : "right"} padding={" 0 10px 0 0"}>
                                     <Inline>
                                         <P padding={"0 15px 0 0"}>{t("totalAmount")}</P>

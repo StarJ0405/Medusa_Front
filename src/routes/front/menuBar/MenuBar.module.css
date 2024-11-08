@@ -2,7 +2,7 @@
     height:40px;
     border-bottom: 1px solid #eee;
     background-color: white;
-  
+    box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 10%);
 }
 .container.mobile {
     position : sticky;
@@ -14,6 +14,11 @@
     font-size: 17px;
     font-weight:700;
     cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.menu:hover{
+    color:var(--main-color);
 }
 
 .menu.active {

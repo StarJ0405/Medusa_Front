@@ -18,6 +18,7 @@ import { AuthContext } from "providers/AuthProvider";
 import { requester } from "App";
 import { useTranslation } from "react-i18next";
 import MypageContentHeader from "./header/MypageContentHeader";
+import AnimatedSwitch from "components/AnimatedSwitch";
 
 function MyPageLayout() {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -156,7 +157,7 @@ function MyPageLayout() {
                     </VerticalFlex>
             }
 
-        </Container>
+        </Container >
     );
 }
 

@@ -2,7 +2,7 @@ import FlexChild from "layouts/flex/FlexChild";
 import VerticalFlex from "layouts/flex/VerticalFlex";
 import style from "./SearchResult.module.css";
 import useAltEffect from "shared/hooks/useAltEffect";
-import { requester } from "App";
+import { requester, medusaRequester } from "App";
 import CardList from "layouts/wrapper/CardList";
 import { useState, useEffect, useRef, useContext } from "react";
 import { Outlet, useLocation, useParams } from "react-router-dom";
@@ -25,6 +25,8 @@ import P from "components/P";
 import MenuBar from "routes/front/menuBar/MenuBar";
 import { useDispatch } from "react-redux";
 import { WishReducer } from "shared/redux/reducers/shopping/WishReducer";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import AnimatedSwitch from "components/AnimatedSwitch";
 
 function SearchResult(props) {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -32,12 +34,13 @@ function SearchResult(props) {
     const [page, setPage] = useState(1);
     const preventRef = useRef(true);
     const obsRef = useRef(null);
-    const location = useLocation();
     const [list, setList] = useState();
+    const [medusaProducts, setMedusaProducts] = useState();
     const [currentSearchCondition, setCurrentSearchCondition] = useState();
     const [filterCondition, setFilterCondition] = useState();
     const { categoryId } = useParams();
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
@@ -89,20 +92,20 @@ function SearchResult(props) {
         }
     }, [location]);
 
-    useEffect(() => {
-        if (categoryId) {
-            let searchCondition = clone(initialSearchCondition);
-            if (categoryId === "all") {
+    // useEffect(() => {
+    //     if (categoryId) {
+    //         let searchCondition = clone(initialSearchCondition);
+    //         if (categoryId === "all") {
 
-            } else {
-                searchCondition.categories = [categoryId];
+    //         } else {
+    //             searchCondition.categories = [categoryId];
 
-            }
-            requester.searchProducts(searchCondition, (result) => {
-                setList(result.data);
-            });
-        }
-    }, [categoryId]);
+    //         }
+    //         requester.searchProducts(searchCondition, (result) => {
+    //             setList(result.data);
+    //         });
+    //     }
+    // }, [categoryId]);
 
     const obsHandler = ((entries) => {
         const target = entries[0];
@@ -132,6 +135,37 @@ function SearchResult(props) {
         }
     }, [currentSearchCondition]);
 
+    // ------------------------------------------medusa------------------------------
+    useEffect(() => {
+        let data = "";
+        medusaRequester.getAllProducts(data, (result) => {
+            setMedusaProducts(result.products)
+            console.log("medusa 통신 result : ", result)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (categoryId) {
+            let searchCondition = clone(initialSearchCondition);
+            if (categoryId === "all") {
+
+            } else {
+                searchCondition.categories = [categoryId];
+
+            }
+            console.log("searchCondition 형태 뭐야 : ", searchCondition)
+            medusaRequester.getCategoryProductById(searchCondition.categories[0], (result) => {
+                console.log("카테고리 아이디로 가져온거 : ", result)
+                setList(result.product_category.products);
+            });
+        }
+    }, [categoryId]);
+
+    useEffect(() => {
+        console.log("list : ", list)
+    }, [list])
+    // ------------------------------------------medusa------------------------------
+
     const filterClick = () => {
         NiceModal.show("filter", { maxWidth: "500px", height: "initial", currentList: list, onClose: onFilterClose });
     }
@@ -142,20 +176,20 @@ function SearchResult(props) {
                 {
                     isMobile && <MenuBar />
                 }
-            
+
                 <VerticalFlex gap={10}>
-                    <FlexChild maxWidth={1500} alignItems={"flex-start"}>
+                    <FlexChild maxWidth={1200} alignItems={"flex-start"}>
                         <HorizontalFlex alignItems={"flex-start"} gap={10}>
                             {
                                 !isMobile &&
-                                <FlexChild width={"280px"} padding={"30px 0px"}>
+                                <FlexChild width={"280px"} padding={"0px 0px"}>
                                     <CategoryPanel />
                                 </FlexChild>
                             }
                             <FlexChild maxWidth={1200}>
                                 <VerticalFlex>
                                     <FlexChild height={10}></FlexChild>
-                                    <FlexChild alignItems={"flex-start"}>
+                                    {/* <FlexChild alignItems={"flex-start"}>
                                         <div className={style.filter} onClick={filterClick}>
                                             <HorizontalFlex>
                                                 <FlexChild width={"initial"}>
@@ -170,12 +204,15 @@ function SearchResult(props) {
                                                 </FlexChild>
                                             </HorizontalFlex>
                                         </div>
-                                    </FlexChild>
+                                    </FlexChild> */}
                                     <FlexChild>
-                                        <CardList data={list} template={"normal"} />
+                                        <AnimatedSwitch animationClass={"fade"}>
+                                            <CardList data={categoryId === "all" ? medusaProducts : list} template={"normal"} />
+                                        </AnimatedSwitch>
                                     </FlexChild>
                                 </VerticalFlex>
                             </FlexChild>
+
                         </HorizontalFlex>
                     </FlexChild>
                     <FlexChild>
