@@ -23,7 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import WorldvapeLogo from "resources/img/logo/worldvape_logo.png";
 import Center from "layouts/wrapper/Center";
 import medusaClient from "shared/MedusaClient";
-import { getOrSetCart, logIn, setCookie } from "shared/medusa/action";
+import { fetchMedusaCart, getOrSetCart, logIn, setCookie } from "shared/medusa/action";
 
 function Login(props) {
   const { t } = useTranslation();
@@ -148,7 +148,7 @@ function Login(props) {
 
   useEffect(() => {
     if (currentCustomer !== null) {
-      getOrSetCart('kr');
+      fetchMedusaCart();
       navigate("/");
     }
   }, [currentCustomer])

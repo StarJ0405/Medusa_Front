@@ -30,7 +30,8 @@ function VerticalFlex(props) {
                     borderRadius: (props.borderRadius ? props.borderRadius : null),
                     margin: (props.margin ? props.margin : null),
                     flexDirection: (props.direction ? props.direction : "column"),
-                    border: (props.border ? props.border : null)
+                    border: (props.border ? props.border : null),
+                    flexBasis: (props.flexBasis ? props.flexBasis : null),
                 }
             }>
             {childrenWithProps}
