@@ -1,19 +1,42 @@
-import React from 'react'
-import {CAvatar,CBadge,CDropdown,CDropdownDivider,CDropdownHeader,CDropdownItem,CDropdownMenu,CDropdownToggle,} from '@coreui/react'
-import {cilBell,cilCreditCard,cilCommentSquare,cilEnvelopeOpen,cilFile,cilLockLocked,cilSettings,cilTask,cilUser,} from '@coreui/icons'
-import CIcon from '@coreui/icons-react'
+import React from "react";
+import {
+  CAvatar,
+  CBadge,
+  CDropdown,
+  CDropdownDivider,
+  CDropdownHeader,
+  CDropdownItem,
+  CDropdownMenu,
+  CDropdownToggle,
+} from "@coreui/react";
+import {
+  cilBell,
+  cilCreditCard,
+  cilCommentSquare,
+  cilEnvelopeOpen,
+  cilFile,
+  cilLockLocked,
+  cilSettings,
+  cilTask,
+  cilUser,
+} from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 
-import avatar8 from '../assets/images/avatars/8.jpg'
+import { adminRequester } from "App";
+
+import avatar8 from "../assets/images/avatars/8.jpg";
 
 const ManagerHeaderDropdown = () => {
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
-      <CIcon icon={cilSettings} size="lg" />
+        <CIcon icon={cilSettings} size="lg" />
         {/* <CAvatar src={avatar8} size="md" /> */}
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">
+          Account
+        </CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon icon={cilBell} className="me-2" />
           Updates
@@ -42,7 +65,9 @@ const ManagerHeaderDropdown = () => {
             42
           </CBadge>
         </CDropdownItem>
-        <CDropdownHeader className="bg-light fw-semibold py-2">Settings</CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">
+          Settings
+        </CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon icon={cilUser} className="me-2" />
           Profile
@@ -66,13 +91,22 @@ const ManagerHeaderDropdown = () => {
           </CBadge>
         </CDropdownItem>
         <CDropdownDivider />
-        <CDropdownItem href="#">
+        <CDropdownItem
+          href="#"
+          onClick={() => {
+            // remove
+            localStorage.removeItem("token");
+            adminRequester.Logout().then(() => {
+              window.location.reload();
+            });
+          }}
+        >
           <CIcon icon={cilLockLocked} className="me-2" />
-          Lock Account
+          Logout
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
-  )
-}
+  );
+};
 
 export default ManagerHeaderDropdown;

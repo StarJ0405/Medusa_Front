@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "npm run dev",
+            "name": "Run npm dev",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Launch Admin Page",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8000",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--remote-debugging-port=9230",
+                // "--incognito",
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Compound",
+            "configurations": [
+                "Run npm dev",
+                "Launch Admin Page"
+            ]
+        }
+    ]
+}

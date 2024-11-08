@@ -8,121 +8,147 @@ import Inline from "layouts/container/Inline";
 import VerticalFlex from "layouts/flex/VerticalFlex";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { requester } from "App";
+import { requester, adminRequester } from "App";
 import { useTranslation } from "react-i18next";
 
-
-
 function DelayStatistics() {
-    const navigate = useNavigate();
-    const [mounted, setMounted] = useState(false);
-    const [delayStatistics, setDelayStatistics] = useState();
-    const {t} = useTranslation();
+  const navigate = useNavigate();
+  const [mounted, setMounted] = useState(false);
+  const [delayStatistics, setDelayStatistics] = useState();
+  const { t } = useTranslation();
 
-    useEffect(() => {
-        setMounted(true);
-    }, [])
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    useEffect(() => {
-        if (mounted) {
-            let now = new Date();
-            let oneMonthAgo = new Date(new Date().setMonth(now.getMonth() - 1));
-            let data = {
-                fromDateTime: oneMonthAgo,
-                toDateTime: now
-            }
-            requester.getDelayStatistics(data, (result) => {
-                console.log("delay", result);
-                const orderStatusData = [
-                    {
-                        text: t("deliveryDelay"),
-                        value: "deliveryDelay",
-                        count: result.data.deliveryDelay
-                    },
-                    {
-                        text: t("returnDelay"),
-                        value: "returnDelay",
-                        count: result.data.returnDelay
-                    },
-                    {
-                        text: t("exchangeDelay"),
-                        value: "exchangeDelay",
-                        count: result.data.exchangeDelay
-                    },
-                    {
-                        text: t("delayedResponse"),
-                        value: "delayedResponse",
-                        count: result.data.delayedResponse
-                    },
-                ]
-            
-                setDelayStatistics(orderStatusData)
-            })
-        }
+  useEffect(() => {
+    if (mounted) {
+      let now = new Date();
+      let oneMonthAgo = new Date(new Date().setMonth(now.getMonth() - 1));
+      let data = {
+        fromDateTime: oneMonthAgo,
+        toDateTime: now,
+      };
+      adminRequester.getOrderStatus({ status: "ready" }, (result) => {
+        const data = result.data;
+        const orderStatusData = [
+          {
+            text: t("deliveryDelay"),
+            value: "deliveryDelay",
+            count: data.ship,
+          },
+          {
+            text: t("returnDelay"),
+            value: "returnDelay",
+            count: data.return,
+          },
+          {
+            text: t("exchangeDelay"),
+            value: "exchangeDelay",
+            count: data.exchange,
+          },
+          {
+            text: t("delayedResponse"),
+            value: "delayedResponse",
+            count: data.answer,
+          },
+        ];
 
-        // "deliveryDelay" : "배송지연",
-        // "returnDelay" : "반품지연",
-        // "exchangeDelay" : "교환지연",
-        // "delayedResponse" : "답변지연"
+        setDelayStatistics(orderStatusData);
+      });
+      // requester.getDelayStatistics(data, (result) => {
+      //   console.log("delay", result);
+      //   const orderStatusData = [
+      //     {
+      //       text: t("deliveryDelay"),
+      //       value: "deliveryDelay",
+      //       count: result.data.deliveryDelay,
+      //     },
+      //     {
+      //       text: t("returnDelay"),
+      //       value: "returnDelay",
+      //       count: result.data.returnDelay,
+      //     },
+      //     {
+      //       text: t("exchangeDelay"),
+      //       value: "exchangeDelay",
+      //       count: result.data.exchangeDelay,
+      //     },
+      //     {
+      //       text: t("delayedResponse"),
+      //       value: "delayedResponse",
+      //       count: result.data.delayedResponse,
+      //     },
+      //   ];
 
-    }, [mounted])
-
-
-    const onStatusClick = (value) => {
-        navigate(`/admin/orderStatus/${value}`)
+      //   setDelayStatistics(orderStatusData);
+      // });
     }
-    return (
 
-        <HorizontalFlex>
-            <FlexChild height={"100%"} width={"max-content"}>
-                <div className={style.label}>
-                    <VerticalFlex gap={5}>
-                        <FlexChild width={100}>
-                            <CustomIcon name={"delay"} width={30} color={"white"} />
-                        </FlexChild>
+    // "deliveryDelay" : "배송지연",
+    // "returnDelay" : "반품지연",
+    // "exchangeDelay" : "교환지연",
+    // "delayedResponse" : "답변지연"
+  }, [mounted]);
+
+  const onStatusClick = (value) => {
+    navigate(`/admin/orderStatus/${value}`);
+  };
+  return (
+    <HorizontalFlex>
+      <FlexChild height={"100%"} width={"max-content"}>
+        <div className={style.label}>
+          <VerticalFlex gap={5}>
+            <FlexChild width={100}>
+              <CustomIcon name={"delay"} width={30} color={"white"} />
+            </FlexChild>
+            <FlexChild>
+              <Center>
+                <P size={15}>처리지연현황</P>
+              </Center>
+            </FlexChild>
+          </VerticalFlex>
+        </div>
+      </FlexChild>
+      <FlexChild height={"100%"}>
+        <div className={style.contentArea}>
+          <VerticalFlex gap={5}>
+            {delayStatistics &&
+              delayStatistics.map((data, index) => (
+                <FlexChild key={index} width={"95%"}>
+                  <VerticalFlex gap={5}>
+                    <FlexChild>
+                      <HorizontalFlex>
                         <FlexChild>
-                            <Center>
-                                <P size={15}>처리지연</P>
-                            </Center>
+                          <P>{data.text}</P>
                         </FlexChild>
-                    </VerticalFlex>
-                </div>
-            </FlexChild>
-            <FlexChild height={"100%"}>
-                <div className={style.contentArea}>
-                    <VerticalFlex gap={5}>
-                        {
-                            delayStatistics &&
-                            delayStatistics.map((data, index) => (
-                                <FlexChild key={index} width={"95%"}>
-                                    <VerticalFlex gap={5}>
-                                        <FlexChild>
-                                            <HorizontalFlex>
-                                                <FlexChild>
-                                                    <P>{data.text}</P>
-                                                </FlexChild>
-                                                <FlexChild justifyContent={"flex-end"}>
-                                                    <Inline>
-                                                        <P hover onClick={() => onStatusClick(data.value)} cursor weight={"bold"} color={"var(--main-color)"}>{data.count}</P>
-                                                        <P>건</P>
-                                                    </Inline>
-                                                </FlexChild>
-                                            </HorizontalFlex>
-                                        </FlexChild>
-                                        <FlexChild>
-                                            <div className={style.line} />
-                                        </FlexChild>
-                                    </VerticalFlex>
-                                </FlexChild>
-                            ))
-                        }
-                    </VerticalFlex>
-                </div>
-            </FlexChild>
-        </HorizontalFlex>
-
-    );
-
+                        <FlexChild justifyContent={"flex-end"}>
+                          <Inline>
+                            <P
+                              hover
+                              onClick={() => onStatusClick(data.value)}
+                              cursor
+                              weight={"bold"}
+                              color={"var(--main-color)"}
+                            >
+                              {data.count}
+                            </P>
+                            <P>건</P>
+                          </Inline>
+                        </FlexChild>
+                      </HorizontalFlex>
+                    </FlexChild>
+                    <FlexChild>
+                      <div className={style.line} />
+                    </FlexChild>
+                  </VerticalFlex>
+                </FlexChild>
+              ))}
+          </VerticalFlex>
+        </div>
+      </FlexChild>
+    </HorizontalFlex>
+  );
 }
 
 export default DelayStatistics;

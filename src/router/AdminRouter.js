@@ -1,4 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, unstable_HistoryRouter as HistoryRouter, Navigate, useNavigate, useLocation, Outlet } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  unstable_HistoryRouter as HistoryRouter,
+  Navigate,
+  useNavigate,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 import AdminLayout from "routes/admin/AdminLayout";
 import VendorList from "routes/admin/vendor/VendorList";
 import RequireAuth from "shared/utils/RequireAuth";
@@ -52,65 +61,116 @@ import ExhibitionRegister from "routes/admin/dashboardCard/exhibition/Exhibition
 import NewProductList from "routes/admin/dashboardCard/product/new/NewProductList";
 import RestockProductList from "routes/admin/dashboardCard/product/restock/RestockProductList";
 import BestProductList from "routes/admin/dashboardCard/product/best/BestProductList";
+import RequireAdminAuth from "shared/utils/RequireAdminAuth";
+import FrontLayout from "routes/front/FrontLayout";
+import AdminLogin from "components/manager/views/pages/adminLogin/adminLogin";
 
 function AdminRouter({ allowedRoles }) {
-    return (
-        <Routes>
-            <Route path="" element={<RequireAuth allowedRoles={allowedRoles} />}>
-                <Route path="" element={<AdminLayout />}>
-                    <Route path="" element={<AdminDashboard />} />
-                    <Route path="orderManagement" element={<AdminOrderManagement />} />
-                    <Route path="orderStatus/:id" element={<OrderStatusDetailLayout />} />
-                    <Route path="user/list" element={<SignUpList />} />
-                    <Route path="vendor/list" element={<VendorList />} />
-                    <Route path="productManagement" element={<AdminProductManagement />} />
-                    <Route path="userManagement" element={<AdminUserManagement />} />
-                    <Route path="articleManagement" element={<AdminArticleManagement />} />
-                    <Route path="promotionManagement" element={<AdminPromotionManagement />} />
-                    <Route path="exhibition" element={<AminExhibitionManagement />} />
-                    <Route path="exhibition/register" element={<ExhibitionRegister />} />
-                    <Route path="newProduct" element={<NewProductList />} />
-                    <Route path="restockProduct" element={<RestockProductList />} />
-                    <Route path="bestProduct" element={<BestProductList />} />
-                    <Route path="promotion/register" element={<PromotionRegister />} />
-                    <Route path="statisticsManagement" element={<AdminStatisticsManagement />} />
-                    <Route path="courierInterlocking" element={<CourierInterlockingLayout />} />
-                    <Route path="autoDepositConfirm" element={<DirectDepositLayout />} />
-                    <Route path="productStatus/:id" element={<ProductManagementLayout />} />
-                    <Route path="product/:id" element={<ProductStatusDetailLayout />} />
-                    <Route path="productRegistration" element={<ProductRegisterDetailLayout />} />
-                    <Route path="registeredProductManagement" element={<RegisteredProductLayout />} />
-                    <Route path="mainProductManagement" element={<MainProductManagementLayout />} />
-                    <Route path="productOptionManagement" element={<ProductOptionLayout />} />
-                    <Route path="reservationRegistrationManual" element={<ReservationRegistrationManualLayout />} />
-                    <Route path="productOption/:id" element={<ProductOptionDetailLayout />} />
-                    <Route path="stockManagement" element={<StockManagementLayout />} />
-                    <Route path="userInfoManagement/:id" element={<UserInfoManagementLayout />} />
-                    <Route path="userGroupManagement" element={<UserGroupManagement />} />
-                    <Route path="userActivityManagement" element={<UserActivityManagementLayout />} />
-                    <Route path="brand" element={<AdminBrandLayout />} >
-                        <Route path="brand/manager/:id" element={<BrandManager />} />
-                        <Route path="product/manager/:id" element={<ProductManager />} />
-                    </Route>
-                    <Route path="productCategory" element={<AdminCategoryLayout />} >
-                        <Route path="category/manager/:id" element={<CategoryManager />} />
-                        <Route path="product/manager/:id" element={<ProductManager />} />
-                        <Route path="brand/manager/:id" element={<BrandManager />} />
-                    </Route>
-                    <Route path="periodSales" element={<PeriodSalesStatistics />} />
-                    <Route path="accountSales" element={<AccountSalesStatistics />} />
-                    <Route path="categorySales" element={<CategorySalesStatistics />} />
-                    <Route path="createPartnersLink" element={<CreatePartnersLink />} />
-                    <Route path="partnersLinkHistory" element={<PartnersHistory />} />
-                    <Route path="myPartnersAccount" element={<MyPartnersAccount />} />
-                    <Route path="myPartnersTotal" element={<MyPartnersTotal />} />
-                    <Route path="shippingInfo" element={<ShippingInfo />} />
-                    <Route path="allCarts" element={<AllCartsInfo />} />
-                    <Route path="vendorRegister" element={<VendorRegister />} />
-                    <Route path="vendorManagement" element={<VendorManagement />} />
-                </Route>
-            </Route>
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="" element={<RequireAdminAuth allowedRoles={allowedRoles} />}>
+        <Route path="" element={<AdminLayout />}>
+          <Route path="" element={<AdminDashboard />} />
+          <Route path="orderManagement" element={<AdminOrderManagement />} />
+          <Route
+            path="orderStatus/:keyword"
+            element={<OrderStatusDetailLayout />}
+          />
+          <Route path="user/list" element={<SignUpList />} />
+          <Route path="vendor/list" element={<VendorList />} />
+          <Route
+            path="productManagement"
+            element={<AdminProductManagement />}
+          />
+          <Route path="userManagement" element={<AdminUserManagement />} />
+          <Route
+            path="articleManagement"
+            element={<AdminArticleManagement />}
+          />
+          <Route
+            path="promotionManagement"
+            element={<AdminPromotionManagement />}
+          />
+          <Route path="exhibition" element={<AminExhibitionManagement />} />
+          <Route path="exhibition/register" element={<ExhibitionRegister />} />
+          <Route path="newProduct" element={<NewProductList />} />
+          <Route path="restockProduct" element={<RestockProductList />} />
+          <Route path="bestProduct" element={<BestProductList />} />
+          <Route path="promotion/register" element={<PromotionRegister />} />
+          <Route
+            path="statisticsManagement"
+            element={<AdminStatisticsManagement />}
+          />
+          <Route
+            path="courierInterlocking"
+            element={<CourierInterlockingLayout />}
+          />
+          <Route path="autoDepositConfirm" element={<DirectDepositLayout />} />
+          <Route
+            path="productStatus/:id"
+            element={<ProductManagementLayout />}
+          />
+          <Route path="product/:id" element={<ProductStatusDetailLayout />} />
+          <Route
+            path="productRegistration"
+            element={<ProductRegisterDetailLayout />}
+          />
+          <Route
+            path="registeredProductManagement"
+            element={<RegisteredProductLayout />}
+          />
+          <Route
+            path="mainProductManagement"
+            element={<MainProductManagementLayout />}
+          />
+          <Route
+            path="productOptionManagement"
+            element={<ProductOptionLayout />}
+          />
+          <Route
+            path="reservationRegistrationManual"
+            element={<ReservationRegistrationManualLayout />}
+          />
+          <Route
+            path="productOption/:id"
+            element={<ProductOptionDetailLayout />}
+          />
+          <Route path="stockManagement" element={<StockManagementLayout />} />
+          <Route
+            path="userInfoManagement/:id"
+            element={<UserInfoManagementLayout />}
+          />
+          <Route path="userGroupManagement" element={<UserGroupManagement />} />
+          <Route
+            path="userActivityManagement"
+            element={<UserActivityManagementLayout />}
+          />
+          <Route path="brand" element={<AdminBrandLayout />}>
+            <Route path="brand/manager/:id" element={<BrandManager />} />
+            <Route path="product/manager/:id" element={<ProductManager />} />
+          </Route>
+          <Route path="productCategory" element={<AdminCategoryLayout />}>
+            <Route path="category/manager/:id" element={<CategoryManager />} />
+            <Route path="product/manager/:id" element={<ProductManager />} />
+            <Route path="brand/manager/:id" element={<BrandManager />} />
+          </Route>
+          <Route path="periodSales" element={<PeriodSalesStatistics />} />
+          <Route path="accountSales" element={<AccountSalesStatistics />} />
+          <Route path="categorySales" element={<CategorySalesStatistics />} />
+          <Route path="createPartnersLink" element={<CreatePartnersLink />} />
+          <Route path="partnersLinkHistory" element={<PartnersHistory />} />
+          <Route path="myPartnersAccount" element={<MyPartnersAccount />} />
+          <Route path="myPartnersTotal" element={<MyPartnersTotal />} />
+          <Route path="shippingInfo" element={<ShippingInfo />} />
+          <Route path="allCarts" element={<AllCartsInfo />} />
+          <Route path="vendorRegister" element={<VendorRegister />} />
+          <Route path="vendorManagement" element={<VendorManagement />} />
+        </Route>
+      </Route>
+      <Route path="" element={<FrontLayout />}>
+        <Route path="login" element={<AdminLogin />} />
+      </Route>
+    </Routes>
+  );
 }
 export default AdminRouter;

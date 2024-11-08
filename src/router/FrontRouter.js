@@ -49,22 +49,20 @@ import { ADMIN, PARTNERS, USER } from "shared/Roles";
 import RequireAuth from "shared/utils/RequireAuth";
 
 function FrontRouter() {
-    return (
-        <Routes>
-            <Route path="/" element={<FrontLayout />}>
-                <Route path="chat" element={<CreateReadChat />} />
-                <Route path="" element={<Home />} />
-                <Route path="productList" state={{ replace: true }} >
-                    <Route path="category/:categoryId" element={<SearchResult />} />
-                    {/* <Route path="productList" element={<ProductListLayout />} /> */}
-                    <Route path="search" element={<SearchResult />} >
-
-                    </Route>
-                    <Route path="series" element={<SeriesLayout />} />
-                    <Route path="brand" element={<BrandsLayout />}>
-                        <Route path=":brandId" element={<Brand />} />
-                    </Route>
-                    {/* <Route path="brand" element={<BrandsLayout />}>
+  return (
+    <Routes>
+      <Route path="/" element={<FrontLayout />}>
+        <Route path="chat" element={<CreateReadChat />} />
+        <Route path="" element={<Home />} />
+        <Route path="productList" state={{ replace: true }}>
+          <Route path="category/:categoryId" element={<SearchResult />} />
+          {/* <Route path="productList" element={<ProductListLayout />} /> */}
+          <Route path="search" element={<SearchResult />}></Route>
+          <Route path="series" element={<SeriesLayout />} />
+          <Route path="brand" element={<BrandsLayout />}>
+            <Route path=":brandId" element={<Brand />} />
+          </Route>
+          {/* <Route path="brand" element={<BrandsLayout />}>
                         <Route path=":brandId" element={<Brand />} />
                     </Route>
                     <Route path="category" element={<CategoryLayout />}>
@@ -108,24 +106,23 @@ function FrontRouter() {
                         <Route path="orderComplete" element={<OrderComplete />} />
                     </Route>
                 </Route>
-
-                <Route path="orderFail" element={<OrderFail />} />
-                <Route path="vendorSignUp" element={<VendorSignUp />} />
-                <Route path="vendorSignIn" element={<VendorSignIn />} />
-                <Route path="product/detail/:id" element={<ProductDetail />} />
-                <Route path="singleInquiry" element={<Inquiry />} />
-                <Route path="choiceCompany" element={<ChoiceCompany />} />
-                <Route path="account">
-                    <Route path="" element={<MobileAccount />} />
-                    <Route path="purchaseOrder" element={<MobilePurchaseOrderList />} />
-                </Route>
-                <Route path="termsOfUse" element={<TermsOfUse />} />
-                <Route path="privacyPolicy" element={<PrivacyPolicy />} />
-                <Route path="shippingPolicy" element={<ShippingPolicy />} />
-                <Route path="dispute" element={<Dispute />} />
-                <Route path="signUp" element={<SignUp />} />
-                <Route path="login" element={<Login />} />
-            </Route>
+        <Route path="orderFail" element={<OrderFail />} />
+        <Route path="vendorSignUp" element={<VendorSignUp />} />
+        <Route path="vendorSignIn" element={<VendorSignIn />} />
+        <Route path="product/detail/:id" element={<ProductDetail />} />
+        <Route path="singleInquiry" element={<Inquiry />} />
+        <Route path="choiceCompany" element={<ChoiceCompany />} />
+        <Route path="account">
+          <Route path="" element={<MobileAccount />} />
+          <Route path="purchaseOrder" element={<MobilePurchaseOrderList />} />
+        </Route>
+        <Route path="termsOfUse" element={<TermsOfUse />} />
+        <Route path="privacyPolicy" element={<PrivacyPolicy />} />
+        <Route path="shippingPolicy" element={<ShippingPolicy />} />
+        <Route path="dispute" element={<Dispute />} />
+        <Route path="signUp" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
+      </Route>
 
             <Route path="test11" element={<TestPage />} />
             <Route path="partnersHome" element={<PartnersHome />} />

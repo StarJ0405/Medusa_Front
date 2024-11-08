@@ -11,32 +11,32 @@ import AdminSideBar from "./AdminSideBar";
 
 function AdminLayout(props) {
   const [isMounted, setMounted] = useState();
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
     <>
-      {
-        isMounted &&
+      {isMounted && (
         <div style={{ width: "max-content", minWidth: "100%" }}>
-
-
           <AdminSideBar />
           <div className="wrapper d-flex flex-column min-vh-100 bg-light">
             <ManagerHeader />
-            <div className="body flex-grow-1 px-3" style={{ backgroundColor: "#F5F6FB" }}>
+            <div
+              className="body flex-grow-1 px-3"
+              style={{ backgroundColor: "#F5F6FB" }}
+            >
               <CContainer lg>
                 <Suspense fallback={<CSpinner color="primary" />}>
                   <Outlet />
                 </Suspense>
               </CContainer>
             </div>
-            <ManagerFooter />
+            {/* <ManagerFooter /> */}
           </div>
         </div>
-      }
+      )}
     </>
   );
 }

@@ -1,38 +1,117 @@
-import React from 'react'
-import CIcon from '@coreui/icons-react'
-import { cilBell, cilCalculator, cilCalendar, cilChartPie, cilCursor, cilDescription, cilDrop, cilLevelUp, cilList, cilNotes, cilPencil, cilPuzzle, cilSpeedometer, cilStar, cilUser, } from '@coreui/icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import React from "react";
+import CIcon from "@coreui/icons-react";
+import {
+  cilBell,
+  cilCalculator,
+  cilCalendar,
+  cilChartPie,
+  cilCursor,
+  cilDescription,
+  cilDrop,
+  cilLevelUp,
+  cilList,
+  cilNotes,
+  cilPencil,
+  cilPuzzle,
+  cilSpeedometer,
+  cilStar,
+  cilUser,
+} from "@coreui/icons";
+import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react";
 
 const AdminSideBarNav = [
   {
     component: CNavItem,
-    name: '대시보드',
-    to: '/admin',
+    name: "홈",
+    to: "/admin",
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
-      color: 'info',
-      text: 'NEW',
+      color: "info",
+      text: "NEW",
     },
   },
-  {
-    component: CNavTitle,
-    name: '상품관리',
-  },
+  // {
+  //   component: CNavItem,
+  //   name: '카테고리 관리',
+  //   to: '/admin/productCategory',
+  //   icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: "주문관리",
+  // },
   {
     component: CNavGroup,
-    name: '상품관리',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
-    
+    name: "주문 관리",
+    to: "/admin/orderManagement",
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: '상품관리',
-        to: '/admin/productManagement',
+        name: "주문 관리",
+        to: "/admin/orderManagement",
       },
       {
         component: CNavItem,
-        name: '상품현황',
-        to: '/admin/productStatus/:id',
+        name: "전체주문 조회",
+        to: "/admin/orderStatus/null",
+      },
+      {
+        component: CNavItem,
+        name: "입금전 관리",
+        to: "/admin/orderStatus/WaitingForPayment",
+      },
+      {
+        component: CNavItem,
+        name: "배송준비중 관리",
+        to: "/admin/orderStatus/PreparingShipment",
+      },
+      {
+        component: CNavItem,
+        name: "배송대기 관리",
+        to: "/admin/orderStatus/ReadyForShipment",
+      },
+      {
+        component: CNavItem,
+        name: "배송중 관리",
+        to: "/admin/orderStatus/Shipping",
+      },
+      {
+        component: CNavItem,
+        name: "배송완료 관리",
+        to: "/admin/orderStatus/DeliveryCompleted",
+      },
+      {
+        component: CNavItem,
+        name: "택배연동",
+        to: "/admin/courierInterlocking",
+      },
+      {
+        component: CNavItem,
+        name: "자동입금 확인",
+        to: "/admin/autoDepositConfirm",
+      },
+    ],
+  },
+  // {
+  //   component: CNavTitle,
+  //   name: '상품관리',
+  // },
+  {
+    component: CNavGroup,
+    name: "상품관리",
+    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+
+    items: [
+      {
+        component: CNavItem,
+        name: "상품관리",
+        to: "/admin/productManagement",
+      },
+      {
+        component: CNavItem,
+        name: "상품현황",
+        to: "/admin/productStatus/:id",
       },
       // {
       //   component: CNavItem,
@@ -41,23 +120,23 @@ const AdminSideBarNav = [
       // },
       {
         component: CNavItem,
-        name: '상품등록',
-        to: '/admin/productRegistration',
+        name: "상품등록",
+        to: "/admin/productRegistration",
       },
       {
         component: CNavItem,
-        name: '신상품',
-        to: '/admin/newProduct',
+        name: "신상품",
+        to: "/admin/newProduct",
       },
       {
         component: CNavItem,
-        name: '재입고',
-        to: '/admin/restockProduct',
+        name: "재입고",
+        to: "/admin/restockProduct",
       },
       {
         component: CNavItem,
-        name: '베스트',
-        to: '/admin/bestProduct',
+        name: "베스트",
+        to: "/admin/bestProduct",
       },
       // {
       //   component: CNavItem,
@@ -96,148 +175,84 @@ const AdminSideBarNav = [
       // }
     ],
   },
-  // {
-  //   component: CNavItem,
-  //   name: '카테고리 관리',
-  //   to: '/admin/productCategory',
-  //   icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  // },
   {
     component: CNavTitle,
-    name: '주문관리',
+    name: "회원관리",
   },
   {
     component: CNavItem,
-    name: '주문 관리',
-    to: '/admin/orderManagement',
+    name: "회원관리",
+    to: "/admin/userManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: '전체주문 조회',
-    to: '/admin/orderStatus/:id',
+    name: "회원그룹관리",
+    to: "/admin/userGroupManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: '입금전 관리',
-    to: '/admin/orderStatus/WaitingForPayment',
+    name: "회원정보관리",
+    to: "/admin/userInfoManagement/:id",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: '배송준비중 관리',
-    to: '/admin/orderStatus/PreparingShipment',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '배송대기 관리',
-    to: '/admin/orderStatus/ReadyForShipment',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '배송중 관리',
-    to: '/admin/orderStatus/Shipping',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '배송완료 관리',
-    to: '/admin/orderStatus/DeliveryCompleted',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  // {
-  //   component: CNavItem,
-  //   name: '택배연동',
-  //   to: '/admin/courierInterlocking',
-  //   icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  // },
-  // {
-  //   component: CNavItem,
-  //   name: '자동입금 확인',
-  //   to: '/admin/autoDepositConfirm',
-  //   icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  // },
-  {
-    component: CNavTitle,
-    name: '회원관리',
-  },
-  {
-    component: CNavItem,
-    name: '회원관리',
-    to: '/admin/userManagement',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '회원그룹관리',
-    to: '/admin/userGroupManagement',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '회원정보관리',
-    to: '/admin/userInfoManagement/:id',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '회원활동관리',
-    to: '/admin/userActivityManagement',
+    name: "회원활동관리",
+    to: "/admin/userActivityManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
-    name: '입점관리',
+    name: "입점관리",
   },
   {
     component: CNavItem,
-    name: '입점사 등록',
-    to: '/admin/vendorRegister',
+    name: "입점사 등록",
+    to: "/admin/vendorRegister",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: '입점사 현황',
-    to: '/admin/vendorManagement',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavTitle,
-    name: '게시판',
-  },
-  {
-    component: CNavItem,
-    name: '게시판',
-    to: '/admin/articleManagement',
+    name: "입점사 현황",
+    to: "/admin/vendorManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
-    name: '프로모션',
+    name: "게시판",
   },
   {
     component: CNavItem,
-    name: '프로모션',
-    to: '/admin/promotionManagement',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: '기획전',
-    to: '/admin/exhibition',
+    name: "게시판",
+    to: "/admin/articleManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
-    name: '통계',
+    name: "프로모션",
   },
   {
     component: CNavItem,
-    name: '통계',
-    to: '/admin/statisticsManagement',
+    name: "프로모션",
+    to: "/admin/promotionManagement",
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "기획전",
+    to: "/admin/exhibition",
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: "통계",
+  },
+  {
+    component: CNavItem,
+    name: "통계",
+    to: "/admin/statisticsManagement",
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   // {
@@ -310,6 +325,5 @@ const AdminSideBarNav = [
   //   to: '/admin/allCarts',
   //   icon: <CIcon icon={cilList} customClassName="nav-icon" />,
   // }
-  
-]
+];
 export default AdminSideBarNav;
