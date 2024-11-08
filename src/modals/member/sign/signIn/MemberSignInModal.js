@@ -71,6 +71,8 @@ const MemberSignInModal = NiceModal.create(
             setHasCookie(true);
         };
 
+        // 커밋용 주석
+
         const signIn = async () => {
             let data = { email: "", password: "" };
             data.email = inputsSignIn.current[0].getValue();
