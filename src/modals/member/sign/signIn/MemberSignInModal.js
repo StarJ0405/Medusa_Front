@@ -23,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import WorldvapeLogo from "resources/img/logo/worldvape_logo.png";
 import Center from "layouts/wrapper/Center";
 import medusaClient from "shared/MedusaClient";
+import { fetchMedusaCart } from "shared/medusa/action";
 
 const MemberSignInModal = NiceModal.create(
     (props) => {
@@ -109,6 +110,7 @@ const MemberSignInModal = NiceModal.create(
         useEffect(() => {
             if (currentCustomer !== null) {
                 modal.current.close();
+                fetchMedusaCart();
                 navigate("/")
             }
         }, [currentCustomer])
