@@ -42,7 +42,7 @@ function WeeklyBestSeller(props) {
     useEffect(() => {
         let data = "";
         medusaRequester.getBestSellerProducts(data, (result) => {
-            let slideList = rpad2D(result.products, isMobile ? 2 : 4, null);
+            let slideList = rpad2D(result.products, 3, null);
             setMedusaSlides(slideList);
             setMedusaProducts(result.products)
         })

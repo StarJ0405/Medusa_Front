@@ -15,6 +15,7 @@ import { WishReducer } from "shared/redux/reducers/shopping/WishReducer";
 import { AuthContext } from "providers/AuthProvider";
 import ChatButton from "components/buttons/ChatButton";
 import TopButton from "components/buttons/TopButton";
+import CartButton from "components/buttons/CartButton";
 
 function FrontLayout() {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -53,6 +54,7 @@ function FrontLayout() {
                 <Dummy height={65} />
                 <Footer />
             </div>
+            {/* <CartButton /> */}
             <ChatButton />
             <TopButton />
         </>

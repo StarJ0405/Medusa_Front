@@ -7,7 +7,7 @@ import "./AnimatedSwitch.css";  // 애니메이션 효과 CSS 파일
 const AnimatedSwitch = ({
   children,
   animationClass = "fade",
-  timeout = 300,
+  timeout = 200,
   mode = "out-in",
 }) => {
   const location = useLocation();

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import style from "./StickySlideTab.module.scss";
 import clsx from "classnames";
 import $ from "jquery";
 import Container from "layouts/container/Container";
+import { BrowserDetectContext } from "providers/BrowserEventProvider";
 
 function StickySlideTab(props) {
     const [currentId, setCurrentId] = useState();
@@ -10,6 +11,7 @@ function StickySlideTab(props) {
     const container = useRef();
     const tabContainerHeight = 70 ;
     const children = React.Children.toArray(props.children);
+    const { isMobile } = useContext(BrowserDetectContext);
 
     useEffect(() => {
         let width = $(`.${style.tab}`).width();
@@ -68,7 +70,7 @@ function StickySlideTab(props) {
     return (
         <div ref={container} className={style.wrap}>
             <div className={style.container}>
-                <div className={style.tabControlWrap} style={{height:props.height?props.height : 40}}>
+                <div className={clsx(style.tabControlWrap, { [style.mobile]: isMobile })} style={{height:props.height?props.height : 40}}>
                     <div className={style.tabControl} style={{height:props.height?props.height : 40}}>
                         {
                             children.map((child, index) =>

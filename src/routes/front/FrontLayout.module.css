@@ -12,3 +12,7 @@
     top:0;
     z-index: 1000;
 }
+
+.outlet {
+    min-height: calc(100vh - 410px);
+}
