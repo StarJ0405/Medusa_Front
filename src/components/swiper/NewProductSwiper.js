@@ -111,7 +111,7 @@ function NewProductSwiper(props) {
                                                         </FlexChild>
                                                     </VerticalFlex>
                                                 </FlexChild>
-                                                <FlexChild >
+                                                <FlexChild>
                                                     <div>
                                                         <img src={slide.thumbnail} style={{ width: "100%" }} />
                                                     </div>

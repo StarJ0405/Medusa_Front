@@ -6,7 +6,7 @@ import InputPassword from "components/inputs/InputPassword";
 import FlexChild from "layouts/flex/FlexChild";
 import VerticalFlex from "layouts/flex/VerticalFlex";
 import ModalBase from "modals/base/ModalBase";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { AuthReducer } from "shared/redux/reducers/auth/AuthReducer";
@@ -22,6 +22,7 @@ import { emailFormat, mobileNoFormat, passwordFormat } from "InitialData/regExp"
 import { ToastContainer, toast } from "react-toastify";
 import WorldvapeLogo from "resources/img/logo/worldvape_logo.png";
 import Center from "layouts/wrapper/Center";
+import medusaClient from "shared/MedusaClient";
 
 const MemberSignInModal = NiceModal.create(
     (props) => {
@@ -37,6 +38,10 @@ const MemberSignInModal = NiceModal.create(
         const dispatch = useDispatch();
         const navigate = useNavigate();
         const { isMobile } = useContext(BrowserDetectContext);
+
+        const [hasCookie, setHasCookie] = useState(false);
+        const [currentCustomer, setCurrentCustomer] = useState(null);
+
         const onSignInClick = () => {
             signIn();
         }
@@ -44,52 +49,12 @@ const MemberSignInModal = NiceModal.create(
             modal.current.close();
             NiceModal.show("memberSignTabModal");
         }
-        const signIn = () => {
 
-            let data = { userId: "", password: "" };
-            validateInputs(inputsSignIn.current).then((result) => {
-
-                if (result.isValid) {
-                    data.userId = inputsSignIn.current[0].getValue();
-                    data.password = inputsSignIn.current[1].getValue();
-
-                    requester.userSignIn(data, (result) => {
-                        console.log("loginResult", result);
-                        if (result.code === -1) {
-                            if (result.message === "Not found data") {
-                                //존자하지 않는 아이디
-                                toast.error(t("noUserName"), {
-                                    autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-                                });
-                            } else if (result.message === "Bad credentials") {
-                                //비번틀림
-                                toast.error(t("noPassword"), {
-                                    autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-                                });
-                            }
-                        } else if (result.code === 0) {
-                            let tokenData = result.data.token;
-                            dispatch(AuthReducer.actions.setToken(tokenData));
-                            modal.current.close();
-                            navigate("/");
-                            if (props.callback) {
-                                props.callback(true);
-                            }
-                        }
-                    });
-                } else {
-                    toast.error(t("pleaseCheckedLoginInfo"), {
-                        autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
-                    });
-                }
-            });
-        }
         const onKeyPress = (event) => {
             if (event.keyCode === 13) {
                 signIn();
             }
         }
-
         const buttonStyle = {
             // width: "150px",
             '--cui-btn-line-height': '23px',
@@ -97,6 +62,54 @@ const MemberSignInModal = NiceModal.create(
             backgroundColor: "white",
             color: "var(--font-color)",
         }
+
+        const setCookie = (name, value, days) => {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 7);
+            const expires = `expires=${date.toUTCString()}`;
+            document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict; Secure`;
+            setHasCookie(true);
+        };
+
+        const signIn = async () => {
+            let data = { email: "", password: "" };
+            data.email = inputsSignIn.current[0].getValue();
+            data.password = inputsSignIn.current[1].getValue();
+
+            if (data.email !== "" && data.password !== "") {
+                // medusaClient.auth.authenticate({
+                //     email: data.email,
+                //     password: data.password
+                // })
+                //     .then(({ customer }) => {
+                //         console.log(customer.id)
+                //     })
+                medusaClient.auth.getToken({
+                    email: data.email,
+                    password: data.password
+                })
+                    .then(({ access_token }) => {
+                        setCookie("_medusa_jwt", access_token, 1);
+                    })
+            }
+        };
+
+        useEffect(() => {
+            if (hasCookie) {
+                medusaClient.auth.getSession()
+                    .then(({ customer }) => {
+                        console.log("userInfo : ", customer);
+                        setCurrentCustomer(customer)
+                    })
+            }
+        }, [hasCookie])
+
+        useEffect(() => {
+            if (currentCustomer !== null) {
+                modal.current.close();
+                navigate("/")
+            }
+        }, [currentCustomer])
 
         return (
             <ModalBase ref={modal} width={width} height={height} withHeader={withHeader} withFooter={withFooter} withCloseButton={withCloseButton} clickOutsideToClose={clickOutsideToClose} title={title} buttonText={buttonText} overflow={"visible"}>
@@ -140,3 +153,45 @@ const MemberSignInModal = NiceModal.create(
 );
 
 export default MemberSignInModal;
+
+
+// const signIn = () => {
+
+//     let data = { userId: "", password: "" };
+//     validateInputs(inputsSignIn.current).then((result) => {
+
+//         if (result.isValid) {
+//             data.userId = inputsSignIn.current[0].getValue();
+//             data.password = inputsSignIn.current[1].getValue();
+
+//             requester.userSignIn(data, (result) => {
+//                 console.log("loginResult", result);
+//                 if (result.code === -1) {
+//                     if (result.message === "Not found data") {
+//                         //존자하지 않는 아이디
+//                         toast.error(t("noUserName"), {
+//                             autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+//                         });
+//                     } else if (result.message === "Bad credentials") {
+//                         //비번틀림
+//                         toast.error(t("noPassword"), {
+//                             autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+//                         });
+//                     }
+//                 } else if (result.code === 0) {
+//                     let tokenData = result.data.token;
+//                     dispatch(AuthReducer.actions.setToken(tokenData));
+//                     modal.current.close();
+//                     navigate("/");
+//                     if (props.callback) {
+//                         props.callback(true);
+//                     }
+//                 }
+//             });
+//         } else {
+//             toast.error(t("pleaseCheckedLoginInfo"), {
+//                 autoClose: 1000, position: toast.POSITION.BOTTOM_CENTER
+//             });
+//         }
+//     });
+// }

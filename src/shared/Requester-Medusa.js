@@ -197,6 +197,10 @@ class MedusaRequester {
         callback(await this.post('store/auth', data));
     }
 
+    async getCartById(data, callback) {
+        callback(await this.post(`store/carts/${data}?expand=items`, data));
+    }
+
     // 성재 ↓
 
 }
