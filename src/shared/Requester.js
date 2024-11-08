@@ -1,7 +1,7 @@
 import axios from "axios";
 import { loadTossPayments } from "@tosspayments/payment-sdk";
 
-const clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
+const clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
 
 class Requester {
   instance = null;
@@ -9,25 +9,32 @@ class Requester {
   constructor() {
     axios.defaults.withCredentials = true;
     this.instance = axios.create({
-      baseURL: "http://localhost:8088/api",
+      baseURL: "http://59.26.140.16:8088/api",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      origin: "http://localhost:8088/",
+      origin: "http://59.26.140.16:8088/",
       withCredentials: true,
+      // baseURL: "http://localhost:8080/api",
+      // headers: {
+      //   Accept: "application/json",
+      //   "Content-Type": "application/json",
+      // },
+      // origin: "http://localhost:8080/",
+      // withCredentials: true,
     });
   }
 
   setAuthTokenHeader(token) {
     this.instance = axios.create({
-      baseURL: "http://localhost:8088/api",
+      baseURL: "http://59.26.140.16:8088/api",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: token,
       },
-      origin: "http://localhost:8088/",
+      origin: "http://59.26.140.16:8088/",
       withCredentials: true,
     });
   }
@@ -37,8 +44,9 @@ class Requester {
     let result = "";
     let params = "?" + new URLSearchParams(data).toString();
     try {
-      return new Promise(function (resolve, reject) {
-        instance.get(url + params)
+      return new Promise(function(resolve, reject) {
+        instance
+          .get(url + params)
           .then((res) => {
             result = res.data;
           })
@@ -50,35 +58,29 @@ class Requester {
                 // invalid token
                 result.code = error.response.status;
               } else {
-
               }
-            }
-            else if (error.request) {
+            } else if (error.request) {
               // 요청이 이루어 졌으나 응답을 받지 못했습니다.
               // `error.request`는 브라우저의 XMLHttpRequest 인스턴스 또는
               // Node.js의 http.ClientRequest 인스턴스입니다.
-
-            }
-            else {
+            } else {
               // 오류를 발생시킨 요청을 설정하는 중에 문제가 발생했습니다.
-
             }
           })
           .finally(() => {
             resolve(result);
           });
       });
-    } catch (e) {
-
-    }
+    } catch (e) {}
   }
 
   async post(url, data) {
     let instance = this.instance;
     let result = "";
     try {
-      return new Promise(function (resolve, reject) {
-        instance.post(url, JSON.stringify(data))
+      return new Promise(function(resolve, reject) {
+        instance
+          .post(url, JSON.stringify(data))
           .then((res) => {
             result = res.data;
           })
@@ -89,32 +91,25 @@ class Requester {
                 // invalid token
                 result.code = error.response.status;
               } else {
-
               }
+            } else if (error.request) {
+            } else {
             }
-            else if (error.request) {
-
-            }
-            else {
-
-            }
-
           })
           .finally(() => {
             resolve(result);
           });
       });
-    } catch (e) {
-
-    }
+    } catch (e) {}
   }
 
   async put(url, data) {
     let instance = this.instance;
     let result = "";
     try {
-      return new Promise(function (resolve, reject) {
-        instance.put(url, JSON.stringify(data))
+      return new Promise(function(resolve, reject) {
+        instance
+          .put(url, JSON.stringify(data))
           .then((res) => {
             result = res.data;
           })
@@ -125,9 +120,7 @@ class Requester {
             resolve(result);
           });
       });
-    } catch (e) {
-
-    }
+    } catch (e) {}
   }
 
   async testTossRequest(type, data) {
@@ -143,14 +136,13 @@ class Requester {
         failUrl: data.failUrl,
         // useInternationalCardOnly: true
       })
-      .catch(function (error) {
-        if (error.code === 'USER_CANCEL') {
+      .catch(function(error) {
+        if (error.code === "USER_CANCEL") {
           // 결제 고객이 결제창을 닫았을 때 에러 처리
-        } else if (error.code === 'INVALID_CARD_COMPANY') {
+        } else if (error.code === "INVALID_CARD_COMPANY") {
           // 유효하지 않은 카드 코드에 대한 에러 처리
         }
-      })
-
+      });
   }
 
   async vendorSignUp(data, callback) {
@@ -261,7 +253,6 @@ class Requester {
     callback(await this.post("open/product/findByVendorId", data));
   }
 
-
   async getProductForAdmin(data, callback) {
     callback(await this.post("admin/product/findById", data));
   }
@@ -366,19 +357,33 @@ class Requester {
   }
 
   async findMyPartnersAccountSalesTop5(data, callback) {
-    callback(await this.post("admin/partners/findMyPartnersAccountSalesTop5", data));
+    callback(
+      await this.post("admin/partners/findMyPartnersAccountSalesTop5", data)
+    );
   }
 
   async findMyPartnersAccounthistoryAll(data, callback) {
-    callback(await this.post("admin/partners/findMyPartnersAccounthistoryAll", data));
+    callback(
+      await this.post("admin/partners/findMyPartnersAccounthistoryAll", data)
+    );
   }
 
   async findMyPartnersAccounthistoryByMyUser(data, callback) {
-    callback(await this.post("admin/partners/findMyPartnersAccounthistoryByMyUser", data));
+    callback(
+      await this.post(
+        "admin/partners/findMyPartnersAccounthistoryByMyUser",
+        data
+      )
+    );
   }
 
   async findMyPartnersAccountFavoriteCategoryByMyUser(data, callback) {
-    callback(await this.post("admin/partners/findMyPartnersAccountFavoriteCategoryByMyUser", data));
+    callback(
+      await this.post(
+        "admin/partners/findMyPartnersAccountFavoriteCategoryByMyUser",
+        data
+      )
+    );
   }
 
   async findExhibition(callback) {
@@ -842,9 +847,8 @@ class Requester {
     callback(await this.get("user/findSelf"));
   }
   // 신규
-  
+
   // 성재 ↓
-  
 }
 
 export default Requester;
