@@ -43,7 +43,7 @@ import slide1 from "resources/img/main/banner/mainBanner_7.png";
 import slide2 from "resources/img/main/banner/mainBanner_1.png";
 import slide3 from "resources/img/main/banner/mainBanner_2.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectFade, EffectCreative } from "swiper";
 import ProductCard from "components/card/product/ProductCard";
 import banner from "resources/img/logo/worldvape_banner.jpg";
 import banner2 from "resources/img/logo/worldvape_banner2.jpg";
@@ -59,6 +59,8 @@ import { HistoryReducer } from "shared/redux/reducers/history/HistoryReducer";
 import { useDispatch } from "react-redux";
 import WeeklyBestSeller from "components/swiper/WeeklyBestSeller";
 import AnimatedSwitch from "components/AnimatedSwitch";
+import 'swiper/css/effect-creative';
+import 'swiper/css/effect-fade';
 
 function Home() {
     const { isMobile } = useContext(BrowserDetectContext);
@@ -76,6 +78,10 @@ function Home() {
     const pageRef = useRef(1);
 
     const [medusaProducts, setMedusaProducts] = useState([]);
+    const chunkArray = (array, size) =>
+        Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>
+            array.slice(i * size, i * size + size)
+        );
 
     useEffect(() => {
         const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
@@ -194,37 +200,11 @@ function Home() {
                                 </Center>
                             </FlexChild>
                             <FlexChild padding={10}>
-                                {
-                                    isMobile
-                                        ?
-                                        <ProgressbarSwiper totalSlides={medusaRestock.length}>
-                                            {
-                                                medusaRestock && medusaRestock.length > 0 && medusaRestock.map((slide, index) =>
-                                                    <SwiperSlide key={index}>
-                                                        <HorizontalFlex gap={10}>
-                                                            {
-                                                                slide.variants && slide.variants.map((product, index2) =>
-                                                                    <FlexChild
-                                                                        key={index2}
-                                                                        padding={10}>
-                                                                        {
-                                                                            <ProductCard
-                                                                                data={product}
-                                                                                template={"normal"} />
-                                                                        }
-                                                                        {/* <MockItem index={41} /> */}
-                                                                    </FlexChild>)
-                                                            }
-
-                                                            {/* <Dummy height={"20px"} event /> */}
-                                                        </HorizontalFlex >
-                                                    </SwiperSlide>
-                                                )
-                                            }
-                                        </ProgressbarSwiper>
-                                        :
+                                
+                                    
+                                       
                                         <div style={{ position: "relative" }}>
-                                            <ProgressbarSwiper totalSlides={medusaRestock.length}>
+                                            {/* <ProgressbarSwiper totalSlides={medusaRestock.length}>
                                                 {
                                                     medusaRestock && medusaRestock.length > 0 && medusaRestock.map((slide, index) =>
                                                         <SwiperSlide key={index}>
@@ -239,18 +219,78 @@ function Home() {
                                                                                     data={product}
                                                                                     template={"normal"} />
                                                                             }
-                                                                            {/* <MockItem index={41} /> */}
                                                                         </FlexChild>)
                                                                 }
-
-                                                                {/* <Dummy height={"20px"} event /> */}
                                                             </HorizontalFlex >
                                                         </SwiperSlide>
                                                     )
                                                 }
-                                            </ProgressbarSwiper>
+                                            </ProgressbarSwiper> */}
+
+                                            <Swiper autoplay={{
+                                                delay: 5000,
+                                                disableOnInteraction: false,
+                                                pauseOnMouseEnter: true
+                                            }}
+                                                // effect={"fade"}
+                                                navigation modules={[Navigation, Autoplay, EffectCreative, EffectFade]}>
+                                                {
+                                                    medusaRestock && medusaRestock.map((slide, index) =>
+                                                        <SwiperSlide key={index}>
+                                                            <div style={{ backgroundColor: "white" }}>
+                                                                {
+                                                                    isMobile ?
+                                                                        <div style={{ position: "relative" }}>
+                                                                            <img src={slide.thumbnail} style={{ width: "100%", position: "absolute" }} />
+                                                                            <img src={slide.thumbnail} style={{ width: "100%", zIndex: -1 }} />
+                                                                            <div style={{ position: "absolute", bottom: "5%", left: "50%", transform: "translateX(-50%)" }}>
+                                                                                <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} pagination modules={[Pagination, Autoplay]}>
+                                                                                    {
+                                                                                        slide.variants && slide.variants.map((product, index) =>
+                                                                                            <SwiperSlide key={index}>
+                                                                                                <ProductCard data={product} template={"simple"} />
+                                                                                            </SwiperSlide>
+                                                                                        )
+                                                                                    }
+                                                                                </Swiper>
+                                                                            </div>
+                                                                        </div>
+                                                                        :
+                                                                        <HorizontalFlex gap={30}>
+                                                                            <FlexChild width={"70%"}>
+                                                                                <VerticalFlex gap={10}>
+                                                                                    <FlexChild>
+                                                                                        <div className={style.header}>
+                                                                                            {slide.title}
+                                                                                        </div>
+                                                                                    </FlexChild>
+                                                                                    <FlexChild>
+                                                                                        <Swiper autoplay={{ delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true }} slidesPerView={4} spaceBetween={30} modules={[Autoplay]}>
+                                                                                            {
+                                                                                                slide.variants && slide.variants.map((product, index) =>
+                                                                                                    <SwiperSlide key={index}>
+                                                                                                        <ProductCard data={product} template={"normal"} />
+                                                                                                    </SwiperSlide>
+                                                                                                )
+                                                                                            }
+                                                                                        </Swiper>
+                                                                                    </FlexChild>
+                                                                                </VerticalFlex>
+                                                                            </FlexChild>
+                                                                            <FlexChild >
+                                                                                <div>
+                                                                                    <img src={slide.thumbnail} style={{ width: "100%" }} />
+                                                                                </div>
+                                                                            </FlexChild>
+                                                                        </HorizontalFlex>
+                                                                }
+                                                            </div>
+                                                        </SwiperSlide>
+                                                    )
+                                                }
+                                            </Swiper>
                                         </div>
-                                }
+                                
                             </FlexChild>
                         </VerticalFlex>
                     </Container>
