@@ -152,7 +152,7 @@ function DesktopHeader(props) {
               </Container>
               <MenuBar />
             </div>
-            
+
           </div>
         </FlexChild>
         <FlexChild>

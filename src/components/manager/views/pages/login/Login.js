@@ -6,7 +6,7 @@ import InputPassword from "components/inputs/InputPassword";
 import FlexChild from "layouts/flex/FlexChild";
 import VerticalFlex from "layouts/flex/VerticalFlex";
 import ModalBase from "modals/base/ModalBase";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { AuthReducer } from "shared/redux/reducers/auth/AuthReducer";
@@ -22,6 +22,8 @@ import { emailFormat, mobileNoFormat, passwordFormat } from "InitialData/regExp"
 import { ToastContainer, toast } from "react-toastify";
 import WorldvapeLogo from "resources/img/logo/worldvape_logo.png";
 import Center from "layouts/wrapper/Center";
+import medusaClient from "shared/MedusaClient";
+import { getOrSetCart, logIn, setCookie } from "shared/medusa/action";
 
 function Login(props) {
   const { t } = useTranslation();
@@ -29,6 +31,8 @@ function Login(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isMobile } = useContext(BrowserDetectContext);
+  const [hasCookie, setHasCookie] = useState(false);
+  const [currentCustomer, setCurrentCustomer] = useState(null);
 
   const onSignInClick = () => {
     signIn();
@@ -36,7 +40,8 @@ function Login(props) {
   const onSignUpClick = () => {
     NiceModal.show("memberSignTabModal");
   }
-  const signIn = () => {
+
+  const signIn = async () => {
     let data = { email: "", password: "" };
     // validateInputs(inputsSignIn.current).then((result) => {
 
@@ -76,14 +81,77 @@ function Login(props) {
     data.email = inputsSignIn.current[0].getValue();
     data.password = inputsSignIn.current[1].getValue();
 
+
+
     if (data.email !== "" && data.password !== "") {
-      medusaRequester.customerSignIn(data, (result) => {
-        console.log("로그인 데이터 : ", data)
-        console.log("로그인 성공했냐? : ", result)
-        // setList(result.product_category.products);
-      });
+
+      // logIn(data);
+
+
+      // medusaRequester.customerSignIn(data, (result) => {
+      //   console.log("로그인 데이터 : ", data)
+      //   console.log("로그인 성공했냐? : ", result)
+      //   // setList(result.product_category.products);
+      // });
+      // try {
+      //   const response = await medusa.auth.createSession({
+      //     email : data.email,
+      //     password : data.password,
+      //   });
+
+      //   // 로그인 성공 시, 토큰을 쿠키에 저장
+      //   const token = response.accessToken;
+
+      //   // 쿠키에 토큰 저장 (예시: expires: 1일 후 만료)
+      //   Cookies.set("medusa_token", token, {
+      //     expires: 1, // 만료 기간 (1일)
+      //     secure: process.env.NODE_ENV === "production", // HTTPS 환경에서만 사용
+      //     sameSite: "strict", // SameSite 정책 설정
+      //   });
+
+      //   alert("로그인 성공");
+      // } catch (error) {
+      //   console.error("로그인 오류:", error);
+      //   alert("로그인 실패");
+      // }
+      // medusaClient.auth.authenticate({
+      //   email: data.email,
+      //   password: data.password
+      // })
+      //   .then(({ customer }) => {
+      //     console.log(customer.id)
+      //   })
+
+
+
+
+      medusaClient.auth.getToken({
+        email: data.email,
+        password: data.password
+      })
+        .then(({ access_token }) => {
+          setCookie("_medusa_jwt", access_token, 1);
+          setHasCookie(true);
+        })
     }
   }
+
+  useEffect(() => {
+    if (hasCookie) {
+      medusaClient.auth.getSession()
+        .then(({ customer }) => {
+          console.log("userInfo : ", customer);
+          setCurrentCustomer(customer);
+        })
+    }
+  }, [hasCookie])
+
+  useEffect(() => {
+    if (currentCustomer !== null) {
+      getOrSetCart('kr');
+      navigate("/");
+    }
+  }, [currentCustomer])
 
   const onKeyPress = (event) => {
     if (event.keyCode === 13) {

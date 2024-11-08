@@ -38,6 +38,8 @@ const CartRow = forwardRef((props, ref) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [item, setItem] = useState(null);
+
     const wishButtonClick = (e) => {
         e.stopPropagation();
         let wishProductData = { productId: data.product.id, wishYn: !wish };
@@ -96,7 +98,6 @@ const CartRow = forwardRef((props, ref) => {
         if (props.data) {
             setCheckedData(props.data)
         }
-
     }, [props.data]);
 
     useEffect(() => {
@@ -145,6 +146,10 @@ const CartRow = forwardRef((props, ref) => {
 
     }
 
+    useEffect(() => {
+        console.log("cartItems : ", checkedData)
+    }, [checkedData])
+
     return (
         <div className={style.productWrap}>
             {
@@ -166,7 +171,7 @@ const CartRow = forwardRef((props, ref) => {
                         </FlexChild>
                         <FlexChild width={110} >
                             <div className={style.imgWrap} onClick={onProductClick}>
-                                <img src={data.product.image} className={style.img} />
+                                <img src={data.thumbnail} className={style.img} />
                             </div>
                         </FlexChild>
                         <FlexChild >
@@ -180,8 +185,12 @@ const CartRow = forwardRef((props, ref) => {
                                         overflow: hidden;
                                         white-space: nowrap;
                                         text-overflow: ellipsis; */}
-                                        <P size={12}>{data.product.brandTitle}</P>
-                                        <P size={12}>{data.product.title}</P>
+                                        <P size={12}>
+                                            {data.description}
+                                        </P>
+                                        <P size={12}>
+                                            {data.title}
+                                        </P>
                                         {/* <p className={style.title} onClick={onProductClick} >{data.product.brandTitle}</p>
                                         <p className={style.title} onClick={onProductClick} >{data.product.title}</p>
                                         <p className={style.tag}>{data.product.hashTag}</p> */}
@@ -228,13 +237,18 @@ const CartRow = forwardRef((props, ref) => {
                         </FlexChild>
                         <FlexChild width={110} >
                             <div className={style.imgWrap} onClick={onProductClick}>
-                                <img src={data.product.image} className={style.img} />
+                                <img src={data.thumbnail} className={style.img} />
                             </div>
                         </FlexChild>
                         <FlexChild>
                             <div className={style.contentWrap}>
-                                <p className={style.title} onClick={onProductClick} >{data.product.brandTitle}{data.product.title}</p>
-                                <p className={style.tag}>{data.product.hashTag}</p>
+                                <p className={style.title} onClick={onProductClick} >
+                                    {/* {data.brandTitle} */}
+                                    {data.title}
+                                </p>
+                                <p className={style.tag}>
+                                    {data.description}
+                                </p>
                             </div>
                         </FlexChild>
 
@@ -244,18 +258,18 @@ const CartRow = forwardRef((props, ref) => {
                         <FlexChild width={"7%"} justifyContent={"center"}>
                             <VerticalFlex>
                                 <FlexChild>
-                                    <P color={data.product.currentPrice ? "gray" : "var(--main-color)"} weight={"800"} size={15} verticalAlign={"bottom"} textDecoration={data.product.currentPrice && "line-through"}>
-                                        &#8361;{addCommas(data.quantity * data.product.price)}
+                                    <P color={data.subtotal ? "gray" : "var(--main-color)"} weight={"800"} size={15} verticalAlign={"bottom"} textDecoration={data.currentPrice && "line-through"}>
+                                        &#8361;{addCommas(data.quantity * data.subtotal)}
                                     </P>
                                 </FlexChild>
-                                {
+                                {/* {
                                     data.product.currentPrice &&
                                     <FlexChild>
                                         <P color={"var(--main-color)"} weight={"800"} size={15} verticalAlign={"bottom"}>
                                             &#8361;{addCommas(data.quantity * (data.product.currentPrice ? data.product.currentPrice : data.product.price))}
                                         </P>
                                     </FlexChild>
-                                }
+                                } */}
                             </VerticalFlex>
                         </FlexChild>
                         <FlexChild width={"12%"}>
